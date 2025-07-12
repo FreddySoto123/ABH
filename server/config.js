@@ -10,7 +10,7 @@ export const DB_CONFIG = {
     port: parseInt(process.env.DB_PORT) || 3307,
     user: process.env.DB_USER || 'abh_user',
     password: process.env.DB_PASSWORD || 'abh_password',
-    database: process.env.DB_NAME || 'mi_base_de_datos',
+    database: process.env.DB_NAME || 'abhm',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,

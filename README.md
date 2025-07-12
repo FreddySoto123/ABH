@@ -74,7 +74,7 @@ curl http://localhost:4000/api/test-db
 - **Puerto:** 3306
 - **Usuario:** abh_user
 - **Contraseña:** abh_password
-- **Base de datos:** mi_base_de_datos
+- **Base de datos:** abhm
 
 #### Estructura de la Base de Datos
 
@@ -286,7 +286,7 @@ DB_HOST=localhost
 DB_PORT=3307
 DB_USER=abh_user
 DB_PASSWORD=abh_password
-DB_NAME=mi_base_de_datos
+DB_NAME=abhm
 PORT=4000
 NODE_ENV=development
 ```
