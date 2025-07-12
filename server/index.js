@@ -1,5 +1,5 @@
 import express from "express";
-import { PORT } from "./config.js";
+import { SERVER_CONFIG } from './utils/env.js';
 import indexRoutes from "./routes/index.routes.js";
 import personaRoutes from "./routes/personas.routes.js";
 
@@ -23,6 +23,9 @@ app.use((req, res, next) => {
 app.use(indexRoutes);
 app.use(personaRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en puerto ${PORT}`);
+// Iniciar el servidor
+app.listen(SERVER_CONFIG.PORT, () => {
+    console.log(`🚀 Servidor corriendo en puerto ${SERVER_CONFIG.PORT}`);
+    console.log(`📊 Entorno: ${SERVER_CONFIG.NODE_ENV}`);
+    console.log(`🌐 URL: http://localhost:${SERVER_CONFIG.PORT}`);
 });

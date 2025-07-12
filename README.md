@@ -40,6 +40,7 @@ cd ABH
 
 # 2. Configurar entorno
 cp .env.example .env
+# Editar .env si es necesario (opcional)
 npm install
 
 # 3. Iniciar base de datos (tarda 2-3 minutos la primera vez)
