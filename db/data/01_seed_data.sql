@@ -55,7 +55,7 @@ INSERT INTO Red_Social (nombre_red_social, direccion_url_red_social) VALUES
 ('WhatsApp', 'https://wa.me/59165164240');
 
 -- Datos para Persona
-INSERT INTO Persona (id_grado, id_tipo_persona, nombre_persona, apellido_persona, imagen_perfil_url_persona) VALUES
+INSERT INTO Persona (id_grado_persona, id_tipo_persona, nombre_persona, apellido_persona, imagen_perfil_url_persona) VALUES
 ((SELECT id_grado_persona FROM Grado_Persona WHERE acronimo_grado_persona = 'Dr.'), (SELECT id_tipo_persona FROM Tipo_Persona WHERE nombre_tipo_persona = 'Directivo'), 'Hugo Esteban', 'Rivero Camacho', 'https://example.com/hugo_rivero.jpg'),
 ((SELECT id_grado_persona FROM Grado_Persona WHERE acronimo_grado_persona = 'Dr. Emérito'), (SELECT id_tipo_persona FROM Tipo_Persona WHERE nombre_tipo_persona = 'Academico'), 'Daniel', 'Zamora Céspedes', 'https://example.com/daniel_zamora.jpg'),
 ((SELECT id_grado_persona FROM Grado_Persona WHERE acronimo_grado_persona = 'Lic.'), (SELECT id_tipo_persona FROM Tipo_Persona WHERE nombre_tipo_persona = 'Autor'), 'Carolina', 'Gonzales', 'https://example.com/carolina_gonzales.jpg'),
