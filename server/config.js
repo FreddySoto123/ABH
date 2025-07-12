@@ -13,8 +13,5 @@ export const DB_CONFIG = {
     database: process.env.DB_NAME || 'abhm',
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0,
-    acquireTimeout: 60000,
-    timeout: 60000,
-    reconnect: true
+    queueLimit: 0
 };

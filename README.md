@@ -46,7 +46,7 @@ npm install
 npm run db:start
 
 # 4. Esperar a que esté lista
-npm run db:status  # Debe mostrar "healthy"
+npm run db:status  # Debe mostrar "healthy" (si al lado de health dice starting significa que el se sigue iniciando la base de datos y hay que seguir esperando)
 
 # 5. Iniciar servidor backend
 npm run dev

@@ -1,6 +1,11 @@
 CREATE DATABASE IF NOT EXISTS abhm;
 USE abhm;
 
+-- Crear usuario si no existe y otorgar permisos
+CREATE USER IF NOT EXISTS 'abh_user'@'%' IDENTIFIED BY 'abh_password';
+GRANT ALL PRIVILEGES ON abhm.* TO 'abh_user'@'%';
+FLUSH PRIVILEGES;
+
 -- ===================== TIPO TABLAS =====================
 
 CREATE TABLE Tipo_Documento (
@@ -44,12 +49,12 @@ CREATE TABLE Red_Social (
 
 CREATE TABLE Persona (
     id_persona INT AUTO_INCREMENT PRIMARY KEY,
-    id_grado INT,
+    id_grado_persona INT,
     id_tipo_persona INT,
     nombre_persona VARCHAR(255),
     apellido_persona VARCHAR(255),
     imagen_perfil_url_persona TEXT,
-    FOREIGN KEY (id_grado) REFERENCES Grado_Persona(id_grado),
+    FOREIGN KEY (id_grado_persona) REFERENCES Grado_Persona(id_grado_persona),
     FOREIGN KEY (id_tipo_persona) REFERENCES Tipo_Persona(id_tipo_persona)
 );
 
