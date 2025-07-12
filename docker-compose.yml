@@ -9,16 +9,21 @@ services:
       MYSQL_DATABASE: mi_base_de_datos
       MYSQL_USER: abh_user
       MYSQL_PASSWORD: abh_password
+      MYSQL_ROOT_HOST: '%'
     volumes:
       - db_data:/var/lib/mysql
       - ./db/init.sql:/docker-entrypoint-initdb.d/01_init.sql
       - ./db/data/01_seed_data.sql:/docker-entrypoint-initdb.d/02_seed_data.sql
+      - ./db/backups:/var/backups
     ports:
-      - "3306:3306"
+      - "3307:3306"
+    command: --default-authentication-plugin=mysql_native_password
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      timeout: 20s
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-padmin123"]
+      interval: 30s
+      timeout: 10s
       retries: 10
+      start_period: 60s
 
 volumes:
   db_data:

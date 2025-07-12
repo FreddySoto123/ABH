@@ -10,7 +10,16 @@
     "start": "node server/index.js",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
-    "docker:logs": "docker-compose logs"
+    "docker:logs": "docker-compose logs",
+    "db:start": "./scripts/db-manage.sh start",
+    "db:stop": "./scripts/db-manage.sh stop",
+    "db:status": "./scripts/db-manage.sh status",
+    "db:backup": "./scripts/db-manage.sh backup",
+    "db:connect": "./scripts/db-manage.sh connect",
+    "db:logs": "./scripts/db-manage.sh logs",
+    "db:reset": "./scripts/db-manage.sh reset",
+    "setup": "./scripts/db-manage.sh start && sleep 30 && npm run dev",
+    "test:api": "curl -s http://localhost:4000/api/test-db | jq ."
   },
   "repository": {
     "type": "git",
@@ -24,6 +33,7 @@
   },
   "homepage": "https://github.com/FreddySoto123/ABH#readme",
   "dependencies": {
+    "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "morgan": "^1.10.0",
     "mysql2": "^3.14.2"

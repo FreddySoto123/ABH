@@ -94,16 +94,6 @@ CREATE TABLE Logs (
     FOREIGN KEY (id_persona) REFERENCES Persona(id_persona)
 );
 
-CREATE TABLE Directiva (
-    id_directiva INT AUTO_INCREMENT PRIMARY KEY,
-    id_persona INT,
-    id_cargo INT,
-    id_filial INT,
-    FOREIGN KEY (id_persona) REFERENCES Persona(id_persona),
-    FOREIGN KEY (id_cargo) REFERENCES Cargo(id_cargo),
-    FOREIGN KEY (id_filial) REFERENCES Filial(id_filial)
-);
-
 CREATE TABLE Academico (
     id_academico INT AUTO_INCREMENT PRIMARY KEY,
     id_persona INT,
@@ -130,6 +120,16 @@ CREATE TABLE Filial (
     nombre VARCHAR(255),
     descripcion TEXT,
     FOREIGN KEY (id_academia) REFERENCES Academia(id_academia)
+);
+
+CREATE TABLE Directiva (
+    id_directiva INT AUTO_INCREMENT PRIMARY KEY,
+    id_persona INT,
+    id_cargo INT,
+    id_filial INT,
+    FOREIGN KEY (id_persona) REFERENCES Persona(id_persona),
+    FOREIGN KEY (id_cargo) REFERENCES Cargo(id_cargo),
+    FOREIGN KEY (id_filial) REFERENCES Filial(id_filial)
 );
 
 CREATE TABLE Mensaje_Contacto (

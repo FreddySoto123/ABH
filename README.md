@@ -2,13 +2,14 @@
 
 ## 🚀 Configuración del Proyecto
 
-Este proyecto utiliza Docker para asegurar que todos los desarrolladores trabajen con la misma base de datos MySQL y configuración.
+Este proyecto utiliza Docker para asegurar que todos los desarrolladores trabajen con la misma base de datos MySQL y configuración. El sistema incluye herramientas avanzadas de gestión de base de datos y sincronización entre desarrolladores.
 
 ### 📋 Requisitos
 
 - Docker y Docker Compose
 - Git
 - Node.js 18+ (para desarrollo local opcional)
+- curl (para pruebas de API)
 
 ### 🔧 Instalación
 
@@ -18,14 +19,32 @@ Este proyecto utiliza Docker para asegurar que todos los desarrolladores trabaje
    cd ABH
    ```
 
-2. **Levantar los servicios con Docker:**
+2. **Configurar variables de entorno:**
    ```bash
-   docker-compose up -d
+   cp .env.example .env
+   # Editar .env si es necesario
    ```
 
-3. **Verificar que los servicios estén funcionando:**
+3. **Instalar dependencias:**
    ```bash
-   docker-compose ps
+   npm install
+   ```
+
+4. **Iniciar la base de datos:**
+   ```bash
+   npm run db:start
+   # o usar el script directamente
+   ./scripts/db-manage.sh start
+   ```
+
+5. **Verificar que la base de datos esté funcionando:**
+   ```bash
+   npm run db:status
+   ```
+
+6. **Iniciar el servidor de desarrollo:**
+   ```bash
+   npm run dev
    ```
 
 ### 🗄️ Base de Datos
@@ -65,15 +84,55 @@ Usando Docker, todos los desarrolladores tendrán la misma base de datos. Los da
 
 ### 🔨 Comandos Útiles
 
+#### Gestión de Base de Datos
+```bash
+# Iniciar base de datos
+npm run db:start
+
+# Verificar estado
+npm run db:status
+
+# Hacer backup
+npm run db:backup
+
+# Conectar a la base de datos
+npm run db:connect
+
+# Ver logs de la base de datos
+npm run db:logs
+
+# Reiniciar base de datos (¡CUIDADO! Elimina todos los datos)
+npm run db:reset
+
+# Detener base de datos
+npm run db:stop
+```
+
+#### Desarrollo
+```bash
+# Iniciar servidor de desarrollo
+npm run dev
+
+# Iniciar servidor de producción
+npm start
+
+# Configuración completa (base de datos + servidor)
+npm run setup
+
+# Probar API
+npm run test:api
+```
+
+#### Docker
 ```bash
 # Ver logs de todos los servicios
 docker-compose logs
 
 # Ver logs de un servicio específico
-docker-compose logs server
+docker-compose logs db
 
 # Reiniciar un servicio
-docker-compose restart server
+docker-compose restart db
 
 # Detener todos los servicios
 docker-compose down
@@ -81,17 +140,53 @@ docker-compose down
 
 ### 📊 Flujo de Trabajo para Desarrolladores
 
-1. **Configuración inicial y desarrollo diario:**
-   ```bash
-   git clone <repo>
-   cd ABH
-   docker-compose up -d
+#### Configuración Inicial
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/FreddySoto123/ABH.git
+cd ABH
 
-   # Para actualizar
-   git pull
-   docker-compose down
-   docker-compose up -d
-   ```
+# 2. Configurar entorno
+cp .env.example .env
+npm install
+
+# 3. Iniciar base de datos
+npm run db:start
+
+# 4. Esperar a que esté lista (esto puede tomar 1-2 minutos)
+npm run db:status
+
+# 5. Iniciar servidor
+npm run dev
+```
+
+#### Desarrollo Diario
+```bash
+# Actualizar código
+git pull
+
+# Reiniciar servicios si es necesario
+npm run db:start
+npm run dev
+
+# Hacer backup antes de cambios importantes
+npm run db:backup
+```
+
+#### Sincronización de Datos
+```bash
+# Para compartir cambios en la base de datos:
+# 1. Hacer backup
+npm run db:backup
+
+# 2. Commitear el backup si es necesario
+git add db/backups/
+git commit -m "Backup de base de datos con nuevos datos"
+
+# 3. Otros desarrolladores pueden restaurar:
+# npm run db:reset
+# ./scripts/db-manage.sh restore db/backups/backup_FECHA.sql
+```
 
 ### 🧪 Pruebas
 

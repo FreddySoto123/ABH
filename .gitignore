@@ -63,3 +63,4 @@ coverage/
 # Permitir backups importantes (máximo 5 archivos más recientes)
 db/backups/*.sql
 !db/backups/latest_*.sql
+!db/migrations/*.sql
