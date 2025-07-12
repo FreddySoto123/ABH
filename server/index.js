@@ -1,16 +1,6 @@
-const express = require('express');
-const cors = require('cors');
+import express from "express";
+import { PORT } from "./config.js";
 
 const app = express();
-const PORT = 3001;
-
-app.use(cors());
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Servidor Express funcionando correctamente');
-});
-
-app.listen(PORT, () => {
-  console.log(`Servidor backend escuchando en http://localhost:${PORT}`);
-});
+app.listen(PORT);
+console.log(`Server is running on http://localhost:${PORT}`);
