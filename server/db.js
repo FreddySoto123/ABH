@@ -5,5 +5,10 @@ export const pool = createPool({
     port: "3307",
     user: "abh_user",
     password: "abh_password",
-    database: "abhm"
+    database: "abhm",
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
+
+console.log('Pool de conexiones a la base de datos creado.');
