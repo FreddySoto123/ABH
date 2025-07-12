@@ -1,51 +1,70 @@
 # Academia Boliviana de Historia - Sistema de Gestión
 
-## 🚀 Configuración del Proyecto
+> Sistema completo de gestión para la Academia Boliviana de Historia con arquitectura moderna, base de datos sincronizada y herramientas de desarrollo avanzadas.
 
-Este proyecto utiliza Docker para asegurar que todos los desarrolladores trabajen con la misma base de datos MySQL y configuración. El sistema incluye herramientas avanzadas de gestión de base de datos y sincronización entre desarrolladores.
+## 🏗️ Arquitectura del Proyecto
 
-### 📋 Requisitos
+### Frontend (client/)
+- **Tecnología**: React 18 + Vite
+- **Puerto**: http://localhost:5173
+- **Ubicación**: `./client/`
+- **Características**: SPA moderna con Hot Reload
 
+### Backend (server/)
+- **Tecnología**: Node.js + Express
+- **Puerto**: http://localhost:4000
+- **Ubicación**: `./server/`
+- **API**: RESTful con endpoints para gestión completa
+
+### Base de Datos
+- **Tecnología**: MySQL 8.0 (Dockerizado)
+- **Puerto**: localhost:3307
+- **Ubicación**: `./db/`
+- **Características**: Auto-inicialización con datos de ejemplo
+
+## 🚀 Inicio Rápido
+
+### Prerequisitos
+```bash
+# Verificar que tienes instalado:
 - Docker y Docker Compose
+- Node.js 18+
 - Git
-- Node.js 18+ (para desarrollo local opcional)
-- curl (para pruebas de API)
+```
 
-### 🔧 Instalación
+### Instalación Completa (5 minutos)
+```bash
+# 1. Clonar el proyecto
+git clone https://github.com/FreddySoto123/ABH.git
+cd ABH
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/FreddySoto123/ABH.git
-   cd ABH
-   ```
+# 2. Configurar entorno
+cp .env.example .env
+npm install
 
-2. **Configurar variables de entorno:**
-   ```bash
-   cp .env.example .env
-   # Editar .env si es necesario
-   ```
+# 3. Iniciar base de datos (tarda 2-3 minutos la primera vez)
+npm run db:start
 
-3. **Instalar dependencias:**
-   ```bash
-   npm install
-   ```
+# 4. Esperar a que esté lista
+npm run db:status  # Debe mostrar "healthy"
 
-4. **Iniciar la base de datos:**
-   ```bash
-   npm run db:start
-   # o usar el script directamente
-   ./scripts/db-manage.sh start
-   ```
+# 5. Iniciar servidor backend
+npm run dev
 
-5. **Verificar que la base de datos esté funcionando:**
-   ```bash
-   npm run db:status
-   ```
+# 6. En otra terminal, iniciar frontend
+cd client
+npm install
+npm run dev
+```
 
-6. **Iniciar el servidor de desarrollo:**
-   ```bash
-   npm run dev
-   ```
+### Verificar Instalación
+```bash
+# Backend funcionando
+curl http://localhost:4000/api/test-db
+
+# Frontend funcionando
+# Abrir http://localhost:5173 en el navegador
+```
 
 ### 🗄️ Base de Datos
 
@@ -210,29 +229,162 @@ curl -X POST http://localhost:4000/api/personas \
   }'
 ```
 
-### 📁 Estructura del Proyecto
+## 📁 Estructura Detallada del Proyecto
 
 ```
-ABH/
-├── client/                 # Frontend React
+ABH/                                    # 🏠 DIRECTORIO RAÍZ
+│
+├── 📱 client/                         # FRONTEND (React + Vite)
 │   ├── src/
-│   └── package.json
-├── server/                 # Backend Node.js
-│   ├── index.js           # Servidor principal
-│   ├── config.js          # Configuración
-│   └── db.js              # Conexión a BD
-├── db/                     # Base de datos
-│   ├── init.sql           # Estructura inicial
-│   └── data/              # Datos de ejemplo
-├── docker-compose.yml     # Configuración Docker
-├── .env.example           # Ejemplo de variables de entorno
-├── .gitignore             # Archivos ignorados por Git
-├── package.json           # Dependencias del proyecto
-└── README.md             # Este archivo
+│   │   ├── App.jsx                   # Componente principal
+│   │   ├── main.jsx                  # Punto de entrada
+│   │   ├── App.css                   # Estilos principales
+│   │   └── assets/                   # Imágenes y recursos
+│   ├── public/                       # Archivos públicos
+│   ├── package.json                  # Dependencias frontend
+│   ├── vite.config.js                # Configuración Vite
+│   └── Dockerfile                    # Docker para frontend
+│
+├── 🔌 server/                         # BACKEND (Node.js + Express)
+│   ├── index.js                      # 🚀 Servidor principal
+│   ├── config.js                     # ⚙️ Configuración general
+│   └── db.js                         # 📦 Conexión a base de datos
+│
+├── 📊 db/                             # BASE DE DATOS
+│   ├── init.sql                      # 🏠 Estructura de tablas
+│   ├── data/
+│   │   └── 01_seed_data.sql            # 🌱 Datos de ejemplo
+│   ├── backups/                      # 💾 Copias de seguridad
+│   └── migrations/                   # 🔄 Migraciones futuras
+│
+├── 🛠️ scripts/                        # HERRAMIENTAS DE DESARROLLO
+│   └── db-manage.sh                  # 🎯 Script gestión BD
+│
+├── 📦 docker-compose.yml              # Orquestación de servicios
+├── 📦 Dockerfile                     # Docker para backend
+├── ⚙️ .env.example                    # Variables de entorno ejemplo
+├── ⚙️ .env                            # Variables de entorno (local)
+├── 📄 .gitignore                     # Archivos ignorados
+├── 📦 package.json                   # Dependencias raíz
+└── 📚 README.md                      # Esta documentación
 ```
+
+### 🎯 Puntos Clave para Desarrolladores
+
+| Componente    | Ubicación    | Puerto | Comando                       |
+|---------------|--------------|--------|-------------------------------|
+| **Frontend**  | `./client/`  | 5173   | `cd client && npm run dev`   |
+| **Backend**   | `./server/`  | 4000   | `npm run dev`                |
+| **Base de Datos** | Docker   | 3307   | `npm run db:start`           |
+| **Gestión BD** | `./scripts/`| -      | `./scripts/db-manage.sh help`|
+
+### 📡 Variables de Entorno
+
+```bash
+# .env (copiar desde .env.example)
+DB_HOST=localhost
+DB_PORT=3307
+DB_USER=abh_user
+DB_PASSWORD=abh_password
+DB_NAME=mi_base_de_datos
+PORT=4000
+NODE_ENV=development
+```
+
+## 🚑 Solución de Problemas Comunes
+
+### 💡 La base de datos no inicia
+```bash
+# 1. Verificar que Docker esté corriendo
+sudo systemctl status docker
+
+# 2. Limpiar volumen corrupto
+npm run db:reset
+
+# 3. Verificar puertos en uso
+sudo netstat -tulpn | grep :3307
+```
+
+### 💡 Error de conexión "ECONNREFUSED"
+```bash
+# 1. Verificar que la BD esté saludable
+npm run db:status
+
+# 2. Esperar más tiempo (MySQL tarda 2-3 minutos)
+sleep 180 && npm run db:status
+
+# 3. Revisar configuración
+cat .env
+```
+
+### 💡 "Port 3307 already in use"
+```bash
+# 1. Encontrar proceso usando el puerto
+sudo lsof -i :3307
+
+# 2. Parar servicios Docker existentes
+docker-compose down
+sudo docker system prune -f
+
+# 3. Reiniciar
+npm run db:start
+```
+
+### 💡 Frontend no carga
+```bash
+# 1. Verificar dependencias
+cd client && npm install
+
+# 2. Limpiar cache
+rm -rf client/node_modules client/dist
+cd client && npm install
+
+# 3. Verificar puerto
+curl http://localhost:5173
+```
+
+## 🏆 Mejores Prácticas
+
+### 📝 Para Desarrolladores
+- **Siempre** hacer `npm run db:backup` antes de cambios importantes
+- **Nunca** commitear archivos `.env` con datos reales
+- **Usar** ramas feature para nuevas funcionalidades
+- **Probar** endpoints con `curl` antes de integrar frontend
+
+### 📦 Para Base de Datos
+- Los backups se generan automáticamente en `db/backups/`
+- Solo se mantienen los últimos 5 backups
+- Usar `latest_backup.sql` para restaurar el más reciente
+
+### 🔌 Para API
+- Todos los endpoints devuelven JSON
+- Usar `status: "success"` o `status: "error"` en respuestas
+- Incluir validación de datos en el backend
+
+## 📈 Próximos Pasos
+
+### 🚀 Funcionalidades Planificadas
+- [ ] Autenticación y autorización
+- [ ] CRUD completo para todas las entidades
+- [ ] Sistema de archivos/documentos
+- [ ] Panel de administración
+- [ ] API REST completa
+- [ ] Tests automatizados
 
 ### 🤝 Contribución
+1. **Fork** el proyecto
+2. **Crear** una rama feature (`git checkout -b feature/nueva-funcionalidad`)
+3. **Commitear** cambios (`git commit -am 'Agregar nueva funcionalidad'`)
+4. **Push** a la rama (`git push origin feature/nueva-funcionalidad`)
+5. **Crear** un Pull Request
 
-1. Crear una rama para tu feature
-2. Hacer commits descriptivos
-3. Crear un Pull Request
+### 📞 Soporte
+
+¿Problemas? ¿Preguntas?
+- 🐛 **Issues**: [GitHub Issues](https://github.com/FreddySoto123/ABH/issues)
+- 💬 **Discusiones**: Usa el sistema de discusiones del repositorio
+- 📧 **Email**: Contacta al equipo de desarrollo
+
+---
+
+**🎉 ¡Happy Coding!** - Equipo ABH
