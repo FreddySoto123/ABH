@@ -1,26 +1,43 @@
 # Academia Boliviana de Historia - Sistema de Gestión
 
-> Sistema completo de gestión para la Academia Boliviana de Historia con arquitectura moderna, base de datos sincronizada y herramientas de desarrollo avanzadas.
+> Sistema completo de gestión para la Academia Boliviana de Historia con arquitectura moderna full-stack, diseño corporativo ABH y herramientas de desarrollo avanzadas.
 
 ## 🏗️ Arquitectura del Proyecto
 
-### Frontend (client/)
-- **Tecnología**: React 18 + Vite
+### 🎨 Frontend (client/)
+- **Tecnología**: React 18 + Vite + Axios
 - **Puerto**: http://localhost:5173
 - **Ubicación**: `./client/`
-- **Características**: SPA moderna con Hot Reload
+- **Características**: 
+  - SPA moderna con Hot Reload
+  - Sistema de diseño ABH corporativo
+  - Tipografías Barlow (Desktop & Mobile)
+  - Gestión completa de personas (CRUD)
+  - Componentes UI reutilizables
+  - Estados de carga y manejo de errores
+  - Responsive design
 
-### Backend (server/)
-- **Tecnología**: Node.js + Express
+### 🔌 Backend (server/)
+- **Tecnología**: Node.js + Express + MySQL2
 - **Puerto**: http://localhost:4000
 - **Ubicación**: `./server/`
-- **API**: RESTful con endpoints para gestión completa
+- **Características**:
+  - API RESTful completa
+  - Variables de entorno con dotenv
+  - Validación de datos
+  - Manejo de errores
+  - CORS configurado
+  - Conexión con pool de MySQL
 
-### Base de Datos
+### 🗄️ Base de Datos
 - **Tecnología**: MySQL 8.0 (Dockerizado)
 - **Puerto**: localhost:3307
 - **Ubicación**: `./db/`
-- **Características**: Auto-inicialización con datos de ejemplo
+- **Características**: 
+  - Auto-inicialización con datos de ejemplo
+  - Estructura completa ABH
+  - Backups automatizados
+  - Seeds con datos reales
 
 ## 🚀 Inicio Rápido
 
@@ -95,12 +112,148 @@ Usando Docker, todos los desarrolladores tendrán la misma base de datos. Los da
 #### Frontend (React + Vite)
 - **URL:** http://localhost:5173
 
-### 📡 Endpoints de la API
+## 🎨 Sistema de Diseño ABH
 
-- `GET /` - Estado del servidor
-- `GET /api/test-db` - Prueba de conexión a la base de datos
-- `GET /api/personas` - Obtener todas las personas
-- `POST /api/personas` - Crear una nueva persona
+### Paleta de Colores Corporativa
+```css
+--color-primary: #1A365D    /* Azul principal ABH */
+--color-secondary: #2C3E50  /* Gris oscuro */
+--color-gray: #7C7C7C       /* Gris medio */
+--color-cream: #F4F1E8      /* Crema de fondo */
+--color-white: #FFFFFF      /* Blanco */
+--color-accent: #D9AB2C     /* Dorado de acento */
+```
+
+### Tipografías Barlow
+- **Familia Principal**: Barlow (Normal)
+- **Familia Secundaria**: Barlow Condensed
+- **Pesos Disponibles**: 100, 200, 300, 400, 500, 600, 700, 800, 900
+- **Estilos**: Normal e Italic
+- **Responsive**: Tamaños automáticamente ajustados para móvil
+
+#### Clases de Tipografía Disponibles:
+```css
+.heading-1        /* Barlow Bold 70px (75px móvil) */
+.heading-2        /* Barlow ExtraBold 55px (70px móvil) */
+.heading-3        /* Barlow Condensed Bold 35px (60px móvil) */
+.heading-4        /* Barlow Condensed SemiBold 25px (60px móvil) */
+.body-large       /* Barlow Medium 20px (60px móvil) */
+.body-medium      /* Barlow Condensed Medium 20px (60px móvil) */
+.body-small       /* Barlow Regular 15px (55px móvil) */
+.text-italic      /* Barlow Condensed Light Italic */
+.text-caption     /* Texto pequeño para captions */
+```
+
+## 🖥️ Frontend - Gestión de Personas
+
+### Funcionalidades Implementadas
+- ✅ **Vista de Lista**: Grid responsive de tarjetas de personas
+- ✅ **Crear Persona**: Modal con formulario completo
+- ✅ **Editar Persona**: Modal pre-poblado con datos existentes
+- ✅ **Eliminar Persona**: Confirmación con overlay
+- ✅ **Validación**: En tiempo real con mensajes de error
+- ✅ **Estados de Carga**: Spinners y feedback visual
+- ✅ **Manejo de Errores**: Mensajes informativos al usuario
+- ✅ **Responsive**: Optimizado para móvil, tablet y desktop
+
+### Componentes UI Desarrollados
+
+#### `<Button />` - Botón Reutilizable
+```jsx
+<Button variant="primary" size="medium" loading={false}>
+  Crear Persona
+</Button>
+```
+**Variantes**: `primary`, `secondary`, `success`, `danger`, `outline`  
+**Tamaños**: `small`, `medium`, `large`
+
+#### `<Modal />` - Modal Reutilizable
+```jsx
+<Modal isOpen={true} onClose={handleClose} title="Crear Persona" size="medium">
+  <PersonaForm onSubmit={handleSubmit} />
+</Modal>
+```
+**Tamaños**: `small`, `medium`, `large`, `full`
+
+#### `<PersonaCard />` - Tarjeta de Persona
+- Avatar con imagen o iniciales
+- Información completa (nombre, grado, tipo)
+- Acciones (editar/eliminar) con hover
+- Badges coloridos para categorización
+- Confirmación de eliminación integrada
+
+#### `<PersonaForm />` - Formulario de Persona
+- Campos validados en tiempo real
+- Selectores dinámicos (grados y tipos desde API)
+- Estados de carga durante envío
+- Manejo de errores por campo
+
+### Arquitectura Frontend
+
+```
+client/src/
+├── 🎨 styles/
+│   └── root.css                 # Variables del sistema de diseño
+├── 🔧 services/
+│   └── api.js                   # Cliente HTTP con Axios
+├── 🎣 hooks/
+│   └── usePersonas.js           # Hook para gestión de estado
+├── 🧩 components/
+│   ├── ui/
+│   │   ├── Button.jsx           # Botón reutilizable
+│   │   └── Modal.jsx            # Modal reutilizable
+│   ├── PersonaCard.jsx          # Tarjeta de persona
+│   └── PersonaForm.jsx          # Formulario de persona
+├── 📄 pages/
+│   ├── PersonasPage.jsx         # Página principal
+│   └── NotFoundPage.jsx         # Página 404
+├── App.jsx                      # Componente raíz
+└── main.jsx                     # Punto de entrada
+```
+
+### 📡 API Endpoints Disponibles
+
+#### Gestión de Personas
+- `GET /personas` - Obtener todas las personas con relaciones
+- `GET /personas/:id` - Obtener una persona específica
+- `POST /personas` - Crear nueva persona
+- `PUT /personas/:id` - Actualizar persona existente
+- `DELETE /personas/:id` - Eliminar persona (con validación de dependencias)
+
+#### Datos Auxiliares
+- `GET /grados` - Obtener todos los grados disponibles
+- `GET /tipos-persona` - Obtener todos los tipos de persona
+
+#### Utilidades
+- `GET /ping` - Estado del servidor
+
+### Ejemplo de Uso de la API
+```bash
+# Crear persona
+curl -X POST http://localhost:4000/personas \
+  -H "Content-Type: application/json" \
+  -d '{
+    "nombre_persona": "Juan",
+    "apellido_persona": "Pérez",
+    "id_grado_persona": 1,
+    "id_tipo_persona": 2,
+    "imagen_perfil_url_persona": "https://example.com/photo.jpg"
+  }'
+
+# Respuesta
+{
+  "success": true,
+  "message": "Persona creada exitosamente",
+  "data": {
+    "id_persona": 10,
+    "nombre_persona": "Juan",
+    "apellido_persona": "Pérez",
+    "nombre_grado_persona": "Doctor",
+    "acronimo_grado_persona": "Dr.",
+    "nombre_tipo_persona": "Académico"
+  }
+}
+```
 
 ### 🔨 Comandos Útiles
 
@@ -229,6 +382,67 @@ curl -X POST http://localhost:4000/api/personas \
     "imagen_perfil_url": "https://example.com/imagen.jpg"
   }'
 ```
+
+## 🛠️ Tecnologías y Dependencias
+
+### Frontend (React)
+```json
+{
+  "react": "^19.1.0",           // Biblioteca principal UI
+  "react-dom": "^19.1.0",       // Renderizado DOM
+  "react-router-dom": "^6.30.1", // Navegación SPA
+  "axios": "^1.6.0",            // Cliente HTTP
+  "react-icons": "^4.12.0",     // Iconografía
+  "vite": "^7.0.4"              // Build tool y dev server
+}
+```
+
+### Backend (Node.js)
+```json
+{
+  "express": "^5.1.0",          // Framework web
+  "mysql2": "^3.14.2",          // Driver MySQL con Promise
+  "dotenv": "^17.2.0",          // Variables de entorno
+  "morgan": "^1.10.0",          // Logging HTTP
+  "nodemon": "^3.1.10"          // Auto-restart en desarrollo
+}
+```
+
+### Infraestructura
+- **Docker**: Contenedor MySQL 8.0
+- **Docker Compose**: Orquestación de servicios
+- **Google Fonts**: Tipografías Barlow
+- **Git**: Control de versiones
+
+### Funcionalidades Clave Implementadas
+
+#### 🎨 Sistema de Diseño
+- Variables CSS centralizadas
+- Paleta de colores corporativa ABH
+- Tipografías Barlow responsive
+- Componentes UI reutilizables
+- Animaciones y transiciones
+
+#### 🔌 API RESTful
+- CRUD completo para personas
+- Validación de datos
+- Manejo de errores consistente
+- Respuestas JSON estructuradas
+- Variables de entorno
+
+#### 📊 Base de Datos
+- Esquema normalizado ABH
+- Datos de seed realistas
+- Backups automatizados
+- Migraciones futuras
+- Contenedor Docker
+
+#### 🖥️ Frontend Moderno
+- Single Page Application
+- Estado global con hooks
+- Componentes modulares
+- Responsive design
+- Estados de carga y error
 
 ## 📁 Estructura Detallada del Proyecto
 

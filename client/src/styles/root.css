@@ -1,0 +1,265 @@
+/* ===== SISTEMA DE DISEÑO ABH ===== */
+
+:root {
+  /* ===== PALETA DE COLORES ===== */
+  --color-primary: #1A365D;
+  --color-secondary: #2C3E50;
+  --color-gray: #7C7C7C;
+  --color-cream: #F4F1E8;
+  --color-white: #FFFFFF;
+  --color-accent: #D9AB2C;
+
+  /* Variaciones de colores para estados */
+  --color-primary-light: #2A4A6B;
+  --color-primary-dark: #0F1F2F;
+  --color-secondary-light: #34495E;
+  --color-secondary-dark: #1B252F;
+  --color-accent-light: #E6C456;
+  --color-accent-dark: #B8941F;
+  
+  /* Colores de estado */
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
+
+  /* ===== FUENTES ===== */
+  --font-barlow: 'Barlow', sans-serif;
+  --font-barlow-condensed: 'Barlow Condensed', sans-serif;
+
+  /* ===== TIPOGRAFÍA DESKTOP ===== */
+  /* Barlow */
+  --text-barlow-bold-70: 700 70px var(--font-barlow);
+  --text-barlow-extrabold-55: 800 55px var(--font-barlow);
+  --text-barlow-medium-20: 500 20px var(--font-barlow);
+  --text-barlow-regular-15: 400 15px var(--font-barlow);
+  --text-barlow-light-15: 300 15px var(--font-barlow);
+
+  /* Barlow Condensed */
+  --text-condensed-bold-35: 700 35px var(--font-barlow-condensed);
+  --text-condensed-light-italic-35: 300 35px var(--font-barlow-condensed);
+  --text-condensed-extralight-35: 200 35px var(--font-barlow-condensed);
+  --text-condensed-semibold-25: 600 25px var(--font-barlow-condensed);
+  --text-condensed-medium-25: 500 25px var(--font-barlow-condensed);
+  --text-condensed-italic-25: 400 25px var(--font-barlow-condensed);
+  --text-condensed-light-italic-25: 300 25px var(--font-barlow-condensed);
+  --text-condensed-light-25: 300 25px var(--font-barlow-condensed);
+  --text-condensed-semibold-20: 600 20px var(--font-barlow-condensed);
+  --text-condensed-medium-20: 500 20px var(--font-barlow-condensed);
+  --text-condensed-regular-20: 400 20px var(--font-barlow-condensed);
+  --text-condensed-light-20: 300 20px var(--font-barlow-condensed);
+  --text-condensed-light-italic-15: 300 15px var(--font-barlow-condensed);
+
+  /* ===== ESPACIADO ===== */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+
+  /* ===== BORDES Y RADIOS ===== */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-full: 9999px;
+
+  /* ===== SOMBRAS ===== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* ===== TRANSICIONES ===== */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.4s ease;
+
+  /* ===== Z-INDEX ===== */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-toast: 800;
+}
+
+/* ===== TIPOGRAFÍA RESPONSIVE (MOBILE) ===== */
+@media (max-width: 768px) {
+  :root {
+    /* Barlow Mobile */
+    --text-barlow-bold-70: 700 75px var(--font-barlow);
+    --text-barlow-extrabold-55: 800 70px var(--font-barlow);
+    --text-barlow-medium-20: 500 60px var(--font-barlow);
+    --text-barlow-regular-15: 400 55px var(--font-barlow);
+    --text-barlow-light-15: 300 55px var(--font-barlow);
+
+    /* Barlow Condensed Mobile */
+    --text-condensed-bold-35: 700 60px var(--font-barlow-condensed);
+    --text-condensed-light-italic-35: 300 60px var(--font-barlow-condensed);
+    --text-condensed-extralight-35: 200 60px var(--font-barlow-condensed);
+    --text-condensed-semibold-25: 600 60px var(--font-barlow-condensed);
+    --text-condensed-medium-25: 500 60px var(--font-barlow-condensed);
+    --text-condensed-italic-25: 400 60px var(--font-barlow-condensed);
+    --text-condensed-light-italic-25: 300 60px var(--font-barlow-condensed);
+    --text-condensed-light-25: 300 60px var(--font-barlow-condensed);
+    --text-condensed-semibold-20: 600 60px var(--font-barlow-condensed);
+    --text-condensed-medium-20: 500 60px var(--font-barlow-condensed);
+    --text-condensed-regular-20: 400 60px var(--font-barlow-condensed);
+    --text-condensed-light-20: 300 60px var(--font-barlow-condensed);
+    --text-condensed-light-italic-15: 300 55px var(--font-barlow-condensed);
+  }
+}
+
+/* ===== CLASES UTILITARIAS PARA TIPOGRAFÍA ===== */
+
+/* Títulos principales */
+.heading-1 {
+  font: var(--text-barlow-bold-70);
+  color: var(--color-primary);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.heading-2 {
+  font: var(--text-barlow-extrabold-55);
+  color: var(--color-primary);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.heading-3 {
+  font: var(--text-condensed-bold-35);
+  color: var(--color-secondary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.heading-4 {
+  font: var(--text-condensed-semibold-25);
+  color: var(--color-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.heading-5 {
+  font: var(--text-condensed-semibold-20);
+  color: var(--color-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Texto del cuerpo */
+.body-large {
+  font: var(--text-barlow-medium-20);
+  color: var(--color-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.body-medium {
+  font: var(--text-condensed-medium-20);
+  color: var(--color-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.body-small {
+  font: var(--text-barlow-regular-15);
+  color: var(--color-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Texto especial */
+.text-italic {
+  font: var(--text-condensed-light-italic-25);
+  color: var(--color-gray);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.text-light {
+  font: var(--text-condensed-light-25);
+  color: var(--color-gray);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.text-caption {
+  font: var(--text-condensed-light-italic-15);
+  color: var(--color-gray);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ===== CLASES UTILITARIAS PARA COLORES ===== */
+
+/* Colores de texto */
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-gray { color: var(--color-gray); }
+.text-accent { color: var(--color-accent); }
+.text-white { color: var(--color-white); }
+
+/* Colores de fondo */
+.bg-primary { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-gray { background-color: var(--color-gray); }
+.bg-cream { background-color: var(--color-cream); }
+.bg-white { background-color: var(--color-white); }
+.bg-accent { background-color: var(--color-accent); }
+
+/* ===== RESET Y ESTILOS BASE ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-barlow);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-cream);
+  color: var(--color-gray);
+  font: var(--text-condensed-regular-20);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* ===== UTILIDADES ADICIONALES ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
