@@ -128,12 +128,11 @@ ABH/
 │   └── db.js              # Conexión a BD
 ├── db/                     # Base de datos
 │   ├── init.sql           # Estructura inicial
-│   ├── data/              # Datos de ejemplo
-│   ├── backups/           # Backups
-│   └── migrations/        # Migraciones
+│   └── data/              # Datos de ejemplo
 ├── docker-compose.yml     # Configuración Docker
-├── Dockerfile.server      # Imagen del servidor
-├── Dockerfile.client      # Imagen del cliente
+├── .env.example           # Ejemplo de variables de entorno
+├── .gitignore             # Archivos ignorados por Git
+├── package.json           # Dependencias del proyecto
 └── README.md             # Este archivo
 ```
 

@@ -10,11 +10,7 @@
     "start": "node server/index.js",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
-    "docker:logs": "docker-compose logs",
-    "docker:rebuild": "docker-compose down && docker-compose up -d --build",
-    "db:backup": "node db/backup_restore.js backup",
-    "db:sync": "node db/backup_restore.js sync",
-    "db:test": "curl http://localhost:4000/api/test-db"
+    "docker:logs": "docker-compose logs"
   },
   "repository": {
     "type": "git",
