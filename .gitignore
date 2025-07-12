@@ -1,0 +1,53 @@
+# ───────── GENERAL ─────────
+node_modules/
+dist/
+build/
+.env
+.env.*.local
+*.log
+*.pid
+*.seed
+*.backup
+*.sqlite
+*.tgz
+
+# ───────── VITE (REACT - client/) ─────────
+client/node_modules/
+client/dist/
+client/.vite/
+
+# ───────── EXPRESS (server/) ─────────
+server/node_modules/
+server/dist/
+server/*.log
+
+# ───────── DOCKER ─────────
+docker-compose.override.yml
+docker-volume/
+*.sock
+
+# ───────── SYSTEM FILES ─────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# ───────── TESTS / COVERAGE ─────────
+coverage/
+*.lcov
+
+# ───────── PACKAGE LOCK FILES (Optional) ─────────
+# Uncomment one if you want to ignore lock files
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ───────── DATABASE EXPORTS ─────────
+*.sql
+!db/init.sql
+!db/data/*.sql
+!db/migrations/*.sql
+# Permitir backups importantes (máximo 5 archivos más recientes)
+db/backups/*.sql
+!db/backups/latest_*.sql
