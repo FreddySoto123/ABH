@@ -114,7 +114,7 @@ CREATE TABLE Academia (
     mision_academia TEXT,
     vision_academia TEXT,
     historia_academia TEXT,
-    horario_academia VARCHAR(255),
+    horario_academia VARCHAR(255), 
     email_academia VARCHAR(255),
     telefono_academia VARCHAR(50)
 );

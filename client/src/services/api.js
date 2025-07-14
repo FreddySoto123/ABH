@@ -69,6 +69,23 @@ export const personasService = {
   getTiposPersona: async () => {
     const response = await api.get('/tipos-persona');
     return response.data;
+  },  
+};
+
+export const academiaService = {
+  getInfo: async () => {
+    const response = await api.get('/info');
+    return response.data;
+  },
+
+  updateInfo: async (academiaData) => {
+    const response = await api.put('/info', academiaData);
+    return response.data;
+  },
+
+  createInfo: async (academiaData) => {
+    const response = await api.post('/info', academiaData);
+    return response.data;
   },
 };
 

@@ -2,6 +2,7 @@ import express from "express";
 import { SERVER_CONFIG } from './utils/env.js';
 import indexRoutes from "./routes/index.routes.js";
 import personaRoutes from "./routes/personas.routes.js";
+import academiaRoutes from './routes/academia.routes.js';
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 
 app.use(indexRoutes);
 app.use(personaRoutes);
+app.use(academiaRoutes);
 
 // Iniciar el servidor
 app.listen(SERVER_CONFIG.PORT, () => {
