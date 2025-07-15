@@ -1,4 +1,4 @@
-@import '../../styles/root.css';
+@import '../styles/root.css';
 
 .person-card {
     background-color: var(--color-white);
