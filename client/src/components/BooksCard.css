@@ -7,7 +7,6 @@
     box-shadow: var(--shadow-md);
     background-color: var(--color-white);
     position: relative;
-    overflow: hidden;
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     display: flex;
     flex-direction: column;
