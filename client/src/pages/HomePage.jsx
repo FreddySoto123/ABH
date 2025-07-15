@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import SectionHeader from '../components/ui/SectionHeader.jsx';
+import PersonCard from '../components/ui/PersonCard.jsx';
 
 function HomePage() {
   return (
@@ -20,6 +21,12 @@ function HomePage() {
       <SectionHeader title="Mi título" left marginLeft={200} />
 
       <SectionHeader title="Mi título" />
+
+      <PersonCard
+        title="Director General"
+        name="Dr. Hugo Esteban Rivero Camacho"
+        image="https://inkscape.app/wp-content/uploads/imagen-vectorial.webp"
+      />
     </div>
   )
 }

@@ -1,0 +1,106 @@
+@import '../../styles/root.css';
+
+.person-card {
+    background-color: var(--color-white);
+    width: 350px;
+    height: 350px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.person-card__blue-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 10px;
+    background-color: var(--color-primary);
+}
+
+.person-card__title {
+    font: 800 35px var(--font-barlow);
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.person-card__image {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.person-card__name {
+    font: 300 20px var(--font-barlow-condensed);
+    font-style: italic;
+    color: var(--color-secondary);
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.2;
+}
+
+.person-card--card-mode {
+    width: 300px;
+    height: 300px;
+}
+
+.person-card--card-mode .person-card__blue-line {
+    width: 300px;
+}
+
+.person-card--no-title .person-card__image {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+@media (max-width: 768px) {
+    .person-card {
+        width: 920px;
+        min-height: 920px;
+        padding: 80px;
+        max-width: 100%;
+    }
+
+    .person-card__blue-line {
+        width: 100%;
+        height: 20px;
+    }
+
+    .person-card__title {
+        font: 800 60px var(--font-barlow);
+    }
+
+    .person-card__image {
+        width: calc(100% - 0px);
+        height: calc(100% - 0px);
+        max-width: calc(100vw - 160px);
+        max-height: calc(100vw - 160px);
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .person-card__name {
+        font: 300 60px var(--font-barlow-condensed);
+    }
+
+    .person-card--card-mode {
+        width: 700px;
+        min-height: 750px;
+        max-width: 100%;
+    }
+
+    .person-card--card-mode .person-card__blue-line {
+        width: 100%;
+    }
+}
