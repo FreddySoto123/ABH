@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import SectionHeader from '../components/ui/SectionHeader.jsx';
 import PersonCard from '../components/PersonCard.jsx';
-import BooksCard from '../components/ui/BooksCard.jsx';
+import BooksCard from '../components/BooksCard.jsx';
 import InformationCard from '../components/InformationCard.jsx';
 import Footer from '../components/Footer.jsx';
 

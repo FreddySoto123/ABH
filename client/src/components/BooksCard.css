@@ -1,4 +1,4 @@
-@import '../../styles/root.css';
+@import '../styles/root.css';
 
 .books-card {
     background-color: var(--color-white);
@@ -9,6 +9,7 @@
     align-items: center;
     position: relative;
 }
+
 .books-card-texto {
     background-color: var(--color-white);
     display: flex;
@@ -17,6 +18,7 @@
     position: relative;
     padding: 15px;
 }
+
 .books-card__yellow-line {
     width: 450px;
     height: 10px;
@@ -29,7 +31,7 @@
 }
 
 .books-card__tittle {
-    font:  600 25px var(--font-barlow-condensed);
+    font: 600 25px var(--font-barlow-condensed);
     color: var(--color-secondary);
     text-align: center;
     width: 100%;
@@ -100,7 +102,7 @@
         font: 600 50px var(--font-barlow-condensed);
         margin: 10px;
     }
-    
+
     .books-card__fecha {
         font: 300 45px var(--font-barlow-condensed);
         font-style: italic;
