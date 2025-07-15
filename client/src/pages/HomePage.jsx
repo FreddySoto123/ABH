@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import SectionHeader from '../components/ui/SectionHeader.jsx';
 import PersonCard from '../components/ui/PersonCard.jsx';
-import Card from '../components/Card.jsx';
+import Card from '../components/InformationCard.jsx';
 
 function HomePage() {
   return (
@@ -46,6 +46,12 @@ Se realizó en el salón principal con la presencia de académicos e invitados e
         title="Actividades"
         description="Participe en eventos oficiales, ceremonias patrias, presentaciones culturales y exposiciones temporales."
         imageUrl="https://tse1.mm.bing.net/th/id/OIP.QvgsV2W5aTxljgwgSExccwHaE8?rs=1&pid=ImgDetMain&o=7&rm=3"
+      />
+       <Card
+        title="Actividades"
+        description="Participe en eventos oficiales, ceremonias patrias, presentaciones culturales y exposiciones temporales."
+        imageUrl="https://tse1.mm.bing.net/th/id/OIP.QvgsV2W5aTxljgwgSExccwHaE8?rs=1&pid=ImgDetMain&o=7&rm=3"
+        cardMode={true} 
       />
     </div>
   )
