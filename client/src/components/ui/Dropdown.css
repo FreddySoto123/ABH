@@ -1,0 +1,95 @@
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-main-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 25px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;  
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dropdown-main-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f4b942;
+}
+
+/* Estilos para el dropdown */
+.dropdown-arrow {
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-primary);
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 4px solid #f4b942;
+}
+
+.dropdown-menu li a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 400;  
+  border-bottom: 1px solid rgba(124, 124, 124, 0.4);
+}
+
+.dropdown-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dropdown-main-link {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .dropdown-main-link:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    width: 100%;
+    background-color: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dropdown-menu li a {
+    padding-left: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown-main-link {
+    font-size: 12px;
+    padding: 12px 0;
+  }
+}
