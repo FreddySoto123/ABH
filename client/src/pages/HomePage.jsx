@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import SectionHeader from '../components/ui/SectionHeader.jsx';
-import PersonCard from '../components/PersonCard.jsx';
+import PersonCard from '../components/ui/PersonCard.jsx';
+import BooksCard from '../components/ui/BooksCard.jsx';
 import InformationCard from '../components/InformationCard.jsx';
 import Footer from '../components/Footer.jsx';
 
@@ -24,11 +25,19 @@ function HomePage() {
 
       <SectionHeader title="Mi título" />
 
+      <BooksCard
+        tittle="El Sitio de Boquerón: Estrategia y Resistencia"
+        author="Jorge Abastoflor Frey"
+        fecha="21 de junio de 2025"
+        image="https://elpotosi.net/img/contents/images_640/2019/07/05/nota78230_imagen69636.jpg"
+      />
+
       <PersonCard
         title="Director General"
         name="Dr. Hugo Esteban Rivero Camacho"
         image="https://inkscape.app/wp-content/uploads/imagen-vectorial.webp"
       />
+
 
       <PersonCard
         name="Dr. Hugo Esteban Rivero Camacho"
