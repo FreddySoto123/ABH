@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import SectionHeader from '../components/ui/SectionHeader.jsx';
 import PersonCard from '../components/ui/PersonCard.jsx';
+import Footer from '../components/Footer.jsx';
 
 function HomePage() {
   return (
@@ -27,7 +28,9 @@ function HomePage() {
         name="Dr. Hugo Esteban Rivero Camacho"
         image="https://inkscape.app/wp-content/uploads/imagen-vectorial.webp"
       />
-    </div>
+
+      <Footer />
+    </div>  
   )
 }
 
