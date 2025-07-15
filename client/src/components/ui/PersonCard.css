@@ -5,6 +5,7 @@
     width: 350px;
     height: 350px;
     padding: 40px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,9 +67,10 @@
 @media (max-width: 768px) {
     .person-card {
         width: 920px;
-        min-height: 920px;
+        height: 920px;
         padding: 80px;
         max-width: 100%;
+        box-sizing: border-box;
     }
 
     .person-card__blue-line {
@@ -81,11 +83,10 @@
     }
 
     .person-card__image {
-        width: calc(100% - 0px);
-        height: calc(100% - 0px);
-        max-width: calc(100vw - 160px);
-        max-height: calc(100vw - 160px);
-        aspect-ratio: 1/1;
+        width: calc(100vw - 160px);
+        height: calc(100vw - 160px);
+        max-width: calc(100% - 0px);
+        max-height: calc(100% - 0px);
         object-fit: cover;
         object-position: center;
     }
@@ -96,8 +97,9 @@
 
     .person-card--card-mode {
         width: 700px;
-        min-height: 750px;
+        height: 750px;
         max-width: 100%;
+        box-sizing: border-box;
     }
 
     .person-card--card-mode .person-card__blue-line {
