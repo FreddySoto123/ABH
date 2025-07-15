@@ -60,8 +60,7 @@ function Header() {
   }
 
   return (
-    <header className="header-container">
-      {/* Sección principal del header */}
+    <header className="header-container">    
       <div className="header-main">
         <div className="logo-container">
           <div className="logo-emblem">

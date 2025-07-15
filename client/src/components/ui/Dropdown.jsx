@@ -8,7 +8,8 @@ function Dropdown({
   dropdownItems = [], 
   onLinkClick,
   className = "",
-  showArrow = true 
+  showArrow = true,
+  ...props
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -38,6 +39,7 @@ function Dropdown({
       className={`dropdown-container ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      {...props}
     >
       <a
         href={href}
