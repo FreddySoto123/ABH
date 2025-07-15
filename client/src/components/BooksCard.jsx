@@ -34,7 +34,6 @@ const BooksCard = ({
             </div>
         </div>
     );
-    
 };
 
 export default BooksCard;

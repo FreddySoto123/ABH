@@ -1,7 +1,7 @@
 @import '../styles/root.css';
 
 .books-card {
-    width: 450px;
+    width: 400px;
     height: 400px;
     border-radius: 0;
     box-shadow: var(--shadow-md);
@@ -67,7 +67,7 @@
 
 .books-card--card-mode {
     width: 300px;
-    height: 350px;
+    height: 300px;
 }
 
 .books-card--card-mode .books-card__tittle {
