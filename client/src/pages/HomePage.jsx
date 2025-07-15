@@ -4,6 +4,7 @@ import PersonCard from '../components/PersonCard.jsx';
 import BooksCard from '../components/BooksCard.jsx';
 import InformationCard from '../components/InformationCard.jsx';
 import Footer from '../components/Footer.jsx';
+import ReferenceImage from '../components/ReferenceImage.jsx';
 
 function HomePage() {
   return (
@@ -70,6 +71,14 @@ Se realizó en el salón principal con la presencia de académicos e invitados e
         description="Participe en eventos oficiales, ceremonias patrias, presentaciones culturales y exposiciones temporales."
         imageUrl="https://tse1.mm.bing.net/th/id/OIP.QvgsV2W5aTxljgwgSExccwHaE8?rs=1&pid=ImgDetMain&o=7&rm=3"
         cardMode={true}
+      />
+
+      <ReferenceImage
+        image="https://elpotosi.net/img/contents/images_640/2019/07/05/nota78230_imagen69636.jpg"
+        autor="López, R."
+        titulo="Tropa boliviana avanzando en el Chaco boreal"
+        url="https://elpotosi.net"
+        año="1934"
       />
       <Footer />
     </div>
