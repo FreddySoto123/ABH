@@ -14,6 +14,12 @@ function HomePage() {
       <SectionHeader title="Services" whiteText={true} />
 
       <SectionHeader title="Contact" left={true} whiteText={true} />
+
+      <SectionHeader title="Mi título" left />
+
+      <SectionHeader title="Mi título" left marginLeft={200} />
+
+      <SectionHeader title="Mi título" />
     </div>
   )
 }

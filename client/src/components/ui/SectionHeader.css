@@ -1,7 +1,8 @@
 @import '../../styles/root.css';
 
 .section-header {
-    margin-bottom: var(--spacing-2xl);
+    margin-top: 80px;
+    margin-bottom: 50px;
     text-align: center;
 }
 
@@ -24,6 +25,7 @@
 
 .section-header--left {
     text-align: left;
+    margin-left: 150px;
 }
 
 .section-header--left .section-header__title {
@@ -45,7 +47,12 @@
 
 @media (max-width: 768px) {
     .section-header {
-        margin-bottom: var(--spacing-xl);
+        margin-top: 120px;
+        margin-bottom: 60px;
+    }
+
+    .section-header--left {
+        margin-left: 80px;
     }
 
     .section-header__title {

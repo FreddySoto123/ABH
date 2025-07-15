@@ -1,3 +1,4 @@
+import React from 'react';
 import './SectionHeader.css';
 
 const SectionHeader = ({
@@ -5,6 +6,7 @@ const SectionHeader = ({
   left,
   extrabold,
   whiteText,
+  marginLeft,
   className
 }) => {
   const containerClasses = [
@@ -15,8 +17,10 @@ const SectionHeader = ({
     className
   ].filter(Boolean).join(' ');
 
+  const customStyle = marginLeft && left ? { marginLeft: `${marginLeft}px` } : {};
+
   return (
-    <div className={containerClasses}>
+    <div className={containerClasses} style={customStyle}>
       <h2 className="section-header__title">
         {title}
       </h2>
