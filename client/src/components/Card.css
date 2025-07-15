@@ -24,7 +24,7 @@
 
 .card-custom--no-image {
   background-color: var(--color-white);
-  border-top: 5px solid var(--color-accent); 
+  border-top: 5px solid var(--color-accent);
 }
 
 .card-custom--no-image .card-custom__content {
@@ -93,18 +93,18 @@
   .card-custom {
     width: 90%;
     height: auto;
-    margin: var(--spacing-lg) auto; 
+    margin: var(--spacing-lg) auto;
   }
-  
+
   .card-custom--no-image,
   .card-custom--with-image {
     border-top-width: 6px;
   }
-  
+
   .card-custom__content {
     padding: var(--spacing-lg);
   }
-  
+
   .card-custom--no-image .card-custom__title {
     font-size: 24px;
     line-height: 1.2;
@@ -113,11 +113,11 @@
   .card-custom--no-image .card-custom__description {
     font-size: 15px;
   }
-  
+
   .card-custom--no-image .card-custom__date {
     font-size: 14px;
   }
-  
+
   .card-custom--with-image .card-custom__title {
     font-size: 26px;
     line-height: 1.2;
