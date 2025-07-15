@@ -43,7 +43,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%);
+  background: rgba(0, 0, 0, 0.55); 
   z-index: 1;
 }
 
@@ -72,12 +72,12 @@
 }
 .card-custom--no-image .card-custom__description {
   color: var(--color-secondary);
-  font: var(--text-barlow-regular-15);
+  font: var(--text-barlow-regular-20);
 }
 
 .card-custom--with-image .card-custom__description {
   color: var(--color-white);
-  font: var(--text-barlow-regular-15);
+  font: var(--text-barlow-regular-20);
   line-height: 1.5;
 }
 
@@ -93,11 +93,11 @@
 }
 
 .card-custom--card-mode .card-custom__title {
-  font: var(--text-condensed-medium-20);
+  font: var(--text-condensed-medium-25);
 }
 
 .card-custom--card-mode .card-custom__description {
-  font: var(--text-barlow-light-15);
+  font: var(--text-barlow-light-20);
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
@@ -107,20 +107,30 @@
 .card-custom--card-mode .card-custom__date {
   display: none;
 }
-
 @media (max-width: 768px) {
   
   .card-custom {
-    width: 920px;
-    max-width: 95%;
     height: auto;
-    padding: 80px;
+    width: 920px;
+    max-width: 100%;
+    padding: 0; 
     box-sizing: border-box;
   }
   
   .card-custom--no-image,
   .card-custom--with-image {
     border-top-width: 20px;
+  }
+
+  .card-custom--no-image .card-custom__content {
+      padding: 80px;
+  }
+
+  .card-custom--with-image .card-custom__content {
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-2xl); 
+      width: 100%;
+      box-sizing: border-box; 
+      text-align: center;
   }
 
   .card-custom__title {
@@ -130,7 +140,7 @@
 
   .card-custom--no-image .card-custom__description,
   .card-custom--with-image .card-custom__description {
-    font: var(--text-barlow-regular-15);
+    font: var(--text-barlow-regular-20);
     line-height: 1.3;
     margin-top: 20px;
   }
@@ -139,10 +149,16 @@
     font: var(--text-condensed-light-italic-15);
     margin-top: 40px;
   }
-  
+
   .card-custom--card-mode {
+    height: auto; 
     width: 700px;
-    height: 750px;
     max-width: 100%;
+  }
+
+  .card-custom--card-mode .card-custom__description {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
   }
 }
