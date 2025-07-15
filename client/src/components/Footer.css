@@ -361,6 +361,8 @@
   }
 
   .footer-content {
+    display: flex;
+    flex-direction: column;
     gap: 25px;
     padding: 0 15px;
   }
