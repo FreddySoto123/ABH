@@ -4,6 +4,7 @@
     margin-top: 80px;
     margin-bottom: 50px;
     text-align: center;
+    box-shadow: var(--shadow-md);
 }
 
 .section-header__title {
