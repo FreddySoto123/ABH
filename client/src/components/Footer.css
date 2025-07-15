@@ -26,7 +26,7 @@
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 20px;
-  color: var(--color-white);    
+  color: var(--color-white);
   letter-spacing: 1px;
 }
 
@@ -47,7 +47,7 @@
 .footer-logo-image {
   width: 80px;
   height: 80px;
-  object-fit: contain;  
+  object-fit: contain;
 }
 
 .footer-quote {
@@ -86,16 +86,16 @@
   transform: translateY(-2px);
 }
 
-.footer-item__container{
-    display: flex;
-    flex-direction: column;
+.footer-item__container {
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-branches .footer-item {
-  display: flex;  
+  display: flex;
   padding: 8px 0px;
   align-items: center;
-  gap: 12px;  
+  gap: 12px;
   border-bottom: 1px solid rgba(217, 171, 44, 0.4);
 }
 
@@ -113,7 +113,7 @@
 
 .footer-social-links {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
 }
 
 .footer-social-item {
@@ -201,7 +201,8 @@
   font-weight: 300;
 }
 
-.footer-loading, .footer-error {
+.footer-loading,
+.footer-error {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -222,8 +223,12 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .footer-error p {
@@ -236,100 +241,115 @@
     grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
-  
+
   .footer-about {
     grid-column: span 2;
+  }
+
+  .footer-logo-image {
+    width: 100px;
+    height: 100px;
   }
 }
 
 @media (max-width: 768px) {
+  .footer-section {
+    align-items: center;
+    gap: 0px;
+  }
+
   .footer-container {
     padding: 40px 0 0 0;
     min-height: auto;
   }
-  
+
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 0 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
   }
-  
+
   .footer-about {
     grid-column: span 1;
     text-align: center;
     order: 1;
   }
-  
+
   .footer-branches {
     order: 2;
   }
-  
+
   .footer-social-section {
     order: 3;
   }
-  
+
   .footer-info {
     order: 4;
   }
-  
+
   .footer-logos {
-    justify-content: center;
-    margin-bottom: 20px;
+    justify-content: center;    
   }
-  
+
   .footer-logo-image {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
   }
-  
+
   .footer-quote p {
     text-align: center;
     font-size: 14px;
     margin-bottom: 20px;
   }
-  
+
   .footer-social {
     justify-content: center;
   }
-  
-  .footer-title {
+
+  .footer-title {    
     font-size: 16px;
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: var(--color-white);
   }
-  
+
   .footer-social-links {
-    align-items: flex-start;
+    align-items: flex-start;    
+    width: 100%;
   }
-  
+
+  .footer-item__container{
+    align-items: flex-start;
+    width: 100%;
+  }
+
   .footer-social-item {
     justify-content: flex-start;
     width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(217, 171, 44, 0.4);
     padding: 12px 0;
   }
-  
+
   .footer-info-content {
     align-items: flex-start;
+    width: 100%;
   }
-  
+
   .footer-item {
     justify-content: flex-start;
     text-align: left;
     width: 100%;
   }
-  
+
   .footer-item-text {
     text-align: left;
   }
-  
+
   .footer-branches .footer-item {
     justify-content: flex-start;
     text-align: left;
     align-items: flex-start;
   }
-  
+
   .footer-branches .footer-item span {
     flex: 1;
   }
@@ -339,39 +359,39 @@
   .footer-container {
     padding: 30px 0 0 0;
   }
-  
+
   .footer-content {
     gap: 25px;
     padding: 0 15px;
   }
-  
+
   .footer-logo-image {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
   }
-  
+
   .footer-quote p {
     font-size: 13px;
   }
-  
+
   .footer-title {
     font-size: 15px;
   }
-  
+
   .footer-branches .footer-item span,
   .footer-item-text span {
     font-size: 13px;
   }
-  
+
   .footer-bottom p {
     font-size: 12px;
     padding: 0 15px;
   }
-  
+
   .footer-social-item span {
     font-size: 13px;
   }
-  
+
   .footer-social-item {
     padding: 10px 0;
   }
