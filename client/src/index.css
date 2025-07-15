@@ -1,16 +1,2 @@
 @import './styles/root.css';
 
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-a:hover {
-  color: var(--color-accent-dark);
-}
-
-a:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
