@@ -6,15 +6,13 @@ const SectionHeader = ({
   left,
   extrabold,
   whiteText,
-  marginLeft,
-  className
+  marginLeft
 }) => {
   const containerClasses = [
     'section-header',
     left && 'section-header--left',
     extrabold && 'section-header--extrabold',
-    whiteText && 'section-header--text-white',
-    className
+    whiteText && 'section-header--text-white'
   ].filter(Boolean).join(' ');
 
   const customStyle = marginLeft && left ? { marginLeft: `${marginLeft}px` } : {};
