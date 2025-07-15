@@ -246,11 +246,10 @@
   .navbar-list {
     flex-direction: column;
     gap: 0;
-    padding: 0 15px;
   }
 
   .navbar-link {
-    padding: 15px 0;
+    padding: 15px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     text-align: left;
     justify-content: flex-start;
@@ -281,7 +280,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
@@ -351,12 +350,12 @@
 
   .navbar-link {
     font-size: 12px;
-    padding: 12px 0;
+    padding: 12px 15px;
   }
 
   .navbar-list .dropdown-main-link {
     font-size: 12px;
-    padding: 12px 0;
+    padding: 12px 15px;
   }
 }
 
@@ -366,4 +365,10 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+}
+
+@media (min-width: 769px) {
+  .header-top--mobile {
+    display: none !important;
+  }
 }
