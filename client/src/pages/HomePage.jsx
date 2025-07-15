@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import SectionHeader from '../components/ui/SectionHeader.jsx';
-import PersonCard from '../components/ui/PersonCard.jsx';
+import PersonCard from '../components/PersonCard.jsx';
 import Card from '../components/Card.jsx';
 
 function HomePage() {
