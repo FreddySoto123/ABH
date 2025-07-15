@@ -63,33 +63,106 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .dropdown-container--mobile {
+    width: 100%;
+  }
+
   .dropdown-main-link {
-    padding: 15px 0;
+    padding: 15px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     text-align: left;
-    justify-content: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dropdown-main-link--mobile-toggle {
+    cursor: pointer;
   }
 
   .dropdown-main-link:last-child {
     border-bottom: none;
   }
 
+  .dropdown-arrow {
+    margin-left: auto;
+    margin-right: 0;
+    transition: transform 0.3s ease;
+  }
+
   .dropdown-menu {
     position: static;
     box-shadow: none;
     width: 100%;
-    background-color: transparent;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-top: none;
+    border-left: 3px solid #f4b942;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-radius: 0 4px 4px 0;
+    overflow: hidden;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .dropdown-menu--mobile {
+    background-color: rgba(0, 0, 0, 0.15);
   }
 
   .dropdown-menu li a {
-    padding-left: 35px;
+    padding: 12px 20px;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+  }
+
+  .dropdown-menu li:last-child a {
+    border-bottom: none;
+  }
+
+  .dropdown-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding-left: 25px;
+  }
+
+  /* Animación para el dropdown móvil */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      max-height: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      max-height: 500px;
+      transform: translateY(0);
+    }
+  }
+
+  /* Efecto de rotación para la flecha */
+  .dropdown-container--mobile .dropdown-arrow {
+    transform: rotate(0deg);
+  }
+
+  .dropdown-container--mobile .dropdown-main-link:active .dropdown-arrow,
+  .dropdown-container--mobile .dropdown-main-link:focus .dropdown-arrow {
+    transform: rotate(180deg);
   }
 }
 
 @media (max-width: 480px) {
   .dropdown-main-link {
     font-size: 12px;
-    padding: 12px 0;
+    padding: 12px 15px;
+  }
+
+  .dropdown-menu {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .dropdown-menu li a {
+    padding: 10px 15px;
+    font-size: 11px;
   }
 }
