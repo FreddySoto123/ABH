@@ -1,64 +1,69 @@
-@import './styles/root.css';
+@import '../../styles/root.css';
 
-/* Left-aligned Section Header */
-.section-header-left {
-    margin-bottom: var(--spacing-2xl);
+.section-header {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
-.section-header-left__title {
-    font: var(--text-condensed-bold-35);
+.section-header__title {
+    font: var(--text-barlow-extrabold-40);
     color: var(--color-primary);
     line-height: 1.2;
-    margin: 0 0 var(--spacing-lg) 0;
+    margin: 0 0 15px 0;
     letter-spacing: 0.02em;
 }
 
-.section-header-left__underline {
-    height: 6px;
-    width: 240px;
+.section-header__underline {
+    height: 7px;
+    width: 260px;
     max-width: 100%;
     background-color: var(--color-accent);
-    border-radius: var(--border-radius-sm);
+    margin: 0 auto;
 }
 
-/* Color variants */
-.section-header-left--primary .section-header-left__underline {
-    background-color: var(--color-primary);
+.section-header--left {
+    text-align: left;
+    margin-left: 150px;
 }
 
-.section-header-left--secondary .section-header-left__underline {
-    background-color: var(--color-secondary);
+.section-header--left .section-header__title {
+    font: var(--text-condensed-light-35);
 }
 
-.section-header-left--accent .section-header-left__underline {
-    background-color: var(--color-accent);
+.section-header--left .section-header__underline {
+    margin: 0;
+    width: 130px;
 }
 
-/* Text color variants */
-.section-header-left--text-primary .section-header-left__title {
-    color: var(--color-primary);
+.section-header--extrabold .section-header__title {
+    font: var(--text-barlow-extrabold-40);
 }
 
-.section-header-left--text-secondary .section-header-left__title {
-    color: var(--color-secondary);
+.section-header--text-white .section-header__title {
+    color: var(--color-white);
 }
 
-.section-header-left--text-accent .section-header-left__title {
-    color: var(--color-accent);
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
-    .section-header-left {
-        margin-bottom: var(--spacing-xl);
+    .section-header {
+        margin-top: 120px;
+        margin-bottom: 60px;
     }
 
-    .section-header-left__title {
+    .section-header--left {
+        margin-left: 80px;
+    }
+
+    .section-header__title {
         margin-bottom: var(--spacing-md);
     }
 
-    .section-header-left__underline {
-        width: 180px;
-        height: 4px;
+    .section-header__underline {
+        width: 200px;
+        height: 5px;
+    }
+
+    .section-header--left .section-header__underline {
+        width: 100px;
     }
 }

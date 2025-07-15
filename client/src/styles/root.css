@@ -16,7 +16,7 @@
   --color-secondary-dark: #1B252F;
   --color-accent-light: #E6C456;
   --color-accent-dark: #B8941F;
-  
+
   /* Colores de estado */
   --color-success: #10B981;
   --color-error: #EF4444;
@@ -31,7 +31,8 @@
   /* Barlow */
   --text-barlow-bold-70: 700 70px var(--font-barlow);
   --text-barlow-extrabold-55: 800 55px var(--font-barlow);
-  --text-barlow-medium-20: 500 20px var(--font-barlow);  
+  --text-barlow-extrabold-40: 800 40px var(--font-barlow);
+  --text-barlow-medium-20: 500 20px var(--font-barlow);
   --text-barlow-regular-15: 400 15px var(--font-barlow);
   --text-barlow-light-15: 300 15px var(--font-barlow);
 
@@ -39,6 +40,7 @@
   --text-condensed-bold-35: 700 35px var(--font-barlow-condensed);
   --text-condensed-light-italic-35: 300 35px var(--font-barlow-condensed);
   --text-condensed-extralight-35: 200 35px var(--font-barlow-condensed);
+  --text-condensed-light-35: 300 35px var(--font-barlow-condensed);
   --text-condensed-semibold-25: 600 25px var(--font-barlow-condensed);
   --text-condensed-medium-25: 500 25px var(--font-barlow-condensed);
   --text-condensed-italic-25: 400 25px var(--font-barlow-condensed);
@@ -51,13 +53,20 @@
   --text-condensed-light-italic-15: 300 15px var(--font-barlow-condensed);
 
   /* ===== ESPACIADO ===== */
-  --spacing-xs: 0.25rem;   /* 4px */
-  --spacing-sm: 0.5rem;    /* 8px */
-  --spacing-md: 1rem;      /* 16px */
-  --spacing-lg: 1.5rem;    /* 24px */
-  --spacing-xl: 2rem;      /* 32px */
-  --spacing-2xl: 3rem;     /* 48px */
-  --spacing-3xl: 4rem;     /* 64px */
+  --spacing-xs: 0.25rem;
+  /* 4px */
+  --spacing-sm: 0.5rem;
+  /* 8px */
+  --spacing-md: 1rem;
+  /* 16px */
+  --spacing-lg: 1.5rem;
+  /* 24px */
+  --spacing-xl: 2rem;
+  /* 32px */
+  --spacing-2xl: 3rem;
+  /* 48px */
+  --spacing-3xl: 4rem;
+  /* 64px */
 
   /* ===== BORDES Y RADIOS ===== */
   --border-radius-sm: 4px;
@@ -91,17 +100,19 @@
 /* ===== TIPOGRAFÍA RESPONSIVE (MOBILE) ===== */
 @media (max-width: 768px) {
   :root {
-    /* Barlow Mobile */
+    /* Barlow Mobile - Equivalencias según la imagen */
     --text-barlow-bold-70: 700 75px var(--font-barlow);
     --text-barlow-extrabold-55: 800 70px var(--font-barlow);
+    --text-barlow-extrabold-40: 800 60px var(--font-barlow);
     --text-barlow-medium-20: 500 60px var(--font-barlow);
     --text-barlow-regular-15: 400 55px var(--font-barlow);
     --text-barlow-light-15: 300 55px var(--font-barlow);
 
-    /* Barlow Condensed Mobile */
+    /* Barlow Condensed Mobile - Equivalencias según la imagen */
     --text-condensed-bold-35: 700 60px var(--font-barlow-condensed);
     --text-condensed-light-italic-35: 300 60px var(--font-barlow-condensed);
     --text-condensed-extralight-35: 200 60px var(--font-barlow-condensed);
+    --text-condensed-light-35: 300 60px var(--font-barlow-condensed);
     --text-condensed-semibold-25: 600 60px var(--font-barlow-condensed);
     --text-condensed-medium-25: 500 60px var(--font-barlow-condensed);
     --text-condensed-italic-25: 400 60px var(--font-barlow-condensed);
@@ -200,19 +211,50 @@
 /* ===== CLASES UTILITARIAS PARA COLORES ===== */
 
 /* Colores de texto */
-.text-primary { color: var(--color-primary); }
-.text-secondary { color: var(--color-secondary); }
-.text-gray { color: var(--color-gray); }
-.text-accent { color: var(--color-accent); }
-.text-white { color: var(--color-white); }
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-gray {
+  color: var(--color-gray);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-white {
+  color: var(--color-white);
+}
 
 /* Colores de fondo */
-.bg-primary { background-color: var(--color-primary); }
-.bg-secondary { background-color: var(--color-secondary); }
-.bg-gray { background-color: var(--color-gray); }
-.bg-cream { background-color: var(--color-cream); }
-.bg-white { background-color: var(--color-white); }
-.bg-accent { background-color: var(--color-accent); }
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-gray {
+  background-color: var(--color-gray);
+}
+
+.bg-cream {
+  background-color: var(--color-cream);
+}
+
+.bg-white {
+  background-color: var(--color-white);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+}
 
 /* ===== RESET Y ESTILOS BASE ===== */
 * {
@@ -234,7 +276,12 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-weight: inherit;
 }
@@ -247,7 +294,9 @@ button {
   font-family: inherit;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: inherit;
 }
 

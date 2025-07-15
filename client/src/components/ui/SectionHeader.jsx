@@ -1,25 +1,28 @@
 import React from 'react';
-import './SectionHeaderLeft.css';
+import './SectionHeader.css';
 
-const SectionHeader = ({ 
-  title = "Our Institution", 
-  underlineColor = "accent",
-  textColor = "primary",
-  className = ""
+const SectionHeader = ({
+  title,
+  left,
+  extrabold,
+  whiteText,
+  marginLeft
 }) => {
   const containerClasses = [
-    'section-header-left',
-    underlineColor !== 'accent' ? `section-header-left--${underlineColor}` : '',
-    textColor !== 'primary' ? `section-header-left--text-${textColor}` : '',
-    className
+    'section-header',
+    left && 'section-header--left',
+    extrabold && 'section-header--extrabold',
+    whiteText && 'section-header--text-white'
   ].filter(Boolean).join(' ');
 
+  const customStyle = marginLeft && left ? { marginLeft: `${marginLeft}px` } : {};
+
   return (
-    <div className={containerClasses}>
-      <h2 className="section-header-left__title">
+    <div className={containerClasses} style={customStyle}>
+      <h2 className="section-header__title">
         {title}
       </h2>
-      <div className="section-header-left__underline"></div>
+      <div className="section-header__underline"></div>
     </div>
   );
 };
