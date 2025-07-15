@@ -19,7 +19,6 @@
     width: 260px;
     max-width: 100%;
     background-color: var(--color-accent);
-    border-radius: var(--border-radius-sm);
     margin: 0 auto;
 }
 
