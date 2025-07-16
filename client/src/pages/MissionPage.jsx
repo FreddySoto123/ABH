@@ -2,6 +2,7 @@ import React from 'react'
 import SectionHeader from '../components/ui/SectionHeader.jsx';
 import Description from '../components/Description.jsx';
 import useAcademia from '../hooks/useAcademia.js';
+import ReferenceImage from '../components/ReferenceImage.jsx';
 
 const MissionPage = () => {
     const { academiaData, loading, error } = useAcademia();
@@ -57,6 +58,9 @@ const MissionPage = () => {
             <Description
                 text={academiaData.mision_academia}
                 align='center'
+            />
+            <ReferenceImage
+                image="https://cdn.correodelsur.com/img/contents/images_980/2021/12/05/0ff5d7d7-eb9e-4abc-9661-1cea1675aef8.jpg"
             />
         </div>
     )

@@ -14,16 +14,39 @@ const ReferenceImage = ({
 }) => {
     const [showReference, setShowReference] = useState(false);
 
+    const hasReferenceData = useMemo(() => {
+        return autor || title || year;
+    }, [autor, title, year]);
+
+    const getValueOrDefault = useCallback((value, defaultValue = "Desconocido") => {
+        return value && value.trim() !== "" ? value : defaultValue;
+    }, []);
+
     const apa7Reference = useMemo(() => {
-        return `${autor}. (${year}). ${title} [${materiaType}]. ${font}. ${url}`;
-    }, [autor, year, title, materiaType, font, url]);
+        if (!hasReferenceData) {
+            return "No hay información disponible sobre la procedencia de esta imagen";
+        }
+
+        const authorValue = getValueOrDefault(autor);
+        const yearValue = getValueOrDefault(year);
+        const titleValue = getValueOrDefault(title);
+
+        return `${authorValue}. (${yearValue}). ${titleValue} [${materiaType}]. ${font}. ${url}`;
+    }, [autor, year, title, materiaType, font, url, hasReferenceData, getValueOrDefault]);
 
     const containerStyle = useMemo(() => ({
         width: `${width}px`,
         height: `${height}px`
     }), [width, height]);
 
-    const altText = useMemo(() => `${title} - ${autor}`, [title, autor]);
+    const altText = useMemo(() => {
+        if (!hasReferenceData) {
+            return "Imagen sin información de procedencia";
+        }
+        const titleValue = getValueOrDefault(title, "Imagen");
+        const authorValue = getValueOrDefault(autor, "Autor desconocido");
+        return `${titleValue} - ${authorValue}`;
+    }, [title, autor, hasReferenceData, getValueOrDefault]);
 
     const handleMouseEnter = useCallback(() => {
         setShowReference(true);
@@ -37,7 +60,7 @@ const ReferenceImage = ({
         setShowReference(prev => !prev);
     }, []);
 
-    if (!image || !autor || !title || !year) {
+    if (!image) {
         return null;
     }
 
@@ -57,7 +80,7 @@ const ReferenceImage = ({
                 className="reference-image__img"
             />
             <div className={overlayClasses}>
-                <p className="reference-image__text">
+                <p className={`reference-image__text ${!hasReferenceData ? 'reference-image__text--no-data' : ''}`}>
                     {apa7Reference}
                 </p>
             </div>
