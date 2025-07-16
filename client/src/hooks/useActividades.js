@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { actividadesService } from '../services/api';
 
 export const useActividades = () => {
@@ -86,7 +86,7 @@ export const useActividad = (id) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchActividad = async () => {
+  const fetchActividad = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -98,7 +98,7 @@ export const useActividad = (id) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
 
   useEffect(() => {
     if (id) {
