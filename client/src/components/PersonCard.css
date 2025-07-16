@@ -61,7 +61,6 @@
     height: 300px;
 }
 
-
 .person-card--no-title .person-card__image {
     margin-top: auto;
     margin-bottom: auto;
@@ -73,16 +72,13 @@
         height: auto;
         padding: 80px;
         max-width: 100%;
-        box-sizing: border-box;
     }
 
     .person-card__blue-line {
-        width: 100%;
         height: 20px;
     }
 
     .person-card__title {
-        font: var(--text-condensed-bold-35);
         line-height: 1.1;
         margin-bottom: var(--spacing-xl);
     }
@@ -90,12 +86,7 @@
     .person-card__image {
         width: min(250px, calc(500vw - 280px));
         height: min(250px, calc(500vw - 280px));
-        aspect-ratio: 1;
-        object-fit: cover;
-        object-position: center;
         margin-bottom: var(--spacing-xl);
-        display: block;
-        flex-shrink: 0;
     }
 
     .person-card__name {
@@ -108,22 +99,5 @@
         width: 700px;
         height: auto;
         max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    .person-card--card-mode .person-card__blue-line {
-        width: 100%;
-    }
-
-    .person-card--card-mode .person-card__image {
-        width: min(250px, calc(500vw - 280px));
-        height: min(250px, calc(500vw - 280px));
-        aspect-ratio: 1;
-        flex-shrink: 0;
-    }
-
-    .person-card--no-title .person-card__image {
-        margin-top: auto;
-        margin-bottom: auto;
     }
 }

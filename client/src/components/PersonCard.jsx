@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import './PersonCard.css';
 
 const PersonCard = ({
@@ -7,20 +7,33 @@ const PersonCard = ({
     image,
     cardMode
 }) => {
-    // Validate props to prevent React errors
+    const containerClasses = useMemo(() => {
+        const classes = ['person-card'];
+
+        if (cardMode) {
+            classes.push('person-card--card-mode');
+        }
+
+        if (!title) {
+            classes.push('person-card--no-title');
+        }
+
+        return classes.join(' ');
+    }, [cardMode, title]);
+
+    const altText = useMemo(() =>
+        title ? `${title} - ${name}` : name,
+        [title, name]
+    );
+
     if (!name || !image) {
-        console.warn('PersonCard: Missing required props');
+        console.warn('PersonCard: Missing required props - name and image are required');
         return null;
     }
-    const containerClasses = [
-        'person-card',
-        cardMode && 'person-card--card-mode',
-        !title && 'person-card--no-title'
-    ].filter(Boolean).join(' ');
 
     return (
         <div className={containerClasses}>
-            <div className="person-card__blue-line"></div>
+            <div className="person-card__blue-line" />
             {title && (
                 <h3 className="person-card__title">
                     {title}
@@ -28,7 +41,7 @@ const PersonCard = ({
             )}
             <img
                 src={image}
-                alt={name}
+                alt={altText}
                 className="person-card__image"
             />
             <p className="person-card__name">
