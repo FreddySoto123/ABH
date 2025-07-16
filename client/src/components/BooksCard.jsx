@@ -28,7 +28,7 @@ const BooksCard = ({
             />
             <div className={containerClassestexto}>
                 <p className="books-card__tittle">
-                {tittle}
+                    {tittle}
                 </p>
                 <p className="books-card__author">
                     {author}

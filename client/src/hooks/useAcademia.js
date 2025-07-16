@@ -12,7 +12,7 @@ const useAcademia = () => {
       setLoading(true);
       setError(null);
       const response = await academiaService.getInfo();
-      
+
       // Verificar si la respuesta tiene datos válidos
       if (response && response.data) {
         // Ensure all fields are strings to prevent React #130 error
@@ -35,7 +35,7 @@ const useAcademia = () => {
     } catch (err) {
       setError(err.message);
       console.error('Error al obtener información de la academia:', err);
-      
+
       // En caso de error, establecer datos por defecto
       setAcademiaData({
         telefono_academia: '(+591) 65164240',

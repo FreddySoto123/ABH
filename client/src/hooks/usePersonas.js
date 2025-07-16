@@ -41,8 +41,8 @@ export const usePersonas = () => {
     try {
       const response = await personasService.update(id, personaData);
       if (response.success) {
-        setPersonas(prev => 
-          prev.map(persona => 
+        setPersonas(prev =>
+          prev.map(persona =>
             persona.id_persona === id ? response.data : persona
           )
         );
@@ -96,7 +96,7 @@ export const useGradosYTipos = () => {
     try {
       setLoading(true);
       setError(null);
-      
+
       const [gradosResponse, tiposResponse] = await Promise.all([
         personasService.getGrados(),
         personasService.getTiposPersona(),

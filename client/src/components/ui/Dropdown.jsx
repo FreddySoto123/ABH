@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import "./Dropdown.css";
 
-function Dropdown({ 
-  label, 
-  href, 
-  dropdownItems = [], 
+function Dropdown({
+  label,
+  href,
+  dropdownItems = [],
   onLinkClick,
   className = "",
   showArrow = true,
@@ -59,7 +59,7 @@ function Dropdown({
   };
 
   return (
-    <li 
+    <li
       className={`dropdown-container ${className} ${isMobile ? 'dropdown-container--mobile' : ''}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -77,7 +77,7 @@ function Dropdown({
           </span>
         )}
       </a>
-      
+
       {dropdownItems.length > 0 && isOpen && (
         <ul className={`dropdown-menu ${isMobile ? 'dropdown-menu--mobile' : ''}`}>
           {dropdownItems.map((item, index) => (

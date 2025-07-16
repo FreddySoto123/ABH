@@ -1,16 +1,16 @@
 import React from 'react';
 import './Button.css';
 
-const Button = ({ 
-  children, 
-  variant = 'primary', 
-  size = 'medium', 
+const Button = ({
+  children,
+  variant = 'primary',
+  size = 'medium',
   disabled = false,
   loading = false,
   onClick,
   type = 'button',
   className = '',
-  ...props 
+  ...props
 }) => {
   // Validate children to prevent React #130 error
   if (typeof children === 'object' && children !== null && !React.isValidElement(children)) {

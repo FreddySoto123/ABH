@@ -11,7 +11,7 @@ const Card = ({ title, description, date, imageUrl, cardMode }) => {
   const cardClasses = [
     'card-custom',
     hasImage ? 'card-custom--with-image' : 'card-custom--no-image',
-    cardMode && 'card-custom--card-mode' 
+    cardMode && 'card-custom--card-mode'
   ].filter(Boolean).join(' ');
 
   return (
