@@ -4,10 +4,10 @@ import './ReferenceImage.css';
 const ReferenceImage = ({
     image,
     autor,
-    titulo,
-    año,
-    tipoMaterial = "Fotografía",
-    fuente = "Archivo visual de la Academia Boliviana de Historia Militar",
+    title,
+    year,
+    materiaType = "Fotografía",
+    font = "Archivo visual de la Academia Boliviana de Historia Militar",
     url = "https://abhm.bo/imagenes/",
     width = 350,
     height = 350
@@ -15,15 +15,15 @@ const ReferenceImage = ({
     const [showReference, setShowReference] = useState(false);
 
     const apa7Reference = useMemo(() => {
-        return `${autor}. (${año}). ${titulo} [${tipoMaterial}]. ${fuente}. ${url}`;
-    }, [autor, año, titulo, tipoMaterial, fuente, url]);
+        return `${autor}. (${year}). ${title} [${materiaType}]. ${font}. ${url}`;
+    }, [autor, year, title, materiaType, font, url]);
 
     const containerStyle = useMemo(() => ({
         width: `${width}px`,
         height: `${height}px`
     }), [width, height]);
 
-    const altText = useMemo(() => `${titulo} - ${autor}`, [titulo, autor]);
+    const altText = useMemo(() => `${title} - ${autor}`, [title, autor]);
 
     const handleMouseEnter = useCallback(() => {
         setShowReference(true);
@@ -37,7 +37,7 @@ const ReferenceImage = ({
         setShowReference(prev => !prev);
     }, []);
 
-    if (!image || !autor || !titulo || !año) {
+    if (!image || !autor || !title || !year) {
         return null;
     }
 

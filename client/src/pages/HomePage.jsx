@@ -76,9 +76,11 @@ Se realizó en el salón principal con la presencia de académicos e invitados e
       <ReferenceImage
         image="https://elpotosi.net/img/contents/images_640/2019/07/05/nota78230_imagen69636.jpg"
         autor="López, R."
-        titulo="Tropa boliviana avanzando en el Chaco boreal"
+        title="Tropa boliviana avanzando en el Chaco boreal"
         url="https://elpotosi.net"
-        año="1934"
+        year="1934"
+        width={800}
+        height={600}
       />
       <Footer />
     </div>
