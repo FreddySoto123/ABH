@@ -2,30 +2,31 @@
 
 :root {
   /* ===== PALETA DE COLORES ===== */
-  --color-primary: #1A365D;
-  --color-secondary: #2C3E50;
-  --color-gray: #7C7C7C;
-  --color-cream: #F4F1E8;
-  --color-white: #FFFFFF;
-  --color-accent: #D9AB2C;
+  --color-primary: #1a365d;
+  --color-secondary: #2c3e50;
+  --color-gray: #7c7c7c;
+  --color-cream: #f4f1e8;
+  --color-white: #ffffff;
+  --color-accent: #d9ab2c;
 
   /* Variaciones de colores para estados */
-  --color-primary-light: #2A4A6B;
-  --color-primary-dark: #0F1F2F;
-  --color-secondary-light: #34495E;
-  --color-secondary-dark: #1B252F;
-  --color-accent-light: #E6C456;
-  --color-accent-dark: #B8941F;
+  --color-primary-light: #2a4a6b;
+  --color-primary-dark: #0f1f2f;
+  --color-secondary-light: #34495e;
+  --color-secondary-dark: #1b252f;
+  --color-accent-light: #e6c456;
+  --color-accent-dark: #b8941f;
+  --color-accent-opacity: rgba(217, 171, 44, 0.4);
 
   /* Colores de estado */
-  --color-success: #10B981;
-  --color-error: #EF4444;
-  --color-warning: #F59E0B;
-  --color-info: #3B82F6;
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
 
   /* ===== FUENTES ===== */
-  --font-barlow: 'Barlow', sans-serif;
-  --font-barlow-condensed: 'Barlow Condensed', sans-serif;
+  --font-barlow: "Barlow", sans-serif;
+  --font-barlow-condensed: "Barlow Condensed", sans-serif;
 
   /* ===== TIPOGRAFÍA DESKTOP - TAMAÑOS NORMALES ===== */
   /* Barlow */
@@ -63,12 +64,22 @@
   /* Era 25px */
   --text-condensed-semibold-20: 600 18px var(--font-barlow-condensed);
   /* Era 20px */
+  --text-condensed-semibold-15: 600 15px var(--font-barlow-condensed);
+  /* Es 15 */
   --text-condensed-medium-20: 500 18px var(--font-barlow-condensed);
   /* Era 20px */
+  --text-condensed-medium-22: 500 22px var(--font-barlow-condensed);
+  /* Es 18px */
+  --text-condensed-medium-15: 500 15px var(--font-barlow-condensed);
+  /* Es 15px */
   --text-condensed-regular-20: 400 18px var(--font-barlow-condensed);
   /* Era 20px */
   --text-condensed-light-20: 300 18px var(--font-barlow-condensed);
   /* Era 20px */
+  --text-condensed-light-15: 300 15px var(--font-barlow-condensed);
+  /* Es 15px */
+  --text-condensed-light-14: 300 14px var(--font-barlow-condensed);
+  /* Es 12px */
   --text-condensed-light-italic-15: 300 14px var(--font-barlow-condensed);
   /* Era 15px */
 
@@ -163,6 +174,13 @@
     /* Era 60px */
     --text-condensed-light-italic-15: 300 14px var(--font-barlow-condensed);
     /* Era 55px */
+    --text-condensed-medium-22: 500 18px var(--font-barlow-condensed);  
+  }
+}
+
+@media (max-width: 480px) {
+  :root {    
+    --text-condensed-medium-22: 500 16px var(--font-barlow-condensed);  
   }
 }
 
