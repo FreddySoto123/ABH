@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import "./Dropdown.css";
 
@@ -13,6 +13,7 @@ function Dropdown({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const dropdownRef = useRef(null);
 
   // Detectar si estamos en vista móvil
   useEffect(() => {
@@ -25,6 +26,23 @@ function Dropdown({
 
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Cerrar dropdown al hacer clic fuera
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   const handleMouseEnter = () => {
     if (!isMobile) {
@@ -40,11 +58,9 @@ function Dropdown({
 
   const handleMainLinkClick = (e) => {
     if (isMobile && dropdownItems.length > 0) {
-      // En móvil, si tiene dropdown, prevenir navegación y toggle el dropdown
       e.preventDefault();
       setIsOpen(!isOpen);
     } else {
-      // En desktop o si no tiene dropdown, navegar normalmente
       if (onLinkClick) {
         onLinkClick(e);
       }
@@ -58,8 +74,41 @@ function Dropdown({
     }
   };
 
+  // Manejo de teclado para accesibilidad
+  const handleKeyDown = (e) => {
+    if (dropdownItems.length === 0) return;
+
+    switch (e.key) {
+      case 'Enter':
+      case ' ':
+        if (isMobile) {
+          e.preventDefault();
+          setIsOpen(!isOpen);
+        }
+        break;
+      case 'Escape':
+        setIsOpen(false);
+        break;
+      case 'ArrowDown':
+        if (!isOpen) {
+          e.preventDefault();
+          setIsOpen(true);
+        }
+        break;
+      case 'ArrowUp':
+        if (isOpen) {
+          e.preventDefault();
+          setIsOpen(false);
+        }
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <li
+      ref={dropdownRef}
       className={`dropdown-container ${className} ${isMobile ? 'dropdown-container--mobile' : ''}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -69,23 +118,37 @@ function Dropdown({
         href={href}
         className={`dropdown-main-link ${isMobile && dropdownItems.length > 0 ? 'dropdown-main-link--mobile-toggle' : ''}`}
         onClick={handleMainLinkClick}
+        onKeyDown={handleKeyDown}
+        role={dropdownItems.length > 0 ? "button" : "link"}
+        aria-expanded={dropdownItems.length > 0 ? isOpen : undefined}
+        aria-haspopup={dropdownItems.length > 0 ? "menu" : undefined}
+        tabIndex="0"
       >
         {label}
         {showArrow && dropdownItems.length > 0 && (
-          <span className="dropdown-arrow">
+          <span
+            className={`dropdown-arrow ${isOpen ? 'dropdown-arrow--open' : ''}`}
+            aria-hidden="true"
+          >
             {isOpen ? <FiChevronUp size={16} /> : <FiChevronDown size={16} />}
           </span>
         )}
       </a>
 
       {dropdownItems.length > 0 && isOpen && (
-        <ul className={`dropdown-menu ${isMobile ? 'dropdown-menu--mobile' : ''}`}>
+        <ul
+          className={`dropdown-menu ${isMobile ? 'dropdown-menu--mobile' : ''}`}
+          role="menu"
+          aria-label={`Submenú de ${label}`}
+        >
           {dropdownItems.map((item, index) => (
-            <li key={index}>
+            <li key={index} role="none">
               <a
                 href={item.href}
                 className="dropdown-link"
                 onClick={handleDropdownLinkClick}
+                role="menuitem"
+                tabIndex="0"
               >
                 {item.label}
               </a>

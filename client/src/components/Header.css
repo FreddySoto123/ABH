@@ -6,7 +6,7 @@
   color: var(--color-white);
   box-shadow: var(--shadow-sm);
   position: relative;
-  border-bottom: 4px solid var(--color-accent);
+  border-bottom: 4px solid var(--color-accent-opacity);
 }
 
 .header-top {
@@ -45,11 +45,11 @@
   align-items: start;
   gap: var(--spacing-xs);
   color: var(--color-white);
-  font: var(--text-barlow-light-15);
+  font: var(--text-condensed-light-14);
 }
 
 .contact-item__title {
-  font: var(--text-condensed-semibold-20);
+  font: var(--text-condensed-semibold-15);
   color: var(--color-accent);
 }
 
@@ -86,7 +86,7 @@
 }
 
 .academy-title {
-  font: var(--text-barlow-medium-20);
+  font: var(--text-condensed-medium-22);
   line-height: 1.2;
   margin: 0;
   color: var(--color-white);
@@ -125,7 +125,7 @@
 }
 
 .navbar-item {
-  position: relative;
+  position: relative;  
 }
 
 .navbar-link {
@@ -135,7 +135,6 @@
   padding: var(--spacing-md) var(--spacing-lg);
   color: var(--color-white);
   text-decoration: none;
-  font: var(--text-condensed-medium-20);
   letter-spacing: 0.5px;
   transition: var(--transition-normal);
   position: relative;
@@ -145,7 +144,7 @@
 
 .navbar-link:hover {
   background: rgba(255, 255, 255, 0.1);
-  color: var(--color-accent);
+  color: var(--color-accent);  
 }
 
 .header-loading,
@@ -215,7 +214,7 @@
   }
 
   .academy-title {
-    font: var(--text-barlow-regular-15);
+    font: var(--text-condensed-medium-22);
     line-height: 1.3;
   }
 
@@ -333,7 +332,7 @@
   }
 
   .academy-title {
-    font: var(--text-barlow-light-15);
+    font: var(--text-condensed-medium-22);
   }
 
   .logo-image {

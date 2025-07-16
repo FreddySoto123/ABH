@@ -135,7 +135,7 @@
   padding: var(--spacing-md) var(--spacing-lg);
   color: var(--color-white);
   text-decoration: none;
-  font: var(--text-condensed-medium-20);
+  font: var(--text-condensed-medium-15);
   letter-spacing: 0.5px;
   transition: var(--transition-normal);
   position: relative;
@@ -387,15 +387,17 @@
   padding: var(--spacing-md) var(--spacing-lg);
   color: var(--color-white);
   text-decoration: none;
-  font: var(--text-condensed-medium-20);
+  font: var(--text-condensed-medium-15);
   letter-spacing: 0.5px;
   transition: var(--transition-normal);
   position: relative;
   text-transform: uppercase;
   white-space: nowrap;
+  outline: none;
 }
 
-.dropdown-main-link:hover {
+.dropdown-main-link:hover,
+.dropdown-main-link:focus {
   background: rgba(255, 255, 255, 0.1);
   color: var(--color-accent);
 }
@@ -405,7 +407,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition-normal);
+  transition: transform var(--transition-normal);
+}
+
+/* Rotación de la flecha basada en el estado */
+.dropdown-arrow--open {
+  transform: rotate(180deg);
 }
 
 .dropdown-menu {
@@ -420,20 +427,36 @@
   padding: 0;
   margin: 0;
   border-top: 4px solid var(--color-accent);
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: dropdownFadeIn 0.2s ease-out forwards;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dropdown-menu li a {
   color: var(--color-white);
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-md);
   text-decoration: none;
   display: block;
   text-align: left;
-  font: var(--text-condensed-light-20);
+  font: var(--text-condensed-light-14);
   border-bottom: 1px solid rgba(124, 124, 124, 0.4);
   transition: var(--transition-fast);
+  outline: none;
 }
 
-.dropdown-menu li a:hover {
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -463,7 +486,7 @@
   .dropdown-arrow {
     margin-left: auto;
     margin-right: 0;
-    transition: var(--transition-normal);
+    transition: transform var(--transition-normal);
   }
 
   .dropdown-menu {
@@ -478,7 +501,9 @@
     margin-bottom: var(--spacing-sm);
     border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
     overflow: hidden;
-    animation: slideDown var(--transition-normal) ease-out;
+    max-height: 0;
+    opacity: 0;
+    animation: slideDownMobile 0.3s ease-out forwards;
   }
 
   .dropdown-menu--mobile {
@@ -496,19 +521,19 @@
     border-bottom: none;
   }
 
-  .dropdown-menu li a:hover {
+  .dropdown-menu li a:hover,
+  .dropdown-menu li a:focus {
     background-color: rgba(255, 255, 255, 0.08);
     padding-left: calc(var(--spacing-md) + var(--spacing-xs));
   }
 
-  /* Animación para el dropdown móvil */
-  @keyframes slideDown {
+  /* Animación mejorada para el dropdown móvil */
+  @keyframes slideDownMobile {
     from {
       opacity: 0;
       max-height: 0;
       transform: translateY(-10px);
     }
-
     to {
       opacity: 1;
       max-height: 500px;
@@ -516,20 +541,15 @@
     }
   }
 
-  /* Efecto de rotación para la flecha */
-  .dropdown-container--mobile .dropdown-arrow {
-    transform: rotate(0deg);
-  }
-
-  .dropdown-container--mobile .dropdown-main-link:active .dropdown-arrow,
-  .dropdown-container--mobile .dropdown-main-link:focus .dropdown-arrow {
+  /* Rotación de la flecha en móvil */
+  .dropdown-container--mobile .dropdown-arrow--open {
     transform: rotate(180deg);
   }
 }
 
 @media (max-width: 480px) {
   .dropdown-main-link {
-    font: var(--text-condensed-light-20);
+    font: var(--text-condensed-medium-15);
     padding: var(--spacing-sm) var(--spacing-md);
   }
 
@@ -541,5 +561,32 @@
   .dropdown-menu li a {
     padding: var(--spacing-sm) var(--spacing-md);
     font: var(--text-condensed-light-italic-15);
+  }
+}
+
+/* Mejoras de accesibilidad */
+.dropdown-main-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.dropdown-menu li a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+/* Transiciones suaves para todos los estados */
+.dropdown-container * {
+  transition: all var(--transition-fast) ease;
+}
+
+/* Mejora del contraste para accesibilidad */
+@media (prefers-contrast: high) {
+  .dropdown-menu {
+    border: 2px solid var(--color-white);
+  }
+  
+  .dropdown-menu li a {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
   }
 }
