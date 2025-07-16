@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import './ReferenceImage.css';
 
 const ReferenceImage = ({
@@ -14,35 +14,34 @@ const ReferenceImage = ({
 }) => {
     const [showReference, setShowReference] = useState(false);
 
+    const apa7Reference = useMemo(() => {
+        return `${autor}. (${año}). ${titulo} [${tipoMaterial}]. ${fuente}. ${url}`;
+    }, [autor, año, titulo, tipoMaterial, fuente, url]);
+
+    const containerStyle = useMemo(() => ({
+        width: `${width}px`,
+        height: `${height}px`
+    }), [width, height]);
+
+    const altText = useMemo(() => `${titulo} - ${autor}`, [titulo, autor]);
+
+    const handleMouseEnter = useCallback(() => {
+        setShowReference(true);
+    }, []);
+
+    const handleMouseLeave = useCallback(() => {
+        setShowReference(false);
+    }, []);
+
+    const handleClick = useCallback(() => {
+        setShowReference(prev => !prev);
+    }, []);
+
     if (!image || !autor || !titulo || !año) {
         return null;
     }
 
-    const generateAPA7Reference = () => {
-        return `${autor}. (${año}). ${titulo} [${tipoMaterial}]. ${fuente}. ${url}`;
-    };
-
-    const handleMouseEnter = () => {
-        setShowReference(true);
-    };
-
-    const handleMouseLeave = () => {
-        setShowReference(false);
-    };
-
-    const handleTouchStart = () => {
-        setShowReference(!showReference);
-    };
-
-    const containerStyle = {
-        width: `${width}px`,
-        height: `${height}px`
-    };
-
-    const overlayClasses = [
-        'reference-image__overlay',
-        showReference && 'reference-image__overlay--visible'
-    ].filter(Boolean).join(' ');
+    const overlayClasses = `reference-image__overlay ${showReference ? 'reference-image__overlay--visible' : ''}`.trim();
 
     return (
         <div
@@ -50,16 +49,16 @@ const ReferenceImage = ({
             style={containerStyle}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onTouchStart={handleTouchStart}
+            onClick={handleClick}
         >
             <img
                 src={image}
-                alt={`${titulo} - ${autor}`}
+                alt={altText}
                 className="reference-image__img"
             />
             <div className={overlayClasses}>
                 <p className="reference-image__text">
-                    {generateAPA7Reference()}
+                    {apa7Reference}
                 </p>
             </div>
         </div>
