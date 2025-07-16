@@ -22,7 +22,7 @@ function Footer() {
     return (
       <div className="footer-container">
         <div className="footer-error">
-          <p>Error al cargar la información: {error}</p>
+          <p>Error al cargar la información: {String(error)}</p>
         </div>
       </div>
     );
@@ -130,14 +130,14 @@ function Footer() {
             <div className="footer-item">
               <FiClock size={18} />
               <div className="footer-item-text">
-                <span>{academiaData.horario_academia || "09:00 a 12:00"}</span>
+                <span>{academiaData?.horario_academia || "09:00 a 12:00"}</span>
               </div>
             </div>
             <div className="footer-item">
               <FiPhone size={18} />
               <div className="footer-item-text">
                 <span>
-                  {academiaData.telefono_academia || "(+591) 65164240"}
+                  {academiaData?.telefono_academia || "(+591) 65164240"}
                 </span>
               </div>
             </div>
@@ -145,7 +145,7 @@ function Footer() {
               <FiMail size={18} />
               <div className="footer-item-text">
                 <span>
-                  {academiaData.email_academia ||
+                  {academiaData?.email_academia ||
                     "info@academiahistoriamilitar.com"}
                 </span>
               </div>

@@ -1,3 +1,4 @@
+import React from 'react';
 import './Button.css';
 
 const Button = ({ 
@@ -11,6 +12,11 @@ const Button = ({
   className = '',
   ...props 
 }) => {
+  // Validate children to prevent React #130 error
+  if (typeof children === 'object' && children !== null && !React.isValidElement(children)) {
+    console.warn('Button: Invalid children prop, expected string or React element');
+    return null;
+  }
   const buttonClass = [
     'btn',
     `btn--${variant}`,

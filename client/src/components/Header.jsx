@@ -43,7 +43,7 @@
       return (
         <div className="header-container">
           <div className="header-error">
-            <p>Error al cargar la información: {error}</p>
+            <p>Error al cargar la información: {String(error)}</p>
           </div>
         </div>
       );
@@ -86,9 +86,9 @@
                 <FiPhone size={18} />
                 <div className="contact-item">
                   <span className="contact-item__title">
-                    Llamanos: {academiaData.telefono_academia}
+                    Llamanos: {academiaData?.telefono_academia || '(+591) 65164240'}
                   </span>
-                  <span>E-mail: {academiaData.email_academia}</span>
+                  <span>E-mail: {academiaData?.email_academia || 'info@academiahistoriamilitar.com'}</span>
                 </div>
               </div>
               <div className="schedule-info">
@@ -97,7 +97,7 @@
                   <span className="contact-item__title">
                     Horario de atención:
                   </span>
-                  <span>{academiaData.horario_academia}</span>
+                  <span>{academiaData?.horario_academia || '09:00 a 12:00'}</span>
                 </div>
               </div>
             </div>
@@ -146,9 +146,9 @@
                   <FiPhone size={18} />
                   <div className="contact-item">
                     <span className="contact-item__title">
-                      Llamanos: {academiaData.telefono_academia}
+                      Llamanos: {academiaData?.telefono_academia || '(+591) 65164240'}
                     </span>
-                    <span>E-mail: {academiaData.email_academia}</span>
+                    <span>E-mail: {academiaData?.email_academia || 'info@academiahistoriamilitar.com'}</span>
                   </div>
                 </div>
                 <div className="schedule-info">
@@ -157,7 +157,7 @@
                     <span className="contact-item__title">
                       Horario de atención:
                     </span>
-                    <span>{academiaData.horario_academia}</span>
+                    <span>{academiaData?.horario_academia || '09:00 a 12:00'}</span>
                   </div>
                 </div>
               </div>

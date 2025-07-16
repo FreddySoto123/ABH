@@ -7,6 +7,11 @@ const BooksCard = ({
     author,
     fecha
 }) => {
+    // Validate props to prevent React errors
+    if (!image || !tittle || !author || !fecha) {
+        console.warn('BooksCard: Missing required props');
+        return null;
+    }
     const containerClasses = [
         'books-card',
     ].filter(Boolean).join(' ');

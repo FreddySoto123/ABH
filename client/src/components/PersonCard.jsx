@@ -7,6 +7,11 @@ const PersonCard = ({
     image,
     cardMode
 }) => {
+    // Validate props to prevent React errors
+    if (!name || !image) {
+        console.warn('PersonCard: Missing required props');
+        return null;
+    }
     const containerClasses = [
         'person-card',
         cardMode && 'person-card--card-mode',

@@ -12,10 +12,37 @@ const useAcademia = () => {
       setLoading(true);
       setError(null);
       const response = await academiaService.getInfo();
-      setAcademiaData(response.data || null);
+      
+      // Verificar si la respuesta tiene datos válidos
+      if (response && response.data) {
+        // Ensure all fields are strings to prevent React #130 error
+        const sanitizedData = {
+          telefono_academia: String(response.data.telefono_academia || '(+591) 65164240'),
+          email_academia: String(response.data.email_academia || 'info@academiahistoriamilitar.com'),
+          horario_academia: String(response.data.horario_academia || '09:00 a 12:00'),
+          nombre_academia: String(response.data.nombre_academia || 'Academia Boliviana de Historia Militar')
+        };
+        setAcademiaData(sanitizedData);
+      } else {
+        // Si no hay datos, establecer datos por defecto
+        setAcademiaData({
+          telefono_academia: '(+591) 65164240',
+          email_academia: 'info@academiahistoriamilitar.com',
+          horario_academia: '09:00 a 12:00',
+          nombre_academia: 'Academia Boliviana de Historia Militar'
+        });
+      }
     } catch (err) {
       setError(err.message);
       console.error('Error al obtener información de la academia:', err);
+      
+      // En caso de error, establecer datos por defecto
+      setAcademiaData({
+        telefono_academia: '(+591) 65164240',
+        email_academia: 'info@academiahistoriamilitar.com',
+        horario_academia: '09:00 a 12:00',
+        nombre_academia: 'Academia Boliviana de Historia Militar'
+      });
     } finally {
       setLoading(false);
     }

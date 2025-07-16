@@ -1,6 +1,11 @@
-import './InformationCard.css';import './InformationCard.css';
+import './InformationCard.css';
 
 const Card = ({ title, description, date, imageUrl, cardMode }) => {
+  // Validate props to prevent React errors
+  if (!title || !description) {
+    console.warn('InformationCard: Missing required props');
+    return null;
+  }
   const hasImage = Boolean(imageUrl);
   const hasDate = Boolean(date);
   const cardClasses = [
