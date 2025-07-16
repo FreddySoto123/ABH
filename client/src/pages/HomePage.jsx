@@ -1,16 +1,13 @@
-import Header from '../components/Header';
 import SectionHeader from '../components/ui/SectionHeader.jsx';
 import PersonCard from '../components/PersonCard.jsx';
 import BooksCard from '../components/BooksCard.jsx';
 import InformationCard from '../components/InformationCard.jsx';
-import Footer from '../components/Footer.jsx';
 import ReferenceImage from '../components/ReferenceImage.jsx';
 import Description from '../components/Description.jsx';
 
 function HomePage() {
   return (
     <div>
-      <Header />
       <SectionHeader title="Direccion Academica" />
 
       <SectionHeader title="Nuestra Institución" left={true} />
@@ -88,7 +85,6 @@ Se realizó en el salón principal con la presencia de académicos e invitados e
         text="*La Academia Boliviana de Historia Militar* es un organismo oficial de investigación y difusión histórica y cultural de las FFAA, fue creada mediante Decreto Supremo Nº 16469 del 17 de mayo de 1979. En el año 1981 se comienza a editar y publicar la gaceta académica de la Academia Boliviana de Historia Militar, hubo una paralización de casi dos décadas en las publicaciones de la gaceta y en junio del año 2000 se logra reeditar esta acogida publicación en su segunda época."
         align="justify"
       />
-      <Footer />
     </div>
   )
 }

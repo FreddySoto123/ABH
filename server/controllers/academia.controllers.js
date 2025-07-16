@@ -50,8 +50,31 @@ export const updateAcademiaInfo = async (req, res) => {
       telefono_academia
     } = req.body;
 
-    // Validación básica
-    if (!nombre_academia || !email_academia || !telefono_academia) {
+    // Obtener datos actuales para mantener valores existentes
+    const [currentData] = await pool.query('SELECT * FROM Academia WHERE id_academia = 1');
+    
+    if (currentData.length === 0) {
+      return res.status(404).json({
+        success: false,
+        error: 'Academia no encontrada'
+      });
+    }
+
+    const current = currentData[0];
+
+    // Usar valores actuales si no se proporcionan nuevos
+    const updatedData = {
+      nombre_academia: nombre_academia || current.nombre_academia,
+      mision_academia: mision_academia !== undefined ? mision_academia : current.mision_academia,
+      vision_academia: vision_academia !== undefined ? vision_academia : current.vision_academia,
+      historia_academia: historia_academia !== undefined ? historia_academia : current.historia_academia,
+      horario_academia: horario_academia !== undefined ? horario_academia : current.horario_academia,
+      email_academia: email_academia || current.email_academia,
+      telefono_academia: telefono_academia || current.telefono_academia
+    };
+
+    // Validación básica con valores finales
+    if (!updatedData.nombre_academia || !updatedData.email_academia || !updatedData.telefono_academia) {
       return res.status(400).json({
         success: false,
         error: 'Nombre, email y teléfono son requeridos'
@@ -80,13 +103,13 @@ export const updateAcademiaInfo = async (req, res) => {
         telefono_academia = ?
       WHERE id_academia = 1
     `, [
-      nombre_academia,
-      mision_academia || null,
-      vision_academia || null,
-      historia_academia || null,
-      horario_academia || null,
-      email_academia,
-      telefono_academia
+      updatedData.nombre_academia,
+      updatedData.mision_academia,
+      updatedData.vision_academia,
+      updatedData.historia_academia,
+      updatedData.horario_academia,
+      updatedData.email_academia,
+      updatedData.telefono_academia
     ]);
 
     // Obtener la información actualizada

@@ -20,7 +20,8 @@ const useAcademia = () => {
           telefono_academia: String(response.data.telefono_academia || '(+591) 65164240'),
           email_academia: String(response.data.email_academia || 'info@academiahistoriamilitar.com'),
           horario_academia: String(response.data.horario_academia || '09:00 a 12:00'),
-          nombre_academia: String(response.data.nombre_academia || 'Academia Boliviana de Historia Militar')
+          nombre_academia: String(response.data.nombre_academia || 'Academia Boliviana de Historia Militar'),
+          mision_academia: response.data.mision_academia ? String(response.data.mision_academia) : null
         };
         setAcademiaData(sanitizedData);
       } else {

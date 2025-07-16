@@ -1,8 +1,53 @@
 import React from 'react'
 import SectionHeader from '../components/ui/SectionHeader.jsx';
 import Description from '../components/Description.jsx';
+import useAcademia from '../hooks/useAcademia.js';
 
 const MissionPage = () => {
+    const { academiaData, loading, error } = useAcademia();
+
+    if (loading) {
+        return (
+            <div>
+                <SectionHeader
+                    title="Misión"
+                    extrabold={true}
+                />
+                <div className="text-center p-8">
+                    <p>Cargando misión...</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div>
+                <SectionHeader
+                    title="Misión"
+                    extrabold={true}
+                />
+                <div className="text-center p-8">
+                    <p className="text-red-600">Error al cargar la misión: {error}</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (!academiaData?.mision_academia) {
+        return (
+            <div>
+                <SectionHeader
+                    title="Misión"
+                    extrabold={true}
+                />
+                <div className="text-center p-8">
+                    <p>No se encontró información sobre la misión.</p>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div>
             <SectionHeader
@@ -10,7 +55,7 @@ const MissionPage = () => {
                 extrabold={true}
             />
             <Description
-                text="“La Academia Boliviana de Historia Militar coordina y fomenta la investigación historiográfica en las FF.AA. con rigor documental y bases científicas, durante todo el proceso de formación, capacitación y especialización militar, para crear la cultura histórica, cívica y patriótica en el personal militar, a fin de formar ciudadanos con identificación y conciencia nacional y alto compromiso con la Patria, aptos para defenderla y apoyar activa  y decididamente a su desarrollo”."
+                text={academiaData.mision_academia}
                 align='center'
             />
         </div>
