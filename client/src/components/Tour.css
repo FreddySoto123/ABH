@@ -1,0 +1,128 @@
+@import '../styles/root.css';
+
+.tour-card {
+  width: 1280px;
+  max-width: 100%;
+  height: 720px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.tour-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.tour-card__background {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.tour-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl);
+  box-sizing: border-box;
+}
+
+.tour-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  gap: var(--spacing-xl);
+}
+
+.tour-card__title {
+  font: var(--text-barlow-bold-70);
+  color: var(--color-white);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.tour-card__play-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.tour-card__play-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-xl);
+}
+
+.tour-card__play-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-white);
+  margin-left: 6px;
+}
+
+.tour-card__description {
+  font: var(--text-barlow-medium-20);
+  color: var(--color-white);
+  margin: 0;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .tour-card {
+    width: 100%;
+    height: 400px;
+  }
+
+  .tour-card__overlay {
+    padding: var(--spacing-lg);
+  }
+
+  .tour-card__content {
+    gap: var(--spacing-lg);
+  }
+
+  .tour-card__title {
+    font: var(--text-barlow-bold-70);
+  }
+
+  .tour-card__play-button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .tour-card__play-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 3px;
+  }
+
+  .tour-card__description {
+    font: var(--text-barlow-medium-20);
+  }
+}
