@@ -85,12 +85,8 @@ Se realizó en el salón principal con la presencia de académicos e invitados e
       />
 
       <Description
-        text="<li>Las *FF.AA.*</li> de la Nación tienen una grave responsabilidad ante la *posteridad*, pues no cuenta hasta la fecha, de una Historia Militar de BOLIVIA, oficialmente escrita.
-      Lo que se ha escrito hasta ahora en el ámbito nacional, no ha sido la expresión de la verdad, sino el producto de ideas preconcebidas. Con razón se ha dicho: “Esas piezas escritas que llamamos de buena fe documentos históricos, se han encargado de disfrazar la verdad con astucia y mala fe”.
-      Existen “historiontar carchivos y especies que configuran la cultura del pueblo y que se transmite mediante procesos de enseñanza y aprendizaje, o lo que es lo mismo, por la difusión y la propaganda. 
-Consciente de que toda institución “sin memoria” queda desnuda, es que el Alto Mando Militar, ha visto imperativo la organización de la Academia Boliviana de Historia Militar, en el “Centenario del Litoral Cautivo.”"
+        text="*La Academia Boliviana de Historia Militar* es un organismo oficial de investigación y difusión histórica y cultural de las FFAA, fue creada mediante Decreto Supremo Nº 16469 del 17 de mayo de 1979. En el año 1981 se comienza a editar y publicar la gaceta académica de la Academia Boliviana de Historia Militar, hubo una paralización de casi dos décadas en las publicaciones de la gaceta y en junio del año 2000 se logra reeditar esta acogida publicación en su segunda época."
         align="justify"
-        className="custom-description-class"
       />
       <Footer />
     </div>
