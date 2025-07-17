@@ -1,8 +1,7 @@
 @import '../styles/root.css';
 
 .main-banner {
-    width: 100%;
-    height: 572.8px;
+    width: 100%;   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,20 +10,24 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 0 20px;
+    padding: 0 20px;    
+    min-height: 400px;
 }
 
 .main-banner__group {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 236.8px;
+    height: auto; /* Cambiado de altura fija a automática */
+    min-height: 236.8px; /* Mantener altura mínima para el contenido */
     gap: 5rem;
     max-width: 1200px;
     width: 100%;
+    padding: 2rem 0; /* Añadir padding vertical para mejor espaciado */
 }
 
 .main-banner .main-banner__title {
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -82,9 +85,11 @@
     gap: 10px;
 }
 
+/* Media queries mejoradas para mejor responsividad */
 @media (max-width: 768px) {
     .main-banner {
-        height: auto;
+        /* Permitir que la altura se ajuste automáticamente en móviles */
+        height: auto !important; /* Override de altura dinámica en móviles */
         min-height: 500px;
         padding: 40px 20px;
     }
@@ -92,11 +97,14 @@
     .main-banner__group {
         flex-direction: column;
         height: auto;
+        min-height: auto;
         gap: 2rem;
         text-align: center;
+        padding: 1rem 0;
     }
 
     .main-banner .main-banner__title {
+        max-width: 450px;
         align-items: center;
         gap: 20px;
     }
@@ -143,9 +151,11 @@
 
     .main-banner__group {
         gap: 1.5rem;
+        padding: 0.5rem 0;
     }
 
     .main-banner .main-banner__title {
+        max-width: 280px;
         gap: 15px;
     }
 
@@ -213,4 +223,21 @@
         font-size: 14px;
         max-width: 280px;
     }
+}
+
+/* Clases de utilidad para alturas específicas */
+.main-banner--small {
+    min-height: 300px;
+}
+
+.main-banner--medium {
+    min-height: 500px;
+}
+
+.main-banner--large {
+    min-height: 700px;
+}
+
+.main-banner--full-screen {
+    min-height: 100vh;
 }

@@ -8,12 +8,26 @@ const MainBanner = ({
     title,
     description,
     primaryButton,
-    secondaryButton
+    secondaryButton,
+    height = '568px',
+    minHeight = '500px',
+    ...props
 }) => {
     const hasButtons = primaryButton || secondaryButton;
 
+    // Estilos dinámicos para la altura
+    const bannerStyles = {
+        height: height,
+        minHeight: minHeight,
+        ...props.style
+    };
+
     return (
-        <section className="main-banner">
+        <section 
+            className="main-banner" 
+            style={bannerStyles}
+            {...props}
+        >
             <div className="main-banner__group">
                 <div className="main-banner__title">
                     <SectionHeader
