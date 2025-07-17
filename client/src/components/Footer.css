@@ -244,23 +244,7 @@
   .footer-error p {
     color: var(--color-error);
     font: var(--text-condensed-medium-20);
-  }
-
-  @media (max-width: 1024px) {
-    .footer-content {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-2xl);
-    }
-
-    .footer-about {
-      grid-column: span 2;
-    }
-
-    .footer-logo-image {
-      width: 100px;
-      height: 100px;
-    }
-  }
+  }  
 
   @media (max-width: 768px) {
     .footer-section {
