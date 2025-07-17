@@ -46,7 +46,6 @@ function HomePage() {
         image="https://inkscape.app/wp-content/uploads/imagen-vectorial.webp"
       />
 
-
       <PersonCard
         name="Dr. Hugo Esteban Rivero Camacho"
         image="https://inkscape.app/wp-content/uploads/imagen-vectorial.webp"
@@ -99,7 +98,7 @@ Se realizó en el salón principal con la presencia de académicos e invitados e
      />
 
     </div>
-  )
+  );
 }
 
 export default HomePage;

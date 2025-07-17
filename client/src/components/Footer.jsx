@@ -47,7 +47,7 @@ function Footer() {
               <img
                 src="/img/logo-academia.png"
                 alt="Logo Academia"
-                className="footer-logo-image"
+                className="footer-logo-image-academia"
                 onError={(e) => {
                   e.target.style.display = "none";
                 }}
@@ -55,7 +55,7 @@ function Footer() {
               <img
                 src="/img/logo-comando.png"
                 alt="Logo Ejército"
-                className="footer-logo-image"
+                className="footer-logo-image-comando"
                 onError={(e) => {
                   e.target.style.display = "none";
                 }}
