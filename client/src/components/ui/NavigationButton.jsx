@@ -1,3 +1,4 @@
+import { FiChevronRight } from "react-icons/fi";
 import React from 'react'
 import "./NavigationButton.css"
 
@@ -8,6 +9,8 @@ const NavigationButton = ({
     buttonColor = 'transparent',
     borderColor = 'transparent',
     textColor = '#333333',
+    borderRadius = '0px',
+    hasIcon = false,
     className = '',
     ...props
 }) => {
@@ -26,16 +29,22 @@ const NavigationButton = ({
     backgroundColor: buttonColor,
     borderColor: borderColor,
     color: textColor,
+    borderRadius: borderRadius,
   };
 
   return (
     <button 
-      className={`navigation-button ${className}`}
+      className={`navigation-button ${hasIcon ? 'navigation-button--with-icon' : ''} ${className}`}
       style={buttonStyle}
       onClick={handleClick}
       {...props}
     >
-      {title}
+      <span className="navigation-button__text">{title}</span>
+      {hasIcon && (
+        <span className="navigation-button__icon">
+          <FiChevronRight />
+        </span>
+      )}
     </button>
   )
 }
