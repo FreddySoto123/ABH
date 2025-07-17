@@ -74,6 +74,14 @@
     order: 1;
   }
 
+  .about-us__image .reference-image__img{
+    height: 200px;
+  }
+
+  .about-us__text .reference-image {
+    height: 200px;
+  }
+
   .reference-image{
     width: 650px;
     height: 280px;
