@@ -4,10 +4,11 @@ import BooksCard from '../components/BooksCard.jsx';
 import InformationCard from '../components/InformationCard.jsx';
 import ReferenceImage from '../components/ReferenceImage.jsx';
 import Description from '../components/Description.jsx';
-
+import BookDetailCard from '../components/BookDetailCard.jsx';
 function HomePage() {
   return (
     <div>
+      
       <SectionHeader title="Direccion Academica" />
 
       <SectionHeader title="Nuestra Institución" left={true} />
@@ -85,6 +86,18 @@ Se realizó en el salón principal con la presencia de académicos e invitados e
         text="*La Academia Boliviana de Historia Militar* es un organismo oficial de investigación y difusión histórica y cultural de las FFAA, fue creada mediante Decreto Supremo Nº 16469 del 17 de mayo de 1979. En el año 1981 se comienza a editar y publicar la gaceta académica de la Academia Boliviana de Historia Militar, hubo una paralización de casi dos décadas en las publicaciones de la gaceta y en junio del año 2000 se logra reeditar esta acogida publicación en su segunda época."
         align="justify"
       />
+    <BookDetailCard 
+     coverImage= "https://tse2.mm.bing.net/th/id/OIP.lWG6CVk0iwOj8oASM4nKjAHaLK?rs=1&pid=ImgDetMain&o=7&rm=3"
+    mainTitle= "Guerras de Bolivia"
+    author= "Jorge Abastoflor Frey"
+    code= "A26805 - 4"
+    status= "Disponible"
+    shelf= "A - 4"
+    publicationYear= "2024"
+    isbn="978189485613"
+    legalDeposit= "3-1-595-20"
+     />
+
     </div>
   )
 }
