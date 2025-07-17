@@ -4,53 +4,25 @@ import BooksCard from "../components/BooksCard.jsx";
 import InformationCard from "../components/InformationCard.jsx";
 import ReferenceImage from "../components/ReferenceImage.jsx";
 import Description from "../components/Description.jsx";
-import NavigationButton from "../components/ui/NavigationButton.jsx";
+import MainBanner from "../components/MainBanner.jsx";
 import "./HomePage.css";
 
 function HomePage() {
   return (
     <div>
-      <section className="main-box-container">
-        <div className="main-box__group">
-          <div className="main-box__title">
-            <p>Inicio</p>
-            <h1>
-              custodios de
-              <br />
-              la memoria
-              <br />
-              patria
-            </h1>
-          </div>
-
-          <div className="main-box__buttons">
-            <p>
-              "Preservando la gloria de nuestros héroes y la grandeza de nuestra
-              historia
-              <br />
-              militar boliviana para las generaciones venideras"
-            </p>
-
-            <div className="buttons-container">
-              <NavigationButton
-                title="visitar museo virtual"
-                link="#"
-                buttonColor= "var(--color-accent)"
-                borderColor="var(--color-accent)"
-                textColor="var(--color-primary)"
-              />
-
-              <NavigationButton
-                title="explorar archivo histórico"
-                link="#"
-                buttonColor="transparent"
-                borderColor="var(--color-white)"
-                textColor="var(--color-white)"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <MainBanner
+        page="Inicio"
+        title="custodios de la memoria patria"
+        description="Preservando la gloria de nuestros héroes y la grandeza de nuestra historia militar boliviana para las generaciones venideras"
+        primaryButton={{
+          title: "visitar museo virtual",
+          link: "#"
+        }}
+        secondaryButton={{
+          title: "explorar archivo histórico",
+          link: "#"
+        }}
+      />
 
       <SectionHeader title="Direccion Academica" />
 
