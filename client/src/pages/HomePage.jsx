@@ -1,13 +1,57 @@
-import SectionHeader from '../components/ui/SectionHeader.jsx';
-import PersonCard from '../components/PersonCard.jsx';
-import BooksCard from '../components/BooksCard.jsx';
-import InformationCard from '../components/InformationCard.jsx';
-import ReferenceImage from '../components/ReferenceImage.jsx';
-import Description from '../components/Description.jsx';
+import SectionHeader from "../components/ui/SectionHeader.jsx";
+import PersonCard from "../components/PersonCard.jsx";
+import BooksCard from "../components/BooksCard.jsx";
+import InformationCard from "../components/InformationCard.jsx";
+import ReferenceImage from "../components/ReferenceImage.jsx";
+import Description from "../components/Description.jsx";
+import NavigationButton from "../components/ui/NavigationButton.jsx";
+import "./HomePage.css";
 
 function HomePage() {
   return (
     <div>
+      <section className="main-box-container">
+        <div className="main-box__group">
+          <div className="main-box__title">
+            <p>Inicio</p>
+            <h1>
+              custodios de
+              <br />
+              la memoria
+              <br />
+              patria
+            </h1>
+          </div>
+
+          <div className="main-box__buttons">
+            <p>
+              "Preservando la gloria de nuestros héroes y la grandeza de nuestra
+              historia
+              <br />
+              militar boliviana para las generaciones venideras"
+            </p>
+
+            <div className="buttons-container">
+              <NavigationButton
+                title="visitar museo virtual"
+                link="#"
+                buttonColor= "var(--color-accent)"
+                borderColor="var(--color-accent)"
+                textColor="var(--color-primary)"
+              />
+
+              <NavigationButton
+                title="explorar archivo histórico"
+                link="#"
+                buttonColor="transparent"
+                borderColor="var(--color-white)"
+                textColor="var(--color-white)"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <SectionHeader title="Direccion Academica" />
 
       <SectionHeader title="Nuestra Institución" left={true} />
@@ -44,7 +88,6 @@ function HomePage() {
         name="Dr. Hugo Esteban Rivero Camacho"
         image="https://inkscape.app/wp-content/uploads/imagen-vectorial.webp"
       />
-
 
       <PersonCard
         name="Dr. Hugo Esteban Rivero Camacho"
@@ -86,7 +129,7 @@ Se realizó en el salón principal con la presencia de académicos e invitados e
         align="justify"
       />
     </div>
-  )
+  );
 }
 
 export default HomePage;

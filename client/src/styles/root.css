@@ -38,6 +38,8 @@
   /* Era 40px */
   --text-barlow-medium-20: 500 18px var(--font-barlow);
   /* Era 20px */
+  --text-barlow-medium-14: 500 14px var(--font-barlow);
+  /* Es 14px */
   --text-barlow-regular-15: 400 16px var(--font-barlow);
   /* Era 15px */
   --text-barlow-light-15: 300 16px var(--font-barlow);
@@ -174,13 +176,13 @@
     /* Era 60px */
     --text-condensed-light-italic-15: 300 14px var(--font-barlow-condensed);
     /* Era 55px */
-    --text-condensed-medium-22: 500 18px var(--font-barlow-condensed);  
+    --text-condensed-medium-22: 500 18px var(--font-barlow-condensed);
   }
 }
 
 @media (max-width: 480px) {
-  :root {    
-    --text-condensed-medium-22: 500 16px var(--font-barlow-condensed);  
+  :root {
+    --text-condensed-medium-22: 500 16px var(--font-barlow-condensed);
   }
 }
 

@@ -1,0 +1,119 @@
+@import "../../styles/root.css";
+
+.navigation-button {
+  width: 280px;
+  height: 50px;
+
+  padding: 0;
+  border: 2px solid transparent;
+  background-color: transparent;
+  color: #333333;
+
+  font: var(--text-barlow-medium-14);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-align: center;
+  text-decoration: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0;
+
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.navigation-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+}
+
+.navigation-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-button.small {
+  width: 220px;
+  height: 40px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+}
+
+.navigation-button.large {
+  width: 340px;
+  height: 60px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .navigation-button {
+    width: 100%;
+    max-width: 280px;
+    height: 50px;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+  }
+
+  .navigation-button.small {
+    width: 100%;
+    max-width: 220px;
+    height: 45px;
+    font-size: 11px;
+  }
+
+  .navigation-button.large {
+    width: 100%;
+    max-width: 340px;
+    height: 55px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation-button {
+    width: 100%;
+    max-width: 260px;
+    height: 48px;
+    font-size: 12px;
+  }
+
+  .navigation-button.small {
+    max-width: 200px;
+    height: 42px;
+  }
+
+  .navigation-button.large {
+    max-width: 300px;
+    height: 52px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation-button {
+    transition: none;
+  }
+
+  .navigation-button:hover {
+    transform: none;
+  }
+
+  .navigation-button:active {
+    transform: none;
+  }
+}
+
+.navigation-button {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
