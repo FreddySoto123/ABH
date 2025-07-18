@@ -6,6 +6,7 @@ import ReferenceImage from "../components/ReferenceImage.jsx";
 import Description from "../components/Description.jsx";
 import MainBanner from "../components/MainBanner.jsx";
 import NavigationButton from "../components/ui/NavigationButton.jsx";
+import ScrollToTop from "../components/ui/ScrollToTop.jsx";
 import "./HomePage.css";
 
 function HomePage() {
@@ -69,6 +70,7 @@ function HomePage() {
           />
         </div>
       </section>
+      <ScrollToTop/>
     </div>
   );
 }
