@@ -160,7 +160,7 @@ function ActivitiesPage() {
           title="Resoluciones" 
           cards={resolutionsData} 
           centerTitle={true}
-          backgroundImage="/img/hero-background.jpg"
+          backgroundImage="https://blog.alfaconcursos.com.br/wp-content/uploads/2016/05/Dicas-concursos-militares-scaled.jpg"
         />
         
         <CardSlider 
@@ -173,7 +173,7 @@ function ActivitiesPage() {
           title="Eventos Oficiales" 
           cards={officialEventsData} 
           centerTitle={true} 
-          backgroundImage="/img/hero-background.jpg" 
+          backgroundImage="https://blog.alfaconcursos.com.br/wp-content/uploads/2016/05/Dicas-concursos-militares-scaled.jpg" 
         />
       </main>
     </div>

@@ -6,27 +6,23 @@
 }
 
 .calendar-container {
-  /* CAMBIO: Reducimos el ancho máximo para hacerlo más compacto */
   max-width: 800px; 
   margin: 0 auto;
   background-color: var(--color-white);
   box-shadow: var(--shadow-lg);
-  /* CAMBIO: Reducimos el padding interno */
   padding: var(--spacing-lg); 
   border-top: 5px solid var(--color-accent);
 }
 
-/* Encabezado: < MES AÑO > */
+
 .calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* CAMBIO: Reducimos el margen inferior */
   margin-bottom: var(--spacing-lg); 
   color: var(--color-primary);
 }
 .calendar-header h2 {
-  /* CAMBIO: Usamos una variable de fuente más pequeña */
   font: var(--text-condensed-semibold-25); 
   text-transform: capitalize;
   margin: 0;
@@ -42,7 +38,6 @@
   color: var(--color-accent);
 }
 
-/* Grid: Nombres de los días y fechas */
 .calendar-weekdays,
 .calendar-grid {
   display: grid;
@@ -51,7 +46,6 @@
 }
 
 .calendar-weekdays {
-  /* CAMBIO: Hacemos la fuente de los días de la semana más pequeña */
   font: 600 14px var(--font-barlow-condensed);
   color: var(--color-secondary);
   padding-bottom: var(--spacing-sm);
@@ -60,16 +54,14 @@
 }
 
 .calendar-grid {
-  gap: 4px; /* CAMBIO: Un poco menos de espacio entre celdas */
+  gap: 4px; 
 }
 
-/* Estilo de cada celda de día */
+
 .calendar-day {
-  /* CAMBIO: Hacemos la fuente de los números más pequeña */
   font: var(--text-barlow-regular-15);
   font-size: 14px;
   color: var(--color-secondary);
-  /* CAMBIO: Reducimos el padding para que el contenido se ajuste */
   padding: 6px; 
   display: flex;
   justify-content: center;

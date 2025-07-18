@@ -1,6 +1,5 @@
 @import '../../styles/root.css';
 
-/* ===== DROPDOWN STYLES ===== */
 .dropdown-container {
   position: relative;
 }
@@ -35,7 +34,6 @@
   transition: transform var(--transition-normal);
 }
 
-/* Rotación de la flecha basada en el estado */
 .dropdown-arrow--open {
   transform: rotate(180deg);
 }
