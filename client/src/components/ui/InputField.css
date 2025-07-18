@@ -1,0 +1,31 @@
+@import '../../styles/root.css'; 
+
+.input-field {
+  width: 100%;
+  padding: var(--spacing-md);
+  background-color: #ECECEC; 
+  border: 1px solid #dcdcdc; 
+  border-radius: var(--border-radius-sm);
+
+
+  font: var(--text-barlow-regular-15);
+  color: var(--color-secondary);
+  
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.input-field:focus {
+  outline: none; 
+  border-color: var(--color-accent); 
+  box-shadow: 0 0 0 2px rgba(217, 171, 44, 0.2); 
+}
+
+
+.input-field::placeholder {
+  color: var(--color-gray);
+  opacity: 0.8;
+}
+textarea.input-field {
+  resize: vertical;
+  min-height: 150px;
+}

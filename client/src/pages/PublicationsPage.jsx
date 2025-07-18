@@ -3,10 +3,12 @@ import Header from '../components/Header';
 import Footer from '../components/Footer'; 
 import SectionHeader from '../components/ui/SectionHeader';
 import CardSlider from '../components/ui/CardSlider'; 
+import MainBanner from '../components/MainBanner';
 
 import './PublicationsPage.css'; 
 
 const officialPublicationsData = [
+    
   {
     type: 'information',
     props: {
@@ -59,114 +61,155 @@ const officialPublicationsData = [
 
 const historicalWorksData = [
   {
-    type: 'book',
+    type: 'information',
     props: {
-      tittle: "El Sitio de Boquerón: Estrategia y Resistencia",
-      author: "Jorge Abastoflor Frey",
-      fecha: "21 de junio de 2025",
-      image: "https://tse2.mm.bing.net/th/id/OIP.lWG6CVk0iwOj8oASM4nKjAHaLK?rs=1&pid=ImgDetMain&o=7&rm=3"
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
     }
   },
   {
-    type: 'book',
+    type: 'information',
     props: {
-      tittle: "El Sitio de Boquerón: Estrategia y Resistencia",
-      author: "Jorge Abastoflor Frey",
-      fecha: "21 de junio de 2025",
-      image: "https://tse2.mm.bing.net/th/id/OIP.lWG6CVk0iwOj8oASM4nKjAHaLK?rs=1&pid=ImgDetMain&o=7&rm=3"
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
     }
   },
   {
-    type: 'book',
+    type: 'information',
     props: {
-      tittle: "El Sitio de Boquerón: Estrategia y Resistencia",
-      author: "Jorge Abastoflor Frey",
-      fecha: "21 de junio de 2025",
-      image: "https://tse2.mm.bing.net/th/id/OIP.lWG6CVk0iwOj8oASM4nKjAHaLK?rs=1&pid=ImgDetMain&o=7&rm=3"
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
     }
   },
   {
-    type: 'book',
+    type: 'information',
     props: {
-      tittle: "El Sitio de Boquerón: Estrategia y Resistencia",
-      author: "Jorge Abastoflor Frey",
-      fecha: "21 de junio de 2025",
-      image: "https://tse2.mm.bing.net/th/id/OIP.lWG6CVk0iwOj8oASM4nKjAHaLK?rs=1&pid=ImgDetMain&o=7&rm=3"
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
     }
   },
   {
-    type: 'book',
+    type: 'information',
     props: {
-      tittle: "El Sitio de Boquerón: Estrategia y Resistencia",
-      author: "Jorge Abastoflor Frey",
-      fecha: "21 de junio de 2025",
-      image: "https://tse2.mm.bing.net/th/id/OIP.lWG6CVk0iwOj8oASM4nKjAHaLK?rs=1&pid=ImgDetMain&o=7&rm=3"
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
     }
   },
   {
-    type: 'book',
+    type: 'information',
     props: {
-      tittle: "El Sitio de Boquerón: Estrategia y Resistencia",
-      author: "Jorge Abastoflor Frey",
-      fecha: "21 de junio de 2025",
-      image: "https://tse2.mm.bing.net/th/id/OIP.lWG6CVk0iwOj8oASM4nKjAHaLK?rs=1&pid=ImgDetMain&o=7&rm=3"
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
     }
   },
   {
-    type: 'book',
+    type: 'information',
     props: {
-      tittle: "El Sitio de Boquerón: Estrategia y Resistencia",
-      author: "Jorge Abastoflor Frey",
-      fecha: "21 de junio de 2025",
-      image: "https://tse2.mm.bing.net/th/id/OIP.lWG6CVk0iwOj8oASM4nKjAHaLK?rs=1&pid=ImgDetMain&o=7&rm=3"
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
     }
   },
 ];
 
 const academicGazetteData = [
-    {
-    type: 'book',
+   {
+    type: 'information',
     props: {
-      tittle: "El Sitio de Boquerón: Estrategia y Resistencia",
-      author: "Jorge Abastoflor Frey",
-      fecha: "21 de junio de 2025",
-      image: "https://tse2.mm.bing.net/th/id/OIP.lWG6CVk0iwOj8oASM4nKjAHaLK?rs=1&pid=ImgDetMain&o=7&rm=3"
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
+    }
+  },
+  {
+    type: 'information',
+    props: {
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
+    }
+  },
+  {
+    type: 'information',
+    props: {
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
+    }
+  },
+  {
+    type: 'information',
+    props: {
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
+    }
+  },
+  {
+    type: 'information',
+    props: {
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
     }
   },
 ];
 
 const otherDocumentsData = [
    {
-    type: 'book',
+    type: 'information',
     props: {
-      tittle: "El Sitio de Boquerón: Estrategia y Resistencia",
-      author: "Jorge Abastoflor Frey",
-      fecha: "21 de junio de 2025",
-      image: "https://tse2.mm.bing.net/th/id/OIP.lWG6CVk0iwOj8oASM4nKjAHaLK?rs=1&pid=ImgDetMain&o=7&rm=3"
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
+    }
+  },
+  {
+    type: 'information',
+    props: {
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
+    }
+  },
+  {
+    type: 'information',
+    props: {
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
+    }
+  },
+  {
+    type: 'information',
+    props: {
+      title: 'Publicación digital del libro "Los 7 Mariscales de Zelaa"',
+      description: 'Se realizó en el salón principal con la presencia de académicos e invitados especiales. Se realizó en el salón principal...',
+      date: '15 de junio de 2025',
     }
   },
 ];
+
 
 function PublicationsPage() {
   return (
     <div className="publications-page">
       <main>
-        <div className="publications-hero">
-          <div className="publications-hero__content">
-            <span className="publications-hero__eyebrow">Archivo Histórico</span>
-            <div className="publications-hero__accent-line"></div>
-
-            <div className="publications-hero__main-content">
-              <h1>Publicaciones</h1>
-              <p>Explora la colección del Museo y una selección de objetos de manera virtual con toda la información disponible. En los recorridos temáticos virtuales se ofrece adicionalmente visitas guiadas con tours de audio.</p>
-            </div>
-            
-          </div>
-        </div>
-        <CardSlider title="Publicaciones Oficiales" cards={officialPublicationsData} />
-        <CardSlider title="Trabajos Históricos" cards={historicalWorksData} />
-        <CardSlider title="Gaceta Académica" cards={academicGazetteData} />
-        <CardSlider title="Otros Documentos de la Academia" cards={otherDocumentsData} />
+         <MainBanner 
+          page="Archivo Histórico"
+          title="Publicaciones"
+          description="Explora la colección del Museo y una selección de objetos de manera virtual con toda la información disponible. En los recorridos temáticos virtuales se ofrece adicionalmente visitas guiadas con tours de audio."
+        />
+        <CardSlider title="Publicaciones Oficiales" cards={officialPublicationsData} centerTitle={true} />
+        <CardSlider title="Trabajos Históricos" cards={historicalWorksData} centerTitle={true} backgroundImage="https://blog.alfaconcursos.com.br/wp-content/uploads/2016/05/Dicas-concursos-militares-scaled.jpg"/>
+        <CardSlider title="Gaceta Académica" cards={academicGazetteData} centerTitle={true} />
+        <CardSlider title="Otros Documentos de la Academia" cards={otherDocumentsData} centerTitle={true} backgroundImage="https://blog.alfaconcursos.com.br/wp-content/uploads/2016/05/Dicas-concursos-militares-scaled.jpg"/>
       </main>
     </div>
   );
