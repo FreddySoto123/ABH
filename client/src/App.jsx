@@ -6,6 +6,7 @@ import VirtualTour from './pages/VirtualTour.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
+import ContactPage from './pages/ContactPage.jsx';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/publicaciones" element={<PublicationsPage />} />
         <Route path="/mision" element={<MissionPage />} />
+        <Route path="/contacto" element={<ContactPage />} /> 
         <Route path="/visita-virtual" element={<VirtualTour />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

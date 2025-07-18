@@ -1,0 +1,43 @@
+@import '../../styles/root.css';
+
+.info-item {
+  display: flex;
+  align-items: flex-start; /* Alinea icono y texto en la parte superior */
+  gap: var(--spacing-md); /* Espacio entre el icono y el texto */
+}
+
+/* Círculo azul alrededor del icono */
+.info-item__icon-wrapper {
+  flex-shrink: 0; /* Evita que el círculo se encoja */
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  
+  /* Centra el icono dentro del círculo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-item svg {
+  color: var(--color-primary);
+}
+
+.info-item__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4px; 
+}
+
+.info-item strong {
+  font: var(--text-condensed-medium-20);
+  color: var(--color-primary); 
+  margin-bottom: var(--spacing-xs);
+}
+
+.info-item span {
+  font: var(--text-barlow-light-15);
+  color: var(--color-secondary); 
+  line-height: 1.5;
+}
