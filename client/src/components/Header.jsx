@@ -10,7 +10,7 @@ function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigationItems = [
-    { label: "INICIO", href: "#", hasDropdown: true, dropdownItems: [{ label: "MISION", href: "/mision" }, { label: "VISION", href: "/vision" }] },
+    { label: "INICIO", href: "/", hasDropdown: true, dropdownItems: [{ label: "MISION", href: "/mision" }, { label: "VISION", href: "/vision" }] },
     { label: "HISTORIA", href: "#", hasDropdown: true, dropdownItems: [{ label: "CREACION", href: "#section-creacion" }, { label: "FUNDADMENTOS", href: "#section-fundamentos" }, { label: "ANTECEDENTES", href: "#section-antecedentes" }, { label: "EMBLEMAS", href: "#section-emblemas" }, { label: "DISTINCIONES OBTENIDAS", href: "#section-distinciones" }] },
     { label: "DIRECTIVA", href: "#", hasDropdown: true, dropdownItems: [{ label: "DIRECCIÓN ACADÉMICA", href: "#section-direccion__academica" }, { label: "FILIALES REGIONALES", href: "#section-filiales__regionales" }, { label: "ACADÉMICOS HONORARIOS", href: "#section-academicos__honarios" }, { label: "ACADÉMICOS DE NÚMERO", href: "#section-academicos__numero" }, { label: "ACADÉMICOS CONSULTORES", href: "#section-academicos__consultores" }, { label: "POSTULANTES ACADÉMICOS", href: "#section-postulantes__academicos" }, { label: "ASPIRANTES ACADÉMICOS", href: "#section-aspirantes__academicos" }, { label: "GALERIA HISTÓRICA", href: "#section-galeria__historica" }] },
     { label: "RECORRIDO", href: "#", hasDropdown: true, dropdownItems: [{ label: "PLANOS", href: "#section-planos" }, { label: "SALONES", href: "#section-salones" }] },
