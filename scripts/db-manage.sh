@@ -1,6 +1,6 @@
 #!/bin/bash
-# Script multiplataforma para gestionar la base de datos ABH
-# Funciona en Linux, macOS y Windows (Git Bash/WSL)
+# Script de gestión de base de datos ABH para Linux/macOS
+# Academia Boliviana de Historia Militar - Sistema de gestión de BD
 
 # Configuración
 DB_HOST="localhost"
@@ -11,43 +11,13 @@ DB_NAME="abhm"
 DB_ROOT_PASSWORD="admin123"
 BACKUP_DIR="./db/backups"
 
-# Detectar sistema operativo
-detect_os() {
-    case "$(uname -s)" in
-        Linux*)     OS=Linux;;
-        Darwin*)    OS=Mac;;
-        CYGWIN*)    OS=Windows;;
-        MINGW*)     OS=Windows;;
-        MSYS*)      OS=Windows;;
-        *)          OS="Unknown"
-    esac
-}
+# Comandos del sistema
+DOCKER_CMD="sudo docker"
+DOCKER_COMPOSE_CMD="sudo docker-compose"
+DOCKER_INTERACTIVE="sudo docker"
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 
-# Configurar comandos según el sistema
-setup_commands() {
-    detect_os
-    
-    if [[ "$OS" == "Windows" ]]; then
-        # En Windows con Git Bash o WSL
-        DOCKER_CMD="docker"
-        DOCKER_COMPOSE_CMD="docker-compose"
-        TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-        # En Windows, algunos comandos pueden requerir winpty
-        if command -v winpty &> /dev/null; then
-            DOCKER_INTERACTIVE="winpty docker"
-        else
-            DOCKER_INTERACTIVE="docker"
-        fi
-    else
-        # En Linux/macOS
-        DOCKER_CMD="sudo docker"
-        DOCKER_COMPOSE_CMD="sudo docker-compose"
-        DOCKER_INTERACTIVE="sudo docker"
-        TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-    fi
-}
-
-# Colores para output (funciona en todos los sistemas)
+# Colores para output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -69,18 +39,14 @@ echo_info() {
 check_docker() {
     if ! $DOCKER_CMD info &> /dev/null; then
         echo_error "Docker no está corriendo"
-        echo_info "Asegúrate de que Docker Desktop esté iniciado"
+        echo_info "Ejecuta: sudo systemctl start docker"
         exit 1
     fi
 }
 
-# Función para crear directorio de backups multiplataforma
+# Función para crear directorio de backups
 create_backup_dir() {
-    if [[ "$OS" == "Windows" ]]; then
-        mkdir -p "$BACKUP_DIR" 2>/dev/null || true
-    else
-        mkdir -p "$BACKUP_DIR"
-    fi
+    mkdir -p "$BACKUP_DIR"
 }
 
 # Función para iniciar la base de datos
@@ -119,13 +85,8 @@ backup_db() {
     if [ $? -eq 0 ]; then
         echo_success "Backup creado exitosamente: $BACKUP_FILE"
         
-        # Crear enlace simbólico al backup más reciente (solo en Linux/macOS)
-        if [[ "$OS" != "Windows" ]]; then
-            ln -sf "backup_${TIMESTAMP}.sql" "$BACKUP_DIR/latest_backup.sql"
-        else
-            # En Windows, copiar el archivo como latest_backup.sql
-            cp "$BACKUP_FILE" "$BACKUP_DIR/latest_backup.sql"
-        fi
+        # Crear enlace simbólico al backup más reciente
+        ln -sf "backup_${TIMESTAMP}.sql" "$BACKUP_DIR/latest_backup.sql"
         
         # Mantener solo los últimos 5 backups
         cleanup_old_backups
@@ -137,15 +98,9 @@ backup_db() {
     fi
 }
 
-# Función para limpiar backups antiguos (multiplataforma)
+# Función para limpiar backups antiguos
 cleanup_old_backups() {
-    if [[ "$OS" == "Windows" ]]; then
-        # En Windows, usar PowerShell para limpiar archivos antiguos
-        powershell.exe -Command "Get-ChildItem '$BACKUP_DIR' -Name 'backup_*.sql' | Sort-Object LastWriteTime -Descending | Select-Object -Skip 5 | ForEach-Object { Remove-Item \"\$BACKUP_DIR/\$_\" -Force }" 2>/dev/null || true
-    else
-        # En Linux/macOS
-        ls -t "$BACKUP_DIR"/backup_*.sql 2>/dev/null | tail -n +6 | xargs -r rm
-    fi
+    ls -t "$BACKUP_DIR"/backup_*.sql 2>/dev/null | tail -n +6 | xargs -r rm
 }
 
 # Función para restaurar backup
@@ -207,8 +162,8 @@ reset_db() {
 
 # Función para mostrar ayuda
 show_help() {
-    echo "Gestor de Base de Datos ABH - Multiplataforma"
-    echo "Compatible con Linux, macOS y Windows (Git Bash/WSL)"
+    echo "Gestor de Base de Datos ABH - Linux/macOS"
+    echo "Academia Boliviana de Historia Militar"
     echo "Uso: $0 [comando]"
     echo
     echo "Comandos disponibles:"
@@ -229,11 +184,8 @@ show_help() {
     echo "  $0 restore ./db/backups/latest_backup.sql"
     echo "  $0 connect"
     echo
-    echo "Sistema detectado: $OS"
+    echo "Sistema: Linux/macOS"
 }
-
-# Configurar comandos según el sistema operativo
-setup_commands
 
 # Verificar Docker
 check_docker
