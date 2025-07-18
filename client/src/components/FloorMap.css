@@ -121,7 +121,7 @@
 
 .floormap-wrapper {
     position: relative;
-    width: 200%;
+    width: 100%;
     max-width: 1000px;
     background-color: var(--color-white);
     border-radius: var(--border-radius-xl);
@@ -188,7 +188,6 @@
     transform: none;
 }
 
-/* ===== INDICADOR DE ZOOM ===== */
 .zoom-indicator {
     position: absolute;
     top: var(--spacing-md);

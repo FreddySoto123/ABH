@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { SVG } from '@svgdotjs/svg.js'
 import './FloorMap.css'
 
-// Mapeo de colores desde root.css
 const COLORS = {
     primary: '#1a365d',
     secondary: '#2c3e50',
@@ -14,11 +13,10 @@ const COLORS = {
     error: '#ef4444',
     warning: '#f59e0b',
     info: '#3b82f6',
-    // Colores para las habitaciones
-    room1: '#E17055', // Naranja
-    room2: '#6C7B95', // Azul
-    room3: '#81B29A', // Verde
-    room4: '#A8C8E1'  // Celeste
+    room1: '#E17055',
+    room2: '#6C7B95',
+    room3: '#81B29A',
+    room4: '#A8C8E1'
 }
 
 const drawIsometricRoom = (draw, x, y, width, height, depth, color, number, label) => {
@@ -152,11 +150,11 @@ const FloorMap = () => {
     }
 
     const handleZoomIn = () => {
-        setZoomLevel(prev => Math.min(prev + 0.2, 3)) // Máximo 3x zoom
+        setZoomLevel(prev => Math.min(prev + 0.2, 3))
     }
 
     const handleZoomOut = () => {
-        setZoomLevel(prev => Math.max(prev - 0.2, 0.5)) // Mínimo 0.5x zoom
+        setZoomLevel(prev => Math.max(prev - 0.2, 0.5))
     }
 
     const handleResetZoom = () => {
@@ -165,7 +163,7 @@ const FloorMap = () => {
     }
 
     const handleMouseDown = (e) => {
-        if (e.button === 0) { // Solo botón izquierdo
+        if (e.button === 0) {
             setIsPanning(true)
             setLastPanPoint({ x: e.clientX, y: e.clientY })
         }
@@ -199,7 +197,6 @@ const FloorMap = () => {
 
             const draw = SVG().addTo(svgRef.current).size('100%', '700px')
 
-            // Crear grupo principal para zoom y pan
             const mainGroup = draw.group()
 
             if (currentFloor === 'Mezanine') {
@@ -208,7 +205,6 @@ const FloorMap = () => {
                 drawCubiertas(mainGroup)
             }
 
-            // Aplicar transformaciones de zoom y pan
             mainGroup.transform({
                 scale: zoomLevel,
                 translateX: panOffset.x,
