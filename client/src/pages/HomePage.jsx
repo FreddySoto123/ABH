@@ -7,7 +7,65 @@ import Description from "../components/Description.jsx";
 import MainBanner from "../components/MainBanner.jsx";
 import NavigationButton from "../components/ui/NavigationButton.jsx";
 import ScrollToTop from "../components/ui/ScrollToTop.jsx";
+import CardSlider from "../components/ui/CardSlider.jsx";
 import "./HomePage.css";
+
+const resolutionsData = [
+  {
+    type: "information",
+    props: {
+      title: "Edición N°01 - Enero 2024: Resumen Anual y Retos",
+      description:
+        "Se realizó en el salón principal con la presencia de académicos, quienes revisaron los logros del año anterior y plantearon los nuevos desafíos...",
+      date: "15 de Enero de 2025",
+    },
+  },
+  {
+    type: "information",
+    props: {
+      title: "Edición N°01 - Enero 2024: Resumen Anual y Retos",
+      description:
+        "Se realizó en el salón principal con la presencia de académicos, quienes revisaron los logros del año anterior y plantearon los nuevos desafíos...",
+      date: "15 de Enero de 2025",
+    },
+  },
+  {
+    type: "information",
+    props: {
+      title: "Edición N°01 - Enero 2024: Resumen Anual y Retos",
+      description:
+        "Se realizó en el salón principal con la presencia de académicos, quienes revisaron los logros del año anterior y plantearon los nuevos desafíos...",
+      date: "15 de Enero de 2025",
+    },
+  },
+  {
+    type: "information",
+    props: {
+      title: "Edición N°01 - Enero 2024: Resumen Anual y Retos",
+      description:
+        "Se realizó en el salón principal con la presencia de académicos, quienes revisaron los logros del año anterior y plantearon los nuevos desafíos...",
+      date: "15 de Enero de 2025",
+    },
+  },
+  {
+    type: "information",
+    props: {
+      title: "Edición N°01 - Enero 2024: Resumen Anual y Retos",
+      description:
+        "Se realizó en el salón principal con la presencia de académicos, quienes revisaron los logros del año anterior y plantearon los nuevos desafíos...",
+      date: "15 de Enero de 2025",
+    },
+  },
+  {
+    type: "information",
+    props: {
+      title: "Edición N°01 - Enero 2024: Resumen Anual y Retos",
+      description:
+        "Se realizó en el salón principal con la presencia de académicos, quienes revisaron los logros del año anterior y plantearon los nuevos desafíos...",
+      date: "15 de Enero de 2025",
+    },
+  },
+];
 
 function HomePage() {
   return (
@@ -70,7 +128,15 @@ function HomePage() {
           />
         </div>
       </section>
-      <ScrollToTop/>
+
+      
+        <CardSlider
+          title="Resoluciones"
+          cards={resolutionsData}
+          centerTitle={true}
+          backgroundImage="https://blog.alfaconcursos.com.br/wp-content/uploads/2016/05/Dicas-concursos-militares-scaled.jpg"
+        />      
+      <ScrollToTop />
     </div>
   );
 }

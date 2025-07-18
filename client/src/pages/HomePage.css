@@ -1,5 +1,14 @@
 @import "../styles/root.css";
 
+.slider-container {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
 .about-us-container {
   width: 100%;
   height: 600px;
