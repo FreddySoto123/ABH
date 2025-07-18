@@ -1,0 +1,48 @@
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0px 0px 40px 0px;
+  font-family: 'Georgia', serif;
+}
+
+.page-item {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #0a2c4e;
+  font-size: 16px;
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.page-item:not(.active):hover {
+  background-color: rgba(10, 44, 78, 0.1);
+}
+
+.page-item.active {
+  background-color: #0a2c4e;
+  color: white;
+  font-weight: bold;
+}
+
+.page-item.next {
+  font-size: 22px;
+}
+
+.page-item:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .pagination-container {
+    padding: 0px 0px 80px 0px;
+  }
+}

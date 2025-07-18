@@ -11,12 +11,14 @@ const MainBanner = ({
     secondaryButton,
     height = '568px',
     minHeight = '500px',
+    backgroundImageUrl = '/img/fondo-recuadro-principal.png',
     ...props
 }) => {
     const hasButtons = primaryButton || secondaryButton;
 
     // Estilos dinámicos para la altura
     const bannerStyles = {
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImageUrl})`,
         height: height,
         minHeight: minHeight,
         ...props.style

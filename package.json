@@ -51,6 +51,7 @@
   },
   "homepage": "https://github.com/FreddySoto123/ABH#readme",
   "dependencies": {
+    "@react-three/fiber": "^9.2.0",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "morgan": "^1.10.0",

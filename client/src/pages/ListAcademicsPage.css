@@ -1,0 +1,27 @@
+.page-container {
+  display: flex;
+  justify-content: center; 
+}
+
+.cards-container {
+    max-width: 1400px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 32px;
+}
+
+@media (max-width: 768px) {
+     .page-container {
+        max-width: 100%;
+        padding: 80px; 
+    }
+
+    .cards-container {
+        max-width: 100%;
+        padding: 0px;
+        gap: 60px;
+    }
+}
