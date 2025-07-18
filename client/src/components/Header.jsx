@@ -16,7 +16,7 @@ function Header() {
     { label: "RECORRIDO", href: "#", hasDropdown: true, dropdownItems: [{ label: "PLANOS", href: "#section-planos" }, { label: "SALONES", href: "#section-salones" }] },
     { label: "INVESTIGACIÓN", href: "/publicaciones", hasDropdown: false, dropdownItems: [{ label: "PUBLICACIONES OFICIALES", href: "#section-publicaciones__oficiales" }, { label: "TRABAJOS HISTÓRICOS", href: "#section-trabajos__historicos" }, { label: "GACETA ACADÉMICA", href: "#section-gaceta__academica" }, { label: "OTROS DOCUMENTOS", href: "#section-otros__documentos" }] },
     { label: "BIBLIOTECA", href: "/biblioteca", hasDropdown: false },
-    { label: "ACTIVIDADES", href: "#", hasDropdown: true, dropdownItems: [{ label: "EVENTOS OFICIALES", href: "#section-eventos__oficiales" }, { label: "RESOLUCIONES", href: "#section-resoluciones" }, { label: "ACTIVIDADES CULTURALES", href: "#section-actividades__culturales" }, { label: "CALENDARIO ACADÉMICO", href: "#section-calendario__academico" }] },
+    { label: "ACTIVIDADES", href: "/actividades", hasDropdown: false, dropdownItems: [{ label: "EVENTOS OFICIALES", href: "#section-eventos__oficiales" }, { label: "RESOLUCIONES", href: "#section-resoluciones" }, { label: "ACTIVIDADES CULTURALES", href: "#section-actividades__culturales" }, { label: "CALENDARIO ACADÉMICO", href: "#section-calendario__academico" }] },
     { label: "CONTACTO", href: "/contacto", hasDropdown: false },
   ];
 
