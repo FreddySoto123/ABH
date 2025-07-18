@@ -35,8 +35,8 @@ const ReferenceImage = ({
     }, [autor, year, title, materiaType, font, url, hasReferenceData, getValueOrDefault]);
 
     const containerStyle = useMemo(() => ({
-        width: `${width}px`,
-        height: `${height}px`
+        '--container-width': `${width}px`,
+        '--container-height': `${height}px`
     }), [width, height]);
 
     const altText = useMemo(() => {

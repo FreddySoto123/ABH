@@ -7,10 +7,10 @@
     border-radius: 0;
     box-shadow: var(--shadow-md);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    width: 350px;
-    height: 350px;
     max-width: 100%;
     box-sizing: border-box;
+    width: var(--container-width);
+    height: var(--container-height);
 }
 
 .reference-image__img {
@@ -59,14 +59,8 @@
 
 @media (max-width: 768px) {
     .reference-image {
-        width: 100%;
-        height: auto;
-        min-height: 300px;
-        margin: 0 auto;
-    }
-
-    .reference-image__img {
-        min-height: 300px;
+        width: 100% !important;
+        height: 280px !important;
     }
 
     .reference-image__overlay {
@@ -81,11 +75,7 @@
 
 @media (max-width: 480px) {
     .reference-image {
-        min-height: 250px;
-    }
-
-    .reference-image__img {
-        min-height: 250px;
+        height: 200px !important;
     }
 
     .reference-image__overlay {

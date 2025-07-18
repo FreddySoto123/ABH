@@ -35,7 +35,7 @@ function HomePage() {
             year="1934"
             width={650}
             height={400}
-          />          
+          />
         </div>
         <div className="about-us__text">
           <SectionHeader
