@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage.jsx';
+import PublicationsPage from './pages/PublicationsPage.jsx';
 import MissionPage from './pages/MissionPage.jsx';
 import VirtualTour from './pages/VirtualTour.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/publicaciones" element={<PublicationsPage />} />
         <Route path="/mision" element={<MissionPage />} />
         <Route path="/visita-virtual" element={<VirtualTour />} />
         <Route path="*" element={<NotFoundPage />} />
