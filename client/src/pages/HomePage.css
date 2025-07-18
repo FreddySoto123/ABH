@@ -1,24 +1,11 @@
 @import "../styles/root.css";
 
-.homepage {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.homepage>*+* {
-  margin-top: 0;
-}
-
-.homepage-section {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .about-us-container {
   width: 100%;
-  height: 800px;
+  height: 600px;
   display: flex;
+  padding: 40px;
+  gap: 40px;
   background-color: var(--color-cream);
 }
 
@@ -26,7 +13,7 @@
   width: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
 }
 
 .about-us__text {
@@ -34,13 +21,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
-  padding: 0 40px;
+  gap: 30px;  
 }
 
 .about-us__text p {
   font: var(--text-condensed-light-25);
   color: var(--color-primary);
+  max-width: 840px;
 }
 
 .about-us__text span {
@@ -56,28 +43,59 @@
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  .homepage-section {
-    padding: 30px 15px;
+.about-us__reference-image {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .about-us-container {
+    padding: 30px;    
+    height: 600px;
   }
 
+  .about-us__reference-image {
+    max-width: 500px;
+  }
+
+  .about-us__text {
+    gap: 25px;
+  }
+
+  .about-us__title {
+    font-size: 2.8rem;
+  }
+
+  .about-us__text p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
   .about-us-container {
     flex-direction: column;
     height: auto;
     min-height: 600px;
+
+    gap: 2rem;
+
   }
 
   .about-us__image {
     width: 100%;
-    overflow: hidden;
-    padding: 20px 30px;
+    overflow: hidden;    
     order: 1;
+  }
+
+  .about-us__reference-image {
+    max-width: 100%;
+    max-height: 300px;
   }
 
   .about-us__text {
     align-items: center;
-    width: 100%;
-    padding: 30px 20px;
+    width: 100%;    
     gap: 20px;
     order: 2;
   }
@@ -91,6 +109,7 @@
   .about-us__title {
     font-size: 2.5rem;
     line-height: 1.2;
+    text-align: center;
   }
 
   .about-us__text p {
@@ -101,21 +120,16 @@
 }
 
 @media (max-width: 480px) {
-  .homepage-section {
-    padding: 20px 10px;
-  }
-
   .about-us-container {
     min-height: 500px;
   }
 
-  .about-us__image {
-    height: 250px;
+  .about-us__reference-image {
+    max-height: 250px;
   }
 
   .about-us__text {
-    align-items: center;
-    padding: 20px 15px;
+    align-items: center;    
     gap: 20px;
   }
 
@@ -128,6 +142,7 @@
   .about-us__title {
     font-size: 2rem;
     line-height: 1.1;
+    text-align: center;
   }
 
   .about-us__text p {
@@ -138,5 +153,15 @@
 
   .about-us__text span {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-us__reference-image {
+    max-height: 200px;
+  }
+
+  .about-us__title {
+    font-size: 1.8rem;
   }
 }

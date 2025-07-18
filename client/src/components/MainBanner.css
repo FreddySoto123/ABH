@@ -1,243 +1,286 @@
-@import '../styles/root.css';
+@import "../styles/root.css";
 
+/* Estilos base para resoluciones 1920px+ */
 .main-banner {
-    width: 100%;   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(/img/fondo-recuadro-principal.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 0 20px;    
-    min-height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/img/fondo-recuadro-principal.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 20px;
+  min-height: 400px;
 }
 
 .main-banner__group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto; /* Cambiado de altura fija a automática */
-    min-height: 236.8px; /* Mantener altura mínima para el contenido */
-    gap: 5rem;
-    max-width: 1200px;
-    width: 100%;
-    padding: 2rem 0; /* Añadir padding vertical para mejor espaciado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Cambiado de altura fija a automática */
+  min-height: 236.8px; /* Mantener altura mínima para el contenido */
+  gap: 5rem;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem 0; /* Añadir padding vertical para mejor espaciado */
 }
 
 .main-banner .main-banner__title {
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .main-banner .main-banner__title h1 {
-    text-transform: uppercase;
-    font: var(--text-barlow-bold-70);
-    color: var(--color-white);
-    line-height: 1.1;
+  text-transform: uppercase;
+  font: var(--text-barlow-bold-70);
+  color: var(--color-white);
+  line-height: 1.1;
 }
 
 /* Estilos para SectionHeader dentro del MainBanner */
 .main-banner .main-banner__title .section-header {
-    margin: 0;
-    text-align: left;
+  margin: 0;
+  text-align: left;
 }
 
 .main-banner .main-banner__title .section-header__title {
-    font: var(--text-condensed-light-25);
-    color: var(--color-white);
-    margin: 0 0 10px 0;
-    padding: 0;
+  font: var(--text-condensed-light-25);
+  color: var(--color-white);
+  margin: 0 0 10px 0;
+  padding: 0;
 }
 
 .main-banner .main-banner__title .section-header__underline {
-    width: 60px;
-    height: 4px;
-    background-color: var(--color-accent);
-    margin: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-accent);
+  margin: 0;
 }
 
 .main-banner .main-banner__buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .main-banner .main-banner__buttons--no-buttons {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .main-banner .main-banner__buttons p {
-    color: var(--color-white);
-    font: var(--text-condensed-light-italic-25);
-    font-style: italic;
-    max-width: 500px;
+  color: var(--color-white);
+  font: var(--text-condensed-light-italic-25);
+  font-style: italic;
+  max-width: 500px;
 }
 
 .main-banner .main-banner__buttons .buttons-container {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
-/* Media queries mejoradas para mejor responsividad */
+@media (max-width: 1024px) {
+  .main-banner {
+    min-height: 450px;
+    padding: 0 15px;
+  }
+
+  .main-banner__group {
+    gap: 4rem;
+    max-width: 900px;
+    padding: 1.5rem 0;
+  }
+
+  .main-banner .main-banner__title {
+    max-width: 320px;
+    gap: 14px;
+  }
+
+  .main-banner .main-banner__title h1 {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+
+  .main-banner .main-banner__title .section-header__title {
+    font-size: 20px;
+  }
+
+  .main-banner .main-banner__title .section-header__underline {
+    width: 55px;
+    height: 4px;
+  }
+
+  .main-banner .main-banner__buttons {
+    gap: 25px;
+  }
+
+  .main-banner .main-banner__buttons p {
+    font-size: 20px;
+    max-width: 450px;
+    line-height: 1.3;
+  }
+
+  .main-banner .main-banner__buttons .buttons-container {
+    gap: 12px;
+  }
+}
+
 @media (max-width: 768px) {
-    .main-banner {
-        /* Permitir que la altura se ajuste automáticamente en móviles */
-        height: auto !important; /* Override de altura dinámica en móviles */
-        min-height: 500px;
-        padding: 40px 20px;
-    }
+  .main-banner {
+    height: auto !important;
+    min-height: 500px;
+    padding: 40px 20px;
+  }
 
-    .main-banner__group {
-        flex-direction: column;
-        height: auto;
-        min-height: auto;
-        gap: 2rem;
-        text-align: center;
-        padding: 1rem 0;
-    }
+  .main-banner__group {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+    gap: 2rem;
+    text-align: center;
+    padding: 1rem 0;
+  }
 
-    .main-banner .main-banner__title {
-        max-width: 450px;
-        align-items: center;
-        gap: 20px;
-    }
+  .main-banner .main-banner__title {
+    max-width: 450px;
+    align-items: center;
+    gap: 20px;
+  }
+  .main-banner .main-banner__title .section-header {
+    text-align: center;
+  }
 
-    /* SectionHeader centrado en mobile */
-    .main-banner .main-banner__title .section-header {
-        text-align: center;
-    }
+  .main-banner .main-banner__title .section-header__underline {
+    margin: 0 auto;
+  }
 
-    .main-banner .main-banner__title .section-header__underline {
-        margin: 0 auto;
-    }
+  .main-banner .main-banner__title h1 {
+    text-align: center;
+  }
 
-    .main-banner .main-banner__title h1 {
-        text-align: center;
-    }
+  .main-banner .main-banner__buttons {
+    align-items: center;
+    gap: 25px;
+  }
 
-    .main-banner .main-banner__buttons {
-        align-items: center;
-        gap: 25px;
-    }
+  .main-banner .main-banner__buttons--no-buttons {
+    margin-top: 30px;
+  }
 
-    .main-banner .main-banner__buttons--no-buttons {
-        margin-top: 30px;
-    }
+  .main-banner .main-banner__buttons p {
+    text-align: center;
+    max-width: 450px;
+  }
 
-    .main-banner .main-banner__buttons p {
-        text-align: center;
-        max-width: 450px;
-    }
-
-    .main-banner .main-banner__buttons .buttons-container {
-        width: 450px;
-        gap: 15px;
-        align-items: center;
-    }
+  .main-banner .main-banner__buttons .buttons-container {
+    width: 450px;
+    gap: 15px;
+    align-items: center;
+  }
 }
 
 @media (max-width: 480px) {
-    .main-banner {
-        padding: 30px 15px;
-        min-height: 450px;
-    }
+  .main-banner {
+    padding: 30px 15px;
+    min-height: 450px;
+  }
 
-    .main-banner__group {
-        gap: 1.5rem;
-        padding: 0.5rem 0;
-    }
+  .main-banner__group {
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+  }
 
-    .main-banner .main-banner__title {
-        max-width: 280px;
-        gap: 15px;
-    }
+  .main-banner .main-banner__title {
+    max-width: 280px;
+    gap: 15px;
+  }
 
-    .main-banner .main-banner__title h1 {
-        font-size: 28px;
-        line-height: 1.2;
-    }
+  .main-banner .main-banner__title h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
 
-    .main-banner .main-banner__title .section-header__title {
-        font-size: 16px;
-    }
+  .main-banner .main-banner__title .section-header__title {
+    font-size: 16px;
+  }
 
-    .main-banner .main-banner__title .section-header__underline {
-        width: 50px;
-        height: 3px;
-    }
+  .main-banner .main-banner__title .section-header__underline {
+    width: 50px;
+    height: 3px;
+  }
 
-    .main-banner .main-banner__buttons {
-        gap: 20px;
-    }
+  .main-banner .main-banner__buttons {
+    gap: 20px;
+  }
 
-    .main-banner .main-banner__buttons--no-buttons {
-        margin-top: 25px;
-    }
+  .main-banner .main-banner__buttons--no-buttons {
+    margin-top: 25px;
+  }
 
-    .main-banner .main-banner__buttons p {
-        font-size: 16px;
-        max-width: 260px;
-        line-height: 1.4;
-    }
+  .main-banner .main-banner__buttons p {
+    font-size: 16px;
+    max-width: 260px;
+    line-height: 1.4;
+  }
 
-    .main-banner .main-banner__buttons .buttons-container {
-        flex-direction: column;
-        gap: 12px;
-        width: 100%;
-    }
+  .main-banner .main-banner__buttons .buttons-container {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 360px) {
-    .main-banner {
-        padding: 25px 10px;
-    }
+  .main-banner {
+    padding: 25px 10px;
+  }
 
-    .main-banner__group {
-        gap: 2rem;
-    }
+  .main-banner__group {
+    gap: 2rem;
+  }
 
-    .main-banner .main-banner__title h1 {
-        font-size: 24px;
-    }
+  .main-banner .main-banner__title h1 {
+    font-size: 24px;
+  }
 
-    .main-banner .main-banner__title .section-header__title {
-        font-size: 14px;
-    }
+  .main-banner .main-banner__title .section-header__title {
+    font-size: 14px;
+  }
 
-    .main-banner .main-banner__title .section-header__underline {
-        width: 45px;
-    }
+  .main-banner .main-banner__title .section-header__underline {
+    width: 45px;
+  }
 
-    .main-banner .main-banner__buttons--no-buttons {
-        margin-top: 20px;
-    }
+  .main-banner .main-banner__buttons--no-buttons {
+    margin-top: 20px;
+  }
 
-    .main-banner .main-banner__buttons p {
-        font-size: 14px;
-        max-width: 280px;
-    }
+  .main-banner .main-banner__buttons p {
+    font-size: 14px;
+    max-width: 280px;
+  }
 }
 
 /* Clases de utilidad para alturas específicas */
 .main-banner--small {
-    min-height: 300px;
+  min-height: 300px;
 }
 
 .main-banner--medium {
-    min-height: 500px;
+  min-height: 500px;
 }
 
 .main-banner--large {
-    min-height: 700px;
+  min-height: 700px;
 }
 
 .main-banner--full-screen {
-    min-height: 100vh;
+  min-height: 100vh;
 }
