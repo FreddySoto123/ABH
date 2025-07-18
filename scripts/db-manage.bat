@@ -10,8 +10,8 @@ set DB_ROOT_PASSWORD=admin123
 set BACKUP_DIR=.\db\backups
 
 REM Generar timestamp
-for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "dt=%%a"
-set TIMESTAMP=%dt:~0,4%%dt:~4,2%%dt:~6,2%_%dt:~8,2%%dt:~10,2%%dt:~12,2%
+for /f "tokens=1-6 delims=/ : " %%a in ('echo %date% %time%') do set TIMESTAMP=%%c%%a%%b_%%d%%e%%f
+set TIMESTAMP=%TIMESTAMP: =0%
 
 REM Función para mostrar mensajes con colores
 :echo_success
@@ -38,7 +38,7 @@ goto :eof
 REM Función para iniciar la base de datos
 :start_db
 call :echo_info "Iniciando base de datos MySQL..."
-docker-compose up -d db
+docker start abh_mysql
 if %errorlevel% equ 0 (
     call :echo_success "Base de datos iniciada"
 ) else (
@@ -50,7 +50,7 @@ goto :eof
 REM Función para detener la base de datos
 :stop_db
 call :echo_info "Deteniendo base de datos MySQL..."
-docker-compose down
+docker stop abh_mysql
 if %errorlevel% equ 0 (
     call :echo_success "Base de datos detenida"
 ) else (
@@ -62,7 +62,7 @@ goto :eof
 REM Función para verificar el estado de la base de datos
 :status_db
 call :echo_info "Verificando estado de la base de datos..."
-docker-compose ps db
+docker ps -f name=abh_mysql
 goto :eof
 
 REM Función para hacer backup de la base de datos
@@ -133,7 +133,7 @@ goto :eof
 REM Función para ver logs de la base de datos
 :logs_db
 call :echo_info "Mostrando logs de la base de datos..."
-docker-compose logs -f db
+docker logs -f abh_mysql
 goto :eof
 
 REM Función para reiniciar completamente la base de datos
@@ -141,9 +141,10 @@ REM Función para reiniciar completamente la base de datos
 call :echo_info "⚠️  Reiniciando completamente la base de datos..."
 set /p confirm="¿Está seguro? Esto eliminará todos los datos actuales (y/n): "
 if /i "%confirm%"=="y" (
-    docker-compose down
+    docker stop abh_mysql
+    docker rm abh_mysql
     docker volume rm abh_db_data 2>nul
-    docker-compose up -d db
+    docker run -d --name abh_mysql -e MYSQL_ROOT_PASSWORD=%DB_ROOT_PASSWORD% -e MYSQL_DATABASE=%DB_NAME% -e MYSQL_USER=%DB_USER% -e MYSQL_PASSWORD=%DB_PASSWORD% -p %DB_PORT%:3306 -v abh_db_data:/var/lib/mysql mysql:8.0
     call :echo_success "Base de datos reiniciada completamente"
 ) else (
     call :echo_info "Operación cancelada"
