@@ -121,7 +121,7 @@
 
 .floormap-wrapper {
     position: relative;
-    width: 100%;
+    width: 200%;
     max-width: 1000px;
     background-color: var(--color-white);
     border-radius: var(--border-radius-xl);
