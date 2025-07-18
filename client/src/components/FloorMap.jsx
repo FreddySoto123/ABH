@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { SVG } from '@svgdotjs/svg.js'
 import './FloorMap.css'
 
+// Mapeo de colores desde root.css
 const COLORS = {
     primary: '#1a365d',
     secondary: '#2c3e50',
@@ -13,20 +14,30 @@ const COLORS = {
     error: '#ef4444',
     warning: '#f59e0b',
     info: '#3b82f6',
-    room1: '#E17055',
-    room2: '#6C7B95',
-    room3: '#81B29A',
-    room4: '#A8C8E1'
+    // Colores para las habitaciones
+    room1: '#E17055', // Naranja
+    room2: '#6C7B95', // Azul
+    room3: '#81B29A', // Verde
+    room4: '#A8C8E1'  // Celeste
 }
 
 const drawIsometricRoom = (draw, x, y, width, height, depth, color, number, label) => {
     const group = draw.group()
 
+    // Perspectiva frontal con punto de fuga arriba al centro
+    const perspectiveRatio = 0.6 // Ratio para hacer las líneas traseras más angostas
+    const topOffset = depth * 0.8 // Altura del efecto de perspectiva
+
+    // Calcular dimensiones traseras (más angostas)
+    const backWidth = width * perspectiveRatio
+    const backWidthOffset = (width - backWidth) / 2
+
+    // Cara superior (trapecio con perspectiva)
     const topPoints = [
-        [x, y],
-        [x + width, y],
-        [x + width + depth, y - depth],
-        [x + depth, y - depth]
+        [x, y], // frontal izquierda
+        [x + width, y], // frontal derecha
+        [x + width - backWidthOffset, y - topOffset], // trasera derecha
+        [x + backWidthOffset, y - topOffset] // trasera izquierda
     ]
 
     group.polygon(topPoints.map(p => p.join(',')).join(' '))
@@ -34,17 +45,19 @@ const drawIsometricRoom = (draw, x, y, width, height, depth, color, number, labe
         .stroke({ width: 2, color: COLORS.secondary })
         .addClass('room-top')
 
+    // Cara frontal (rectángulo normal)
     group.rect(width, height)
         .move(x, y)
         .fill(color)
         .stroke({ width: 2, color: COLORS.secondary })
         .addClass('room-front')
 
+    // Cara lateral derecha (trapecio con perspectiva)
     const rightPoints = [
-        [x + width, y],
-        [x + width + depth, y - depth],
-        [x + width + depth, y - depth + height],
-        [x + width, y + height]
+        [x + width, y], // frontal abajo derecha
+        [x + width - backWidthOffset, y - topOffset], // trasera arriba derecha
+        [x + width - backWidthOffset, y - topOffset + height], // trasera abajo derecha
+        [x + width, y + height] // frontal abajo derecha
     ]
 
     group.polygon(rightPoints.map(p => p.join(',')).join(' '))
@@ -52,12 +65,27 @@ const drawIsometricRoom = (draw, x, y, width, height, depth, color, number, labe
         .stroke({ width: 2, color: COLORS.secondary })
         .addClass('room-side')
 
+    // Cara lateral izquierda (trapecio con perspectiva)
+    const leftPoints = [
+        [x, y], // frontal abajo izquierda
+        [x + backWidthOffset, y - topOffset], // trasera arriba izquierda
+        [x + backWidthOffset, y - topOffset + height], // trasera abajo izquierda
+        [x, y + height] // frontal abajo izquierda
+    ]
+
+    group.polygon(leftPoints.map(p => p.join(',')).join(' '))
+        .fill(color)
+        .stroke({ width: 2, color: COLORS.secondary })
+        .addClass('room-side-left')
+
+    // Número de habitación
     group.text(number)
         .move(x + width / 2 - 15, y + height / 2 - 15)
         .fill(COLORS.white)
         .font({ size: 20, weight: 'bold', family: 'Arial' })
         .addClass('room-number')
 
+    // Etiqueta de habitación
     if (label) {
         group.text(label)
             .move(x + width / 2 - (label.length * 3), y + height / 2 + 5)
@@ -150,11 +178,11 @@ const FloorMap = () => {
     }
 
     const handleZoomIn = () => {
-        setZoomLevel(prev => Math.min(prev + 0.2, 3))
+        setZoomLevel(prev => Math.min(prev + 0.2, 3)) // Máximo 3x zoom
     }
 
     const handleZoomOut = () => {
-        setZoomLevel(prev => Math.max(prev - 0.2, 0.5))
+        setZoomLevel(prev => Math.max(prev - 0.2, 0.5)) // Mínimo 0.5x zoom
     }
 
     const handleResetZoom = () => {
@@ -163,7 +191,7 @@ const FloorMap = () => {
     }
 
     const handleMouseDown = (e) => {
-        if (e.button === 0) {
+        if (e.button === 0) { // Solo botón izquierdo
             setIsPanning(true)
             setLastPanPoint({ x: e.clientX, y: e.clientY })
         }
@@ -197,6 +225,7 @@ const FloorMap = () => {
 
             const draw = SVG().addTo(svgRef.current).size('100%', '700px')
 
+            // Crear grupo principal para zoom y pan
             const mainGroup = draw.group()
 
             if (currentFloor === 'Mezanine') {
@@ -205,6 +234,7 @@ const FloorMap = () => {
                 drawCubiertas(mainGroup)
             }
 
+            // Aplicar transformaciones de zoom y pan
             mainGroup.transform({
                 scale: zoomLevel,
                 translateX: panOffset.x,
