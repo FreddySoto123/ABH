@@ -58,10 +58,13 @@
   },
   "homepage": "https://github.com/FreddySoto123/ABH#readme",
   "dependencies": {
+    "@svgdotjs/svg.js": "^3.2.4",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
+    "konva": "^9.3.22",
     "morgan": "^1.10.0",
-    "mysql2": "^3.14.2"
+    "mysql2": "^3.14.2",
+    "react-konva": "^19.0.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

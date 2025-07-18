@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import Tour from '../components/Tour';
+import FloorMap from '../components/FloorMap';
 
 const VirtualTour = () => {
     useEffect(() => {
@@ -9,7 +10,7 @@ const VirtualTour = () => {
     return (
         <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <h1 style={{ textAlign: 'center', marginBottom: '40px' }}>Recorridos Virtuales</h1>
-
+            <FloorMap />
             <Tour
                 title="Salon Goitia"
                 image="https://www.eldiario.net/noticias/2016/2016_05/nt160517/f_2016-05-17_1.jpg"
