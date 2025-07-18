@@ -56,11 +56,15 @@ coverage/
 # pnpm-lock.yaml
 
 # ───────── DATABASE EXPORTS ─────────
+# Ignorar archivos SQL generales pero permitir backups específicos
 *.sql
+
+# PERMITIR archivos SQL importantes
 !db/init.sql
 !db/data/*.sql
 !db/migrations/*.sql
-# Permitir backups importantes (máximo 5 archivos más recientes)
-db/backups/*.sql
-!db/backups/latest_*.sql
-!db/migrations/*.sql
+!db/backups/*.sql
+
+# Si quieres limitar solo a los backups más recientes, puedes usar:
+# !db/backups/backup_*.sql
+# !db/backups/latest_*.sql
