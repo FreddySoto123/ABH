@@ -1,7 +1,7 @@
 {
   "name": "abh",
   "version": "1.0.0",
-  "description": "",
+  "description": "Academia Boliviana de Historia Militar - Sistema de gestión",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -15,18 +15,30 @@
     "db:stop": "./scripts/db-manage.sh stop",
     "db:status": "./scripts/db-manage.sh status",
     "db:backup": "./scripts/db-manage.sh backup",
+    "db:restore": "./scripts/db-manage.sh restore",
     "db:connect": "./scripts/db-manage.sh connect",
     "db:logs": "./scripts/db-manage.sh logs",
     "db:reset": "./scripts/db-manage.sh reset",
+    "db:help": "./scripts/db-manage.sh help",
     "setup": "./scripts/db-manage.sh start && sleep 30 && npm run dev",
-    "test:api": "curl -s http://localhost:4000/api/test-db | jq ."
+    "setup:full": "./scripts/db-manage.sh start && sleep 30 && ./scripts/db-manage.sh backup && npm run dev",
+    "test:api": "curl -s http://localhost:4000/api/test-db | jq .",
+    "backup:auto": "./scripts/db-manage.sh backup && echo \"Backup completado: $(date)\"",
+    "restore:latest": "./scripts/db-manage.sh restore ./db/backups/latest_backup.sql"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FreddySoto123/ABH.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "historia",
+    "militar",
+    "bolivia",
+    "academia",
+    "museo",
+    "virtual"
+  ],
+  "author": "FreddySoto123",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/FreddySoto123/ABH/issues"
