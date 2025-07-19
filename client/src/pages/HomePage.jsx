@@ -5,6 +5,7 @@ import NavigationButton from "../components/ui/NavigationButton.jsx";
 import ScrollToTop from "../components/ui/ScrollToTop.jsx";
 import CardSlider from "../components/ui/CardSlider.jsx";
 import "./HomePage.css";
+import InformationCard from "../components/InformationCard.jsx";
 
 const resolutionsData = [
   {
@@ -126,12 +127,42 @@ function HomePage() {
       </section>
 
       <CardSlider
-        title="Resoluciones"
+        title="Últimas Actividades"
         cards={resolutionsData}
         centerTitle={true}
         backgroundImage="/img/fondo-card-slider.png"
         viewMoreLink="/"
       />
+
+      <section className="show-up-cards-container">
+        <div className="show-up__text">
+          <SectionHeader
+            title="Nuestra Institución"
+            whiteText={false}
+            left={true}
+          />
+
+          <h1>Patrimonio Histórico Nacional</h1>
+        </div>
+
+        <div className="show-up__cards">
+          <InformationCard
+            title="Archivo Histórico"
+            description="Consulte documentos originales, cartas militares, mapas estratégicos y testimonios de primera mano. Nuestra biblioteca digital resguarda siglos de historia patria."
+            imageUrl="/img/archivo-historico.png"            
+          />
+          <InformationCard
+            title="Biblioteca"
+            description="Acceda a una amplia colección de libros, revistas, periódicos y publicaciones académicas. Nuestra biblioteca especializada ofrece recursos físicos para el estudio y la investigación histórica."
+            imageUrl="/img/biblioteca.png"
+          />
+          <InformationCard
+            title="Actividades"
+            description="Participe en eventos oficiales, ceremonias patrias, presentaciones culturales y exposiciones temporales. Manténgase informado sobre resoluciones institucionales y actividades que fortalecen nuestra identidad nacional."
+            imageUrl="/img/actividades.png"
+          />
+        </div>
+      </section>
       <ScrollToTop />
     </div>
   );

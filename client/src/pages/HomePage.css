@@ -18,11 +18,45 @@
   background-color: var(--color-cream);
 }
 
+.show-up-cards-container {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.show-up__text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.show-up__text .section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.show-up__cards {
+  display: flex;
+  gap: 20px;
+  width: 1580px;
+}
+
+.show-up__text h1 {
+  font: var(--text-barlow-extrabold-55);
+  color: var(--color-primary);
+}
+
 .about-us__image {
   width: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }
 
 .about-us__text {
@@ -30,7 +64,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;  
+  gap: 30px;
 }
 
 .about-us__text p {
@@ -58,9 +92,19 @@
   height: auto;
 }
 
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .show-up__cards {
+    max-width: 1120px;
+  }
+}
+
 @media (max-width: 1024px) {
+  .show-up__cards {
+    max-width: 900px;
+  }
+
   .about-us-container {
-    padding: 30px;    
+    padding: 30px;
     height: 600px;
   }
 
@@ -82,18 +126,26 @@
 }
 
 @media (max-width: 768px) {
+  .show-up-cards-container {
+    height: 1200px;
+  }
+
+  .show-up__cards {
+    flex-direction: column;
+    max-width: 400px;
+  }
+
   .about-us-container {
     flex-direction: column;
     height: auto;
     min-height: 600px;
 
     gap: 2rem;
-
   }
 
   .about-us__image {
     width: 100%;
-    overflow: hidden;    
+    overflow: hidden;
     order: 1;
   }
 
@@ -104,7 +156,7 @@
 
   .about-us__text {
     align-items: center;
-    width: 100%;    
+    width: 100%;
     gap: 20px;
     order: 2;
   }
@@ -129,6 +181,17 @@
 }
 
 @media (max-width: 480px) {
+  .show-up-cards-container {
+    height: 1100px;
+  }  
+  .show-up__cards {    
+    width: 300px;
+  }
+
+  .show-up__text h1{
+    max-width: 300px;
+  }
+
   .about-us-container {
     min-height: 500px;
   }
@@ -138,7 +201,7 @@
   }
 
   .about-us__text {
-    align-items: center;    
+    align-items: center;
     gap: 20px;
   }
 
@@ -165,7 +228,11 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 360px) {  
+  .show-up__cards {
+    width: 300px;
+  }
+
   .about-us__reference-image {
     max-height: 200px;
   }
