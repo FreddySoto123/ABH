@@ -1,9 +1,5 @@
 import SectionHeader from "../components/ui/SectionHeader.jsx";
-import PersonCard from "../components/PersonCard.jsx";
-import BooksCard from "../components/BooksCard.jsx";
-import InformationCard from "../components/InformationCard.jsx";
 import ReferenceImage from "../components/ReferenceImage.jsx";
-import Description from "../components/Description.jsx";
 import MainBanner from "../components/MainBanner.jsx";
 import NavigationButton from "../components/ui/NavigationButton.jsx";
 import ScrollToTop from "../components/ui/ScrollToTop.jsx";
@@ -129,13 +125,13 @@ function HomePage() {
         </div>
       </section>
 
-      
-        <CardSlider
-          title="Resoluciones"
-          cards={resolutionsData}
-          centerTitle={true}
-          backgroundImage="https://blog.alfaconcursos.com.br/wp-content/uploads/2016/05/Dicas-concursos-militares-scaled.jpg"
-        />      
+      <CardSlider
+        title="Resoluciones"
+        cards={resolutionsData}
+        centerTitle={true}
+        backgroundImage="/img/fondo-card-slider.png"
+        viewMoreLink="/"
+      />
       <ScrollToTop />
     </div>
   );

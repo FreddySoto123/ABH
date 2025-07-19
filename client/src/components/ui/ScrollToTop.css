@@ -31,7 +31,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Animación de entrada */
 .scroll-to-top {
   animation: fadeInUp 0.3s ease-out;
 }
@@ -47,7 +46,6 @@
   }
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .scroll-to-top {
     bottom: 20px;

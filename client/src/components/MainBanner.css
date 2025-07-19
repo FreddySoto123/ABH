@@ -1,6 +1,5 @@
 @import "../styles/root.css";
 
-/* Estilos base para resoluciones 1920px+ */
 .main-banner {
   width: 100%;
   display: flex;
@@ -19,12 +18,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto; /* Cambiado de altura fija a automática */
-  min-height: 236.8px; /* Mantener altura mínima para el contenido */
+  height: auto; 
+  min-height: 236.8px; 
   gap: 5rem;
   max-width: 1200px;
   width: 100%;
-  padding: 2rem 0; /* Añadir padding vertical para mejor espaciado */
+  padding: 2rem 0; 
 }
 
 .main-banner .main-banner__title {
