@@ -14,7 +14,6 @@
   border-top: 5px solid var(--color-accent);
 }
 
-
 .calendar-header {
   display: flex;
   justify-content: space-between;
@@ -32,20 +31,13 @@
   border: none;
   cursor: pointer;
   color: var(--color-primary);
-  transition: color var(--transition-normal);
-}
-.nav-button:hover {
-  color: var(--color-accent);
 }
 
-.calendar-weekdays,
-.calendar-grid {
+/* --- ESTILOS PARA LOS NOMBRES DE LA SEMANA --- */
+.calendar-weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   text-align: center;
-}
-
-.calendar-weekdays {
   font: 600 14px var(--font-barlow-condensed);
   color: var(--color-secondary);
   padding-bottom: var(--spacing-sm);
@@ -53,35 +45,63 @@
   margin-bottom: var(--spacing-sm);
 }
 
-.calendar-grid {
-  gap: 4px; 
+/* Por defecto (escritorio), ocultamos la abreviatura */
+.weekday-short {
+  display: none;
 }
 
+
+/* --- GRID DE DÍAS --- */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 4px;
+}
 
 .calendar-day {
   font: var(--text-barlow-regular-15);
   font-size: 14px;
   color: var(--color-secondary);
   padding: 6px; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
   aspect-ratio: 1 / 1;
   border-radius: var(--border-radius-sm);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
-
-.calendar-day:hover {
-  background-color: var(--color-cream);
-}
-
 .calendar-day.is-other-month {
   color: var(--color-gray);
   opacity: 0.5;
 }
-
 .calendar-day.is-today {
   background-color: var(--color-accent);
   color: var(--color-white);
   font-weight: bold;
+}
+
+/* ==========================================================
+|  REGLAS RESPONSIVE PARA MÓVIL (<= 768px)
+========================================================== */
+@media (max-width: 768px) {
+  .dynamic-calendar-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  .calendar-container {
+    padding: var(--spacing-md);
+  }
+  .calendar-header h2 {
+    font-size: 20px;
+  }
+
+  /* --- CORRECCIÓN CLAVE --- */
+  /* Ocultamos el nombre completo y mostramos la abreviatura */
+  .weekday-full {
+    display: none;
+  }
+  .weekday-short {
+    display: inline; /* O block, ambos funcionan aquí */
+  }
+
+  /* Hacemos un poco más pequeña la fuente de los días de la semana */
+  .calendar-weekdays {
+    font-size: 12px;
+  }
 }

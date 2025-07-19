@@ -6,16 +6,12 @@ const useAcademia = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Cargar información de la academia
   const fetchAcademiaInfo = async () => {
     try {
       setLoading(true);
       setError(null);
       const response = await academiaService.getInfo();
-
-      // Verificar si la respuesta tiene datos válidos
       if (response && response.data) {
-        // Ensure all fields are strings to prevent React #130 error
         const sanitizedData = {
           telefono_academia: String(response.data.telefono_academia || '(+591) 65164240'),
           email_academia: String(response.data.email_academia || 'info@academiahistoriamilitar.com'),
@@ -25,7 +21,6 @@ const useAcademia = () => {
         };
         setAcademiaData(sanitizedData);
       } else {
-        // Si no hay datos, establecer datos por defecto
         setAcademiaData({
           telefono_academia: '(+591) 65164240',
           email_academia: 'info@academiahistoriamilitar.com',
@@ -37,7 +32,6 @@ const useAcademia = () => {
       setError(err.message);
       console.error('Error al obtener información de la academia:', err);
 
-      // En caso de error, establecer datos por defecto
       setAcademiaData({
         telefono_academia: '(+591) 65164240',
         email_academia: 'info@academiahistoriamilitar.com',
@@ -49,7 +43,6 @@ const useAcademia = () => {
     }
   };
 
-  // Actualizar información de la academia
   const updateAcademiaInfo = async (updatedData) => {
     try {
       setLoading(true);
@@ -69,7 +62,6 @@ const useAcademia = () => {
     }
   };
 
-  // Crear información de la academia
   const createAcademiaInfo = async (newData) => {
     try {
       setLoading(true);
@@ -89,7 +81,6 @@ const useAcademia = () => {
     }
   };
 
-  // Cargar datos al montar el componente
   useEffect(() => {
     fetchAcademiaInfo();
   }, []);
@@ -101,7 +92,7 @@ const useAcademia = () => {
     fetchAcademiaInfo,
     updateAcademiaInfo,
     createAcademiaInfo,
-    refetchAcademiaInfo: fetchAcademiaInfo, // Alias para consistencia
+    refetchAcademiaInfo: fetchAcademiaInfo, 
   };
 };
 

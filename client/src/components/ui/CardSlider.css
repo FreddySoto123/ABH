@@ -1,32 +1,33 @@
-
+/* Contenedor principal con posible fondo de imagen */
 .card-slider-wrapper {
   padding: var(--spacing-3xl) 0;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  transition: background-image 0.5s ease;
 }
-
 
 .card-slider__content {
   max-width: 1400px; 
   margin: 0 auto;
 }
 
-
+/* El "Viewport" - la ventana visible */
 .card-slider__viewport {
   position: relative;
   overflow: hidden;
   padding: 0 60px;
 }
 
-
+/* El contenedor de las tarjetas que se desplaza */
 .card-slider__container {
   display: flex;
   gap: var(--spacing-xl);
   padding: var(--spacing-md) 0;
   overflow-x: auto;
   scroll-behavior: smooth;
+  /* Habilitamos el scroll snap en el eje horizontal */
+  scroll-snap-type: x mandatory; 
+  /* Ocultamos la barra de scroll visualmente */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -34,11 +35,14 @@
   display: none;
 }
 
+/* Cada tarjeta dentro del slider */
 .card-slider__container > * {
   flex-shrink: 0;
+  /* Definimos el punto de anclaje para el snap en el centro */
+  scroll-snap-align: center; 
 }
 
-
+/* Tamaños por defecto de las tarjetas en ESCRITORIO */
 .card-slider__container .card-custom {
   width: 380px;
   height: 380px;
@@ -47,7 +51,7 @@
   width: 300px;
 }
 
-
+/* Flechas de Navegación */
 .card-slider__arrow {
   position: absolute;
   top: 50%;
@@ -57,23 +61,16 @@
   border: none;
   color: var(--color-primary); 
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color var(--transition-normal);
 }
-.card-slider__arrow:hover {
-  color: var(--color-accent);
-}
-
 .card-slider-wrapper[style] .card-slider__arrow {
   color: var(--color-white);
 }
-
+.card-slider__arrow:hover { color: var(--color-accent); }
 .card-slider__arrow--left { left: 10px; }
 .card-slider__arrow--right { right: 10px; }
 
 
+/* --- Enlace "Ver más" --- */
 .card-slider__view-more {
   display: block;
   text-align: right;
@@ -81,13 +78,47 @@
   padding-right: 60px;
   font: var(--text-condensed-light-italic-15);
   color: var(--color-gray);
-  text-decoration: none;
-  transition: color var(--transition-normal);
 }
-
 .card-slider__view-more--white {
   color: rgba(255, 255, 255, 0.8);
 }
-.card-slider__view-more:hover {
-    color: var(--color-accent);
+
+
+/* ==========================================================
+|  REGLAS RESPONSIVE PARA MÓVIL (<= 768px)
+========================================================== */
+@media (max-width: 768px) {
+    
+    .card-slider-wrapper {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    /* Hacemos el viewport más estrecho */
+    .card-slider__viewport {
+        padding: 0 10px; 
+    }
+
+    /* --- CAMBIOS CLAVE PARA LAS TARJETAS EN MÓVIL --- */
+    .card-slider__container > * {
+        /* Cada tarjeta ocupa el 85% del ancho de la pantalla */
+        width: 85%;
+        /* La altura se ajusta automáticamente al contenido */
+        height: auto; 
+    }
+
+    /* Aseguramos que los tamaños específicos de las tarjetas se anulen */
+    .card-slider__container .card-custom,
+    .card-slider__container .books-card {
+        width: 85%;
+        height: auto;
+    }
+
+    /* Ocultamos las flechas en móvil, ya que el scroll táctil es más natural */
+    .card-slider__arrow {
+        display: none;
+    }
+
+    .card-slider__view-more {
+        padding-right: 20px; /* Ajustamos el padding */
+    }
 }
